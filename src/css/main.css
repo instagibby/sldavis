@@ -18,6 +18,6 @@ a{
   padding: 5px;
   border-radius: 5px;
 }
-a:hover{
+li:hover{
   color: purple;
 }
