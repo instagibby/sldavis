@@ -1,0 +1,16 @@
+{
+  "name": "static-template",
+  "version": "0.1.0",
+  "description": "Template for static website development with browsersync.",
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.18.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Keith Davis <keithdavisiii@gmail.com> (http://keithgd.com/)",
+  "license": "MIT"
+}
