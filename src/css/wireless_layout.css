@@ -13,7 +13,7 @@ em{
 }
 h3{
     color: maroon;
-    text-transform: capitalize;
+    text-transform: uppercase;
     text-align: right;
     font-size: 1.3em;
     font-family: Times, serif;
