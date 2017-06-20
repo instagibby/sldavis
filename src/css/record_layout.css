@@ -1,0 +1,27 @@
+/*
+  Spencer Davis
+  06/18/2017
+*/
+body {
+      background-color:  #c0e59b;
+      font-family: Verdana, sans-serif;
+}
+h1 {
+      text-align: center;
+}
+h2 {
+      color: navy;
+}
+h3 {
+      color: navy;
+      font-weight: bold;
+}
+p {
+      text-indent: 5em;
+      line-height: 1.5em;
+}
+h4 {
+      font-style: italic;
+      text-transform: uppercase;
+      color: maroon;
+}
