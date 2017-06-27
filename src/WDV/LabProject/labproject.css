@@ -3,14 +3,24 @@ body {
     text-align: center;
     font-size: 125%;
 }
+html {
+    overflow-y:scroll;
+}
 h1{
     color: #556B2F;
 }
-p {
-
+div.index-opening {
+    margin: 0 auto;
+    text-align: center;
+    width: 750px;
 }
 a {
+    color: darkgreen;
     text-decoration: none;
+}
+a:hover {
+    color: Maroon;
+    text-decoration: underline;
 }
 nav {
     text-align: center;
@@ -32,13 +42,28 @@ nav a:hover {
     color: Maroon;
     text-decoration: underline;
 }
+h2 {
+    margin: 5px auto;
+}
 h3 {
-    color: maroon
+    color: maroon;
+    margin-bottom: 4px;
 }
 .green {
     color: #6B8E23;
 }
+ul {
+    margin-top: 5px;
+}
+li {
+    width: 500px;
+
+}
+p {
+  margin: 5px auto;
+  text-align: center;
+  width: 500px;
+}
 footer {
     text-align: center;
-    line-height: 5px;
 }
