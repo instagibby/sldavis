@@ -62,8 +62,16 @@ li {
 p {
   margin: 5px auto;
   text-align: center;
-  width: 500px;
+  width: 725px;
 }
 footer {
     text-align: center;
+}
+img {
+  box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+  -webkit-box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+  -moz-box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+}
+img.noshadow {
+  box-shadow: none;
 }
