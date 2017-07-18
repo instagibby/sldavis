@@ -1,0 +1,65 @@
+/*
+ Spencer Davis
+ 07/20/2017
+*/
+body {
+  background-image: url("/WDV/Homework/Images/spiralbound.jpg");
+  background-repeat: repeat-y;
+  background-color: gainsboro;
+  font-size: 1.2em;
+  font-family: Arial;
+  margin-left: 8em;
+  line-height: 1.25em;
+}
+img {
+  float: right;
+}
+h1 {
+  margin-top: .5em;
+  text-align: center;
+  font-size: 3em;
+  padding-bottom: 25px
+}
+h2 {
+  background-image: url("/WDV/Homework/Images/grey_texture.jpg");
+  text-align: center;
+  color: white;
+  font-size: 1.4em;
+  padding:  10px;
+}
+h3 {
+  color: teal;
+  font-size: 1.3em;
+  text-decoration: overline underline;
+}
+footer {
+  text-align: center;
+  color: white;
+  background-color: black;
+  float: right;
+  padding: 10px;
+  text-transform: capitalize;
+}
+p.border {
+  border-top-color: teal;
+  border-top-style: solid;
+  border-top-width: .4em;
+  padding-top: .4em;
+  font-weight: bold;
+  font-style: italic;
+  color: teal;
+  margin-bottom: 0;
+}
+ul {
+  float: left;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+li {
+  list-style-image:url("/WDV/Homework/Images/teal_square_bullet.jpg");
+  padding-left: 2em;
+  padding-bottom: .25em;
+  line-height: 1.5em;
+}

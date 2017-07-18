@@ -1,0 +1,98 @@
+﻿/* standard footer styles */
+
+footer {
+  font-family: Arial, Helvetica, sans-serif;
+  clear: both;
+  margin-top: 1em;
+  text-align: center;
+  color: white;
+  background-color: gray;
+  padding: 10px;
+}
+
+footer a:link {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+  color: white;
+  background-color: black;
+}
+
+footer a:hover {
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 5px;
+  color: black;
+  background-color: white;
+}
+
+footer p {
+  text-indent: 0;
+}
+
+footer h4 {
+  margin-bottom: 1em;
+}
+body {
+  font-size: 1em;
+  font-family: Georgia;
+  margin-top: 1em;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+#container {
+  width: 960px;
+  margin: 0 auto 0 auto;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #f3f6e9;
+}
+header {
+  width: 960px;
+}
+#left {
+  width: 294px;
+  padding: 10px;
+  border-right: 3px;
+  border-color: teal;
+  border-style: solid;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  float: left;
+}
+#middle {
+  width: 294px;
+  padding: 10px;
+  border-right: 3px;
+  border-color: teal;
+  border-style: solid;
+  border-top: 0px;
+  border-left: none;
+  border-bottom: none;
+  float: left;
+}
+#right {
+  width: 294px;
+  padding: 10px;
+  float: left;
+}
+h1 {
+  padding: 10px;
+  color: white;
+  text-align: center;
+  background-image: url("/WDV/Homework/Images/blacktexture.jpg");
+  background-repeat: repeat;
+  background-color: teal;
+}
+h2 {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: navy;
+  text-align: center;
+}
+p{
+  text-indent: 1em;
+}
