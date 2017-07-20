@@ -52,7 +52,7 @@ header {
   width: 960px;
 }
 #left {
-  width: 294px;
+  width: 298px;
   padding: 10px;
   border-right: 3px;
   border-color: teal;
@@ -63,7 +63,7 @@ header {
   float: left;
 }
 #middle {
-  width: 294px;
+  width: 298px;
   padding: 10px;
   border-right: 3px;
   border-color: teal;
@@ -74,7 +74,7 @@ header {
   float: left;
 }
 #right {
-  width: 294px;
+  width: 298px;
   padding: 10px;
   float: left;
 }

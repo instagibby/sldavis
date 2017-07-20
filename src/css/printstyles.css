@@ -1,6 +1,6 @@
 /*Print styles*/
-/* Author: your name */
-/* Date: today's date */
+/* Author: Spencer Davis */
+/* Date: 07/19/2017  */
 
 /* hides elements */
 
@@ -12,7 +12,7 @@ nav, header {
   margin: 0.5in;
 }
 /* print designed for accessibility */
- 
+
 body {
   color: black;
   background-color: white;
@@ -22,13 +22,13 @@ body {
   line-height: 120%;
 }
 /* sets links to default colors */
- 
+
 a {
   text-decoration: underline;
   color: blue;
 }
 /* removes images from print out */
- 
+
 img {
   display: none;
 }
