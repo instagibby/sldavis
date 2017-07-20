@@ -22,10 +22,14 @@ body {
 }
 #container {
   width: 90%;
+  margin: 0 auto;
+}
+#header {
   margin-bottom: .5em;
   padding: 1em;
   color: white;
   background-color: black;
+  text-align: center;
 }
 #main {
   width: 40%;
@@ -49,22 +53,20 @@ body {
   background-color: orange;
   float: right;
 }
-#main #samples p {
+#main p, #samples p {
   margin-bottom: 1em;
   text-indent: 1em;
 }
-#block #modblock {
+#block, #modblock {
   border-style: solid;
   border-width: thick;
   border-color: navy;
+  background-color: black;
   padding: .5%;
   overflow: hidden;
 }
 img {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   display: block;
 }
 ul {
@@ -85,7 +87,7 @@ h1 h2 {
 
     <section id="container">
 
-      <header>
+      <header id="header">
 
         <h1>Effective Business Communications &bull; EGL 245</h1>
 
