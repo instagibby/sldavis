@@ -1,0 +1,140 @@
+<!DOCTYPE hml>
+<html>
+
+<head>
+  <title>CSS3 Features</title>
+  <link rel="stylesheet" href="/css/homepage.css" type="text/css" />
+  <style>
+    .flexbox {
+      display: -webkit-flex;
+      display: flex;
+      width: 370px;
+      height: 130px;
+      background-color: grey;
+      margin-bottom: 15px;
+    }
+
+    .flex {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+    }
+
+    .leftalign {
+      text-align: left;
+    }
+
+    .rightalign {
+      text-align: right;
+    }
+
+    div.boxsizing {
+      width: 215px;
+      height: 135px;
+      border: 2px solid blue;
+      padding: 2px;
+      box-sizing: border-box;
+      text-align: center;
+      float: right;
+    }
+
+    .rightside {
+      float: right;
+      width: 48%;
+      height: 50%;
+      margin: auto 2% auto 0;
+      background-color: hsla(120, 60%, 70%, 0.3);
+    }
+
+    .leftside {
+      float: left;
+      width: 48%;
+      height: 50%;
+      background-color: hsl(180, 50%, 50%);
+      margin: auto 0 auto 2%;
+    }
+
+    .borderoffset {
+      width: 150px;
+      height: 70px;
+      margin: 20px;
+      padding: 10px;
+      /* Thank you http://www.cssmatic.com/ */
+      background: rgba(248, 80, 50, 1);
+      background: -moz-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: -webkit-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: -o-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: -ms-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: linear-gradient(to right, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      border: 5px solid red;
+      outline: 5px solid orange;
+      outline-offset: 15px;
+      font-size: .9em;
+    }
+
+    .roundborders {
+      height: 150px;
+      width: 150px;
+      margin: auto;
+      border-radius: 50px 50px 50px 50px;
+      -moz-border-radius: 50px 50px 50px 50px;
+      -webkit-border-radius: 50px 50px 50px 50px;
+      border: 0px solid #000000;
+      background-color: rgb(255,0,0);opacity:0.5;;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<!--
+      x  Rounded Borders
+      x  CSS3 Colors:
+          (x RGBA, x HSL, x HSLA, x Opacity)
+      x  Gradients
+      x  Text Handling
+      x  Web Fonts
+      x  Buttons - Rounded with Shadow
+      s  Pagination
+      x  Column display
+      x  CSS outline-offset
+      x  Box sizing
+      x  Flex Box
+       -->
+
+<body>
+  <h1>CSS3 Features</h1>
+  <ul>
+    <li><a href="http://www.clairepetsits.com">Web Fonts, Buttons Rounded with shadow, Text Handling, CSS3 Colors</a></li>
+    <li><a href="/wdv205/css3features/pagination.html">Pagination</a></li>
+    <li>Column display below</li>
+  </ul>
+  <div class="leftside">
+
+    <p class="leftalign">Flex Box</p>
+
+    <div class="flexbox">
+      <div class="flex">Check</div>
+      <div class="flex">that</div>
+      <div class="flex">flex</div>
+    </div>
+    <p>Rounded Borders!</p>
+    <div class="roundborders"></div>
+  </div>
+
+  <div class="rightside">
+    <p class="rightalign">Box sizing</p>
+    <div class="boxsizing">This is pretty cool because it includes padding and border in the total width and height listed</div>
+    <div class="borderoffset">Look at this offset border with such stylish a gradient</div>
+
+
+  </div>
+
+
+
+
+
+</body>
+
+
+</html>

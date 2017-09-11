@@ -1,0 +1,42 @@
+<!DOCTYPE hml>
+<html>
+
+<head>
+  <title>WDV205 Unit 1</title>
+  <link rel="stylesheet" href="/css/homepage.css" type="text/css" />
+  <style>
+  h1 {
+    padding: 25px;
+  }
+  p {
+    padding: 15px;
+    font-size: 1.2em;
+  }
+  </style>
+</head>
+
+<body>
+  <h1>Unit 1</h1>
+  <!-- Discuss their definition, their role in CSS and how they work.
+    -->
+  <p>Specificity: is a weight that determines what css is used and what is not used if there are conflicting rules. It is used to be able to determine what CSS will appear on your webpage and what will be overridden.</p>
+
+  <p>Precedence: assuming the weight of Specificity is the same, precedence is the next step in determining what will appear on the webpage. The way I think about it, the closer the CSS is to the page, the greater the precedence. So that means: an external
+    stylesheet
+    < embedded style < inline style. </p>
+
+      <p>Inheritance is what passes properties onto the children from the parent element. The role in CSS not everything is inherited, it is used so that you don't have to specify minor CSS (color, font size, font family, etc) for every single element.
+      </p>
+
+      <p>Property is something that is given to elements to then be able to imput a value, which results in our element being styled. in CSS there is element {prperty:value;} or h1 {color:blue;} and so that takes the h1 elements and changes the color (textcolor)
+        blue. </p>
+
+      <p>Value is what is giving to a property so that CSS magic happens. Like the example above h1 {color:blue;} blue is the value and can be changed to anything that matches the property, so for color we could do red, green, orange, a hexadecimal or RGB
+        combo but "bold" shouldn't do anything.</p>
+
+      <p>Selector gets into a styling specific elements, or "selecting" which elements to sytle. A common selector is the universal, which is * or a group selector " h1, h2 {color: blue;}"
+      </p>
+
+</body>
+
+</html>

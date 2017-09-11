@@ -1,0 +1,72 @@
+<!DOCTYPE hml>
+<html>
+
+<head>
+  <title>WDV205 Unit 1</title>
+  <link rel="stylesheet" href="/css/homepage.css" type="text/css" />
+  <style>
+    h1 {
+      padding: 25px;
+    }
+
+    p {
+      padding: 15px;
+      font-size: 1.2em;
+    }
+    li {
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Unit 1</h1>
+
+  <!--
+    PART ONE:
+    Review and Research these selectors.  Provide the following information for each of those selectors:
+    1. Describe what element or elements that selector will apply to a web page.
+    2. Discuss when to best use the selector.
+    3. What symbol or syntax identifies that selector on a CSS stylesheet?
+    PART TWO:
+    List the given selectors in the order of their Specificity or Weight of Specificity
+  -->
+  <p>Element Selectors are the typical h1 h2, elements like that. You should use a element selector when you have the just the one element that needs to be styled a specific way. a normal "h1 {color:blue;}"" is how to use the element selector. </p>
+
+  <p>Group Selectors are when you select multiple elemnts to style at once. It's best to use the group selector when you need to style more than one element at a time. The symbol is a comma , so "h1, h2 {color: blue;}" styles both h1 and h2 to the color
+    blue.
+  </p>
+
+  <p>Descendant Selector is when you want to style the children of a partent. It's best to use this selector when you have a specific need for each child of a parent element to have a style. If you need all paragraphs elements that are under a div to have
+    a font-size: 1.5em you would do div p {font-size: 1.5em;}. The way you signify it is a descendant is using a space between the two elements. </p>
+
+  <p>Class Selector, dependent and independent class selectors are for when you want to be able to make a set of elements be styled the same way, very easily. You can then change all of the members of the class by editing the one class CSS. When to use a
+    class is if you have a set of elements that you would like to all look the same and want to easily be able to add in more memebers of the class at any time. Dependent vs independent is easy. If you have an independent class selector you can add the
+    class to antything. The dependent selector is when you have a specific element to tie the class to where only the elements in your html that have the class, and are also the specific element, are then styled. You make a class by using a period then
+    the name of the class. ".class" makes a class called class that is independent. A dependent class named class who is specific to the h1 element would be "h1.class" </p>
+
+  <p>ID Selector, dependent and independent: ID selectors are represented by the # and there can only be one use of it in your html. You will use them a lot for making a divs into boxes for your content, main, etc. There is rarely a need for a dependent
+    selector, but you can if needed. Generally you will use a indpendent selector because it normally doesn't need to be as specific as a dependent is. </p>
+
+  <p>Universal Selector is when you want to select EVERYTHING. It's most commonly used to remove margins and padding from everything so you can float in peace. it is represented by a * </p>
+
+  <p>Pseudo Selectors are kinda weird and aren't used super commonly. They are used to make things happen when you hover, have an element be the focus, or visited and univisited have appearances I've used them for a:active, a:visited etc. They are represented
+    by : or :: </p>
+
+  <h1>Part two</h1>
+  <h4>Order of Speceficity</h4>
+  <h5>Highest weight to lowest</h5>
+  <ul>
+    <li>ID</li>
+    <li>group</li>
+    <li>class and psuedo-classes (:hover :focus)</li>
+    <li>element and psuedo-element (:before :after) </li>
+    <li>universal</li>
+  </ol>
+  <p>The thing to note with speceficity is that each of the things listed above have a weight, minus the group selector, which is just using the weight of those that fall in the group. So two elements outweight one element, or two classes outweigh one class, but a group that has a class, and two elements wont outweigh a group with two classes.</p>
+  <p>inline style = 1000, ID = 100, class = 10, element = 1, universal = 0</p>
+
+
+</body>
+
+</html>
