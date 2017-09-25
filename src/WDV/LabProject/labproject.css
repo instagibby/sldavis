@@ -27,6 +27,10 @@ nav {
     background-color: 	#8FBC8F;
     line-height: 50px;
 }
+a[href*="countryliving"], a[href*="bhg"] {
+  color: maroon;
+}
+
 nav a {
     color: white;
     font-weight: bold;

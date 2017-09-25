@@ -84,6 +84,20 @@
       background-color: rgb(255,0,0);opacity:0.5;;
       text-align: center;
     }
+    p::first-line {
+      font-style: italic;
+      color: green;
+    }
+    p::first-letter {
+      color: red;
+      font-weight: bold;
+    }
+    footer > div {
+     font-size: 2.5em;
+    }
+    footer {
+      background-color: #bbdefb;
+    }
 
   </style>
 </head>
@@ -130,7 +144,11 @@
 
   </div>
 
-
+  <footer>
+    <div>
+      <p>This is me using a parent selector to make it big!</p>
+    </div>
+  </footer>
 
 
 
