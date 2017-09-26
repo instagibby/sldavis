@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Unit-5 Functions Parameters and Returns </title>
+
+	<style>
+		body {
+			background-color: #fafafa;
+		}
+
+		.highlightTitle {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-style: italic;
+			font-size: 14px;
+			text-decoration: underline;
+			color: #096;
+		}
+	</style>
+</head>
+<body>
+  <script>
+    //#1
+    function characterCount(x) {
+      alert(x.length);
+    }
+
+    //#2
+    function printName(x, y) {
+      return x + " " + y;
+    }
+
+    //#3
+    function returnCharacterCount(x){
+      return "Your string was " + x.length + " characters long!";
+    }
+    //#4
+    function uppercaseName(){
+      var uppered = x.toUpperCase();
+
+    }
+
+  </script>
+	<h1>Unit-5 Functions Parameters and Returns</h1>
+    <p><input type="button"  value="Insert String #1" onclick="characterCount(prompt());"/></p>
+
+    <p><script>document.write(printName("spencer", "davis"));</script></p>
+
+    <p><input type="button"  value="Insert String #2" onclick="alert(returnCharacterCount(prompt()));"/></p>
+
+
+</body>
+
+</html>
