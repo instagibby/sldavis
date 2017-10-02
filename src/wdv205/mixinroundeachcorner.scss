@@ -1,0 +1,5 @@
+@mixin roundeachcorners($rad1, $rad2, $rad3, $rad4) {
+  border-radius: $rad1 $rad2 $rad3 $rad4;
+  -moz-border-radius: $rad1 $rad2 $rad3 $rad4;
+  -webkit-border-radius: $rad1 $rad2 $rad3 $rad4;
+}
