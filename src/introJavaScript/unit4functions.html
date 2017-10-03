@@ -24,9 +24,12 @@
     function characterCount(x) {
       alert(x.length);
     }
-
+		var firstName = prompt("First Name");
+		var lastName = prompt("Last Name");
     //#2
     function printName(x, y) {
+			x = firstName;
+			y = lastName;
       return x + " " + y;
     }
 
@@ -35,8 +38,9 @@
       return "Your string was " + x.length + " characters long!";
     }
     //#4
-    function uppercaseName(){
+    function uppercaseName(x){
       var uppered = x.toUpperCase();
+			return uppered;
 
     }
 
@@ -44,9 +48,11 @@
 	<h1>Unit-5 Functions Parameters and Returns</h1>
     <p><input type="button"  value="Insert String #1" onclick="characterCount(prompt());"/></p>
 
-    <p><script>document.write(printName("spencer", "davis"));</script></p>
+    <p><script>document.write(printName());</script></p>
 
-    <p><input type="button"  value="Insert String #2" onclick="alert(returnCharacterCount(prompt()));"/></p>
+    <p><input type="button"  value="Insert String #2" onclick="alert(returnCharacterCount(prompt("")));"/></p>
+
+		<h2><script>document.write(uppercaseName(prompt("enter your name for it to be writeen in caps!")));</script></h2>
 
 
 </body>
