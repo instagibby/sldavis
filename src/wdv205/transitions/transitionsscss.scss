@@ -1,0 +1,54 @@
+@mixin transition($width, $height, $delay){
+  -webkit-transition: width $width, height $height;
+  transition: width $width, height $height;
+  -webkit-transition-delay: $delay;
+  transition-delay: $delay;
+}
+@mixin transform($degrees){
+  -ms-transform: rotate($degrees);
+  -webkit-transform: rotate($degrees);
+  transform: rotate($degrees);
+}
+div {
+  margin: 50px;
+}
+
+div.grow {
+  width: 200px;
+  height: 200px;
+  background: red;
+  @include transition(2s, 2s, 1s);
+  transition-timing-function: ease-in-out;
+}
+
+div.grow:hover {
+  width: 300px;
+  height: 300px;
+  @include transform(20deg);
+}
+
+div.shrink {
+  width: 200px;
+  height: 200px;
+  background: blue;
+  @include transition(5s, 5s, 0s);
+  transition-timing-function: ease-out;
+}
+
+div.shrink:hover {
+  width: 50px;
+  height: 50px;
+}
+
+div.color {
+  width: 200px;
+  height: 200px;
+  background: yellow;
+  @include transition(.5s, .5s, 0s);
+
+}
+
+div.color:hover {
+  width: 50px;
+  background-color: orange;
+}

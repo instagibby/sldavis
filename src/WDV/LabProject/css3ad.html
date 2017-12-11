@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #box {
+      background-color: #8FBC8F;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: grid;
+      width: 700px;
+      height: 700px;
+      justify-items: center;
+      align-items: center;
+      box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+      -webkit-box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+      -moz-box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+    }
+
+    .tree {
+      visibility: hidden;
+      position: absolute;
+      bottom: 50px;
+      left: 325px;
+      height: 400px;
+      width: 50px;
+      border: 1px black solid;
+      background-color: #6d4c41;
+      animation-name: theTree;
+      animation-duration: 1.5s;
+      animation-timing-function: ease-out;
+      animation-delay: 2s;
+      animation-fill-mode: forwards;
+
+    }
+    @keyframes theTree {
+      0% {height: 0; width: 0; visibility: visible;}
+      100% {height: 400px; width: 50px; visibility: visible;}
+
+    }
+    h3 {
+      position: relative;
+      bottom: 110px;
+    }
+    h4 {
+      position: relative;
+      bottom: 430px;
+    }
+    .first {
+      position: absolute;
+      bottom: 300px;
+      left: 300px;
+      height: 200px;
+      width: 200px;
+      background-color: #18A31B;
+      border-radius: 200px 200px 200px 200px;
+      -moz-border-radius: 200px 200px 200px 200px;
+      -webkit-border-radius: 200px 200px 200px 200px;
+      border: 1px solid #00630f;
+      visibility: hidden;
+      animation-name: leavesGrow;
+      animation-delay: 2s;
+      animation-timing-function: ease-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+    }
+    .second {
+      position: absolute;
+      bottom: 370px;
+      left: 250px;
+      height: 200px;
+      width: 200px;
+      background-color: #18A31B;
+      border-radius: 200px 200px 200px 200px;
+      -moz-border-radius: 200px 200px 200px 200px;
+      -webkit-border-radius: 200px 200px 200px 200px;
+      border: 1px solid #00630f;
+      visibility: hidden;
+      animation-name: leavesGrow;
+      animation-delay: 2s;
+      animation-timing-function: ease-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+    }
+    .third {
+      position: absolute;
+      bottom: 280px;
+      left: 190px;
+      height: 200px;
+      width: 200px;
+      background-color: #18A31B;
+      border-radius: 200px 200px 200px 200px;
+      -moz-border-radius: 200px 200px 200px 200px;
+      -webkit-border-radius: 200px 200px 200px 200px;
+      border: 1px solid #00630f;
+      visibility: hidden;
+      animation-name: leavesGrow;
+      animation-delay: 2s;
+      animation-timing-function: ease-out;
+      animation-duration: 1.5s;
+      animation-fill-mode: forwards;
+    }
+    @keyframes leavesGrow {
+      0% {
+        visibility: hidden;
+        height: 0px;
+        width: 0px;
+        bottom: 50px;
+        left: 325px;
+        border-radius: 0 0 0 0;
+        -moz-border-radius: 0 0 0 0;
+        -webkit-border-radius: 0 0 0 0;
+        border: 0px solid #00630f;
+      }
+      100% {
+        visibility: visible;
+        height: 200px;
+        width: 200px;
+        border-radius: 200px 200px 200px 200px;
+        -moz-border-radius: 200px 200px 200px 200px;
+        -webkit-border-radius: 200px 200px 200px 200px;
+        border: 1px solid #00630f;
+      }
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <div id="box">
+      <h3>For every 25$ spent with City Gardens &amp; Landscaping this week we will plant a tree!</h3>
+      <h4>Come on by and help us plant trees for a better tomorrow!</h4>
+      <div class="tree"></div>
+      <div class="leaves second"></div>
+      <div class="leaves first"></div>
+      <div class="leaves third"></div>
+  </div>
+
+
+</body>
+
+</html>

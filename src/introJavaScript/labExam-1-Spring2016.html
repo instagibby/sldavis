@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>WDV221 Intro Javascript - Lab Exam #1</title>
+
+	<style>
+		#container {
+			width: 960px;
+			background-color: #699;
+			margin: auto auto;
+		}
+
+		header h2 {
+			text-align: center;
+		}
+
+		section ol {
+			line-height: 30px;
+		}
+
+		#mainContent ul {
+			list-style-type: none;
+		}
+	</style>
+
+
+
+	<script>
+		var yourName = "Spencer Davis"
+
+		function displayName() {
+			document.getElementById(yourName).innerHTML;
+		}
+
+
+		function displayDiscount(inDiscountRate) {
+			document.getElementById("discountMessage").innerHTML = "You have chosen a " + inDiscountRate + "% discount.";
+		}
+
+
+		function displayCount() {
+			var inValue = document.getElementById("textfield").value;
+
+			var count = inValue.length;
+
+
+			document.getElementById("characterCount").innerHTML = count;
+		}
+
+		function addValues()
+
+		{
+
+			var val1 = parseFloat(document.getElementById("num1").value);
+			var val2 = parseFloat(document.getElementById("num2").value);
+
+			var addNumber = parseFloat(val1) + parseFloat(val2);
+			document.getElementById("resultAdd").value = addNumber;
+
+
+			if (addNumber > 100) {
+				document.getElementById("resultAdd").value = addNumber + "That is to much for you!";
+			} else {
+				document.getElementById("resultAdd").value = addNumber + "Good choice!";
+			}
+
+
+		}
+	</script>
+
+
+
+</head>
+
+<body>
+
+
+
+	<div id="container">
+
+		<!-- Start header area  -->
+		<header>
+			<h2>WDV221 Intro Javascript</h2>
+			<h2>Lab Exam #1</h2>
+			<script>
+				document.write("<h2>Spencer Davis</h2>");
+			</script>
+		</header>
+
+		<!-- Start main content area  -->
+		<section id="mainContent">
+
+			<h3>Discount Selector:</h3>
+			<p>Please select your discount rate: <span id="discountMessage"></span></p>
+			<ul>
+				<li><input type="radio" name="discountRate" value=".10" onClick="displayDiscount(10)"> 10%</li>
+				<li><input type="radio" name="discountRate" value=".15" onClick="displayDiscount(15)"> 15%</li>
+				<li><input type="radio" name="discountRate" value=".20" onClick="displayDiscount(20)"> 20%</li>
+			</ul>
+
+			<form name="form1" method="post" action="">
+				<h3>Character Counter:</h3>
+				<p>
+					<label>Enter a word or a sentence:
+          <input type="text" name="textfield" id="textfield">
+        </label>
+				</p>
+				<p>Your information has <span id="characterCount"></span> characters. </p>
+				<p>
+					<input type="button" name="button" id="button" value="Count Characters" onClick="displayCount()">
+					<input type="reset" name="button2" id="button2" value="Reset">
+				</p>
+			</form>
+			<form name="form2" method="post" action="">
+				<h3>Add Numbers:
+      </h3>
+				<p>
+					<label>Number 1
+          <input type="text" name="num1" id="num1">
+        </label>
+				</p>
+				<p>
+					<label>Number 2
+          <input type="text" name="num2" id="num2">
+        </label>
+				</p>
+				<p>
+					<label>Result:
+          <input type="text" name="resultAdd" id="resultAdd">
+        </label>
+				</p>
+				<p>
+					<input type="button" name="button3" id="button3" value="Add Numbers" onClick="addValues()">
+					<input type="reset" name="button4" id="button4" value="Reset">
+				</p>
+			</form>
+
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Unit-5 Functions Parameters and Returns </title>
+
+	<style>
+		body {
+			background-color: #fafafa;
+		}
+
+		.highlightTitle {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-style: italic;
+			font-size: 14px;
+			text-decoration: underline;
+			color: #096;
+		}
+	</style>
+</head>
+<body>
+  <script>
+    //#1
+    function characterCount(x) {
+      alert(x.length);
+    }
+		var firstName = prompt("First Name");
+		var lastName = prompt("Last Name");
+    //#2
+    function printName(x, y) {
+			x = firstName;
+			y = lastName;
+      return x + " " + y;
+    }
+
+    //#3
+
+    function returnCharacterCount(){
+			var name = prompt("what is your name?");
+      alert("Your string was " + name.length + " characters long!");
+    }
+    //#4
+    function uppercaseName(x){
+      var uppered = x.toUpperCase();
+			return uppered;
+
+    }
+
+  </script>
+	<h1>Unit-5 Functions Parameters and Returns</h1>
+    <p><input type="button"  value="Insert String #1" onclick="characterCount(prompt("enter your name"))"/></p>
+
+    <p><script>document.write(printName());</script></p>
+
+    <p><input type="button"  value="Insert String #2" onclick="returnCharacterCount();"/></p>
+
+		<h2><script>document.write(uppercaseName(prompt("enter your name for it to be writeen in caps!")));</script></h2>
+
+
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+  <title>WDV221 Intro Javascript - Shipping Calculator Project</title>
+  <script>
+    function getShipping() {
+
+      //set variables for math later
+      var product = parseFloat(document.getElementById("product").value);
+      var quantity = parseFloat(document.getElementById("quantity").value);
+      var stateTax = parseFloat(document.getElementById("state").value);
+      var shipping = parseFloat(document.getElementById("shipping").value);
+
+      //do math for  totalprodcut cost before tax, then add tax to the total and add flat shipping rate
+      var totalCost = ((product * quantity) * (1 + stateTax)) + shipping;
+
+      //set the element to the formatted currency in USD
+      document.getElementById("total").value = Intl.NumberFormat('USA', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(totalCost);
+
+    }
+  </script>
+</head>
+
+<body>
+  <h1>WDV221 Intro Javascript</h1>
+  <h2>Shipping Calculation Project</h2>
+  <h1 align=center>Calculate Your Order</h1>
+  <form name="frmProd" method="post" action="">
+    <table border="1">
+      <tr>
+        <td width="53%">Select Product:</td>
+        <td width="47%">
+          <select size="1" name="product" id="product">
+          <option value="0" selected>Please Select a Product</option>
+          <option value="1.99">Book</option>
+          <option value=".99">Pen</option>
+          <option value=".25">Pencil</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Quantity:</td>
+        <td><input name="textfield2" type="text" id="quantity" size="5"></td>
+      </tr>
+      <tr>
+        <td>Shipping State (Tax Purposes): </td>
+        <td><select size="1" name="state" id="state">
+          	<option selected value="0.06">Iowa</option>
+          	<option value="0.085" >Illinois</option>
+          	<option value="0.07">Indiana</option>
+          	<option value="0.0">Other</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td>Delivery Method:</td>
+        <td><select size="1" name="shipping" id="shipping">
+        <option value="9.50" selected>Standard UPS - 3 Days</option>
+        <option value="6.50">US Mail - 5 Days</option>
+        <option value="19.95">Overnight - 1 Day</option>
+        <option value="0.0">Pickup</option>
+      </select></td>
+      </tr>
+      <tr>
+        <td>Your Total is: </td>
+        <td><input name="total" value="0.00" id="total"></td>
+      </tr>
+    </table>
+    <p>
+      <input type="button" value="Calculate My Order Now!" name="submit" id="calculate" onClick="getShipping()" />
+      <input type="reset" name="Reset" id="button" value="Reset Form">
+    </p>
+  </form>
+  <h2>Project Instructions:</h2>
+  <ol>
+    <li>Create a function called getShipping that is called when you click the &quot;Calculate My Order Now&quot; button.</li>
+    <li>When a product is selected the function should get the price for the selected product and store it in a local variable.</li>
+    <li>Take the quantity entered on the form and store it in a local variable.</li>
+    <li>Calculate a salesTotal using price * quantity.</li>
+    <li>When the taxing state is selected, determine the tax rate based upon the selected state. </li>
+    <li>Calculate the tax amount on the sales total as taxRate * salesTotal. Store the tax amount in a local variable. </li>
+    <li>When the Delivery Method is selected the function should get the delivery fee from the selected delivery method. </li>
+    <li>Determine the shipping cost based upon the selected shipping method.</li>
+    <li>Determine the total bill by adding the sales total, tax amount and shipping cost. Place the combined amount in the total field</li>
+    <li>Format the total amount by using a dollar format function.</li>
+  </ol>
+</body>
+
+</html>

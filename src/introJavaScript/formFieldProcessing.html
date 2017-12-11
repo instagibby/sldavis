@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>WDV221 Intro Javascript Form Processing</title>
+  <script>
+    function changeFloor() {
+      document.getElementById("RadioGroup1_1").checked = true; //changes choice to Mid Level
+      document.getElementById("floorPref").innerHTML = "You have chosen any available average rooms."; //puts message on the form in 'floorPref' span
+    }
+
+    function changeHidVal() {
+      hiddenField.value = "Bugs Bunny here!"; //to set value of 'hiddenField'
+    }
+
+    function checkboxState() {
+      if (document.getElementById("checkbox").checked == true) {
+        document.getElementById("checkbox").checked = false; //switches boolean value of checkbox
+      } else {
+        document.getElementById("checkbox").checked = true;
+      }
+      displayState(); //displays boolean value of checkbox in 'likes' span
+    }
+
+    function displayAddOn() {
+      document.getElementById("prodNum").value = "Whaddup Doc?"; //puts a message on the form in 'prodNum' textfield
+    }
+
+    function displayComments() {
+      var inComments = document.getElementById("comments").value; //gets content entered by the user in the comments textarea
+      alert("Comments = " + inComments);
+    }
+
+    function displayFav(select) {
+      var favStr = "index [" + document.getElementById("select").selectedIndex + "]: " + select + " " +
+        document.getElementById("select").options[document.getElementById("select").selectedIndex].text;
+      document.getElementById("displayFav").innerHTML = favStr;
+    }
+
+    function displayFloor(RadioGroup1) {
+      document.getElementById("floorPref").innerHTML = "You have chosen " + RadioGroup1 + " rooms." //puts message and selected value in 'floorPref' span
+    }
+
+    function displayHidVal() {
+      var hiddenVal = hiddenField.value; //gets value of 'hidddenField'
+      alert("hiddenValue = " + hiddenVal);
+    }
+
+    function displayProdNum() {
+      var inProdNum = document.getElementById("prodNum").value; //gets content entered by the user in the prodNum textfield
+      alert("Product Number = " + inProdNum);
+    }
+
+    function displaySet() {
+      document.getElementById("fileField").value = "";
+      document.getElementById("upload").innerHTML = "Input FileUpload.value cannot be set."; //puts message in 'upload' span
+    }
+
+    function displaySponsor() {
+      document.getElementById("comments").value = "Thank you!"; //puts message on the form in 'comments' textarea
+    }
+
+    function displayState() {
+      document.getElementById("likes").innerHTML = checkbox.checked; //displays boolean value of checkbox in 'likes' span
+    }
+
+    function resetForm() {
+      document.getElementById("prodNum").value = "";
+      document.getElementById("comments").value = "";
+      RadioGroup1_0.checked = false;
+      RadioGroup1_1.checked = false;
+      RadioGroup1_2.checked = false;
+      document.getElementById("floorPref").innerHTML = "";
+      checkbox.checked = false;
+      document.getElementById("likes").innerHTML = "";
+      document.getElementById("upload").innerHTML = "";
+      document.getElementById("displayFav").innerHTML = "";
+    }
+
+    function setHidVal() {
+      hiddenField.value = "WDV221 Intro Javascript"; //to set value of 'hiddenField'
+    }
+
+    function uploadFile() {
+      var inUploadFile = document.getElementById("fileField").value;
+      document.getElementById("upload").innerHTML = inUploadFile + " has been selected."; //puts selected file message in 'upload' span
+    }
+  </script>
+</head>
+
+<body>
+  <h1>WDV221 Intro Javascript</h1>
+  <h2>Form Processing - Homework</h2>
+  <h3>Instructions:</h3>
+  <p>Use the following form. For each of the following form elements:</p>
+  <ol>
+    <li>Create a function that will display the current value of the element. Use the indicated event to run the function.</li>
+    <li>Create a function that will set the element to a different value. Use an event of your choice to run this function. </li>
+    <li>For the hidden field create a function that will set it to a value of &quot;WDV221 Intro Javascript&quot;.</li>
+    <li>For the hidden field create a function that will will display its current value. </li>
+    <li>For the Drop Down list create a function that will display the index, value and text of the selected option.</li>
+  </ol>
+  <p>&nbsp;</p>
+  <form name="form1" method="post" action="http://jhgullion.org/wdv341/displayDate.php">
+    <p>
+      <label>Product Number
+			  <input type="text" name="prodNum" id="prodNum">
+			</label>
+      <input type="button" name="button" id="button" value="Submit" onclick="displayProdNum()" />
+      <input type="button" name="button" id="button" value="Add On" onclick="displayAddOn()" /></p>
+
+    <p>Please let us know how we performed: </p>
+    <p>
+      <label>
+			  <textarea name="comments" id="comments"></textarea>
+			</label>
+      <input type="button" name="button" id="button" value="Submit" onclick="displayComments()" />
+      <input type="button" name="button" id="button" value="Sponsor" onclick="displaySponsor()" /></p>
+
+    <p>Choose Your Floor Preference:
+      <table width="200">
+        <tr>
+          <td><label>
+				<input type="radio" name="RadioGroup1" value="top floor" id="RadioGroup1_0" onchange="displayFloor(value)">
+				High Level</label></td>
+        </tr>
+        <tr>
+          <td><label>
+				<input type="radio" name="RadioGroup1" value="average" id="RadioGroup1_1" onchange="displayFloor(value)">
+				Mid Level</label></td>
+        </tr>
+        <tr>
+          <td><label>
+				<input type="radio" name="RadioGroup1" value="ground level" id="RadioGroup1_2" onchange="displayFloor(value)">
+				Low Level</label></td>
+        </tr>
+      </table>
+      <p><span name="floorPref" id="floorPref" /></p>
+    </p>
+    <p><input type="button" name="button" id="button" value="Default Choice" onclick="changeFloor()" /></p>
+    <p>Please Check All that Apply:
+      <p>
+        <label>
+			  <input type="checkbox" name="checkbox" id="checkbox" onchange="displayState()">
+			  I like working with computers</label>
+        <p><span name="likes" id="likes" />
+          <script>
+            document.getElementById("likes").innerHTML = "false";
+          </script>
+        </p>
+        <p><input type="button" name="button" id="button" value="Switch" onclick="checkboxState()" /></p>
+        <p>
+          <label>Image File to Upload
+			  <input type="file" name="fileField" id="fileField">
+			</label>
+        </p>
+        <p><input type="button" name="button" id="button" value="Upload" onclick="uploadFile()" /><span name="upload" id="upload" /></p>
+        <p><input type="button" name="button" id="button" value="Set" onclick="displaySet()" /></p>
+        <p>
+          There is a hidden field right here:
+          <input type="hidden" name="hiddenField" id="hiddenField">
+          <p><input type="button" name="button" id="button" value="setHidValue" onclick="setHidVal()" /></p>
+          <p><input type="button" name="button" id="button" value="displayHidValue" onclick="displayHidVal()" /></p>
+          <p><input type="button" name="button" id="button" value="changeHidValue" onclick="changeHidVal()" /></p>
+          <p>
+            <label>Please Select Your Favorite Class
+			  <select name="select" id="select" onchange="displayFav(value)">
+				<option selected="selected" value="WDV101">HTML</option>
+				<option value="WDV205">CSS</option>
+				<option value="WDV151">Web Design</option>
+				<option value="WDV221">Javascript</option>
+			  </select>
+			</label>
+          </p>
+          <p>Your favorite class: <span name="displayFav" id="displayFav"></span></p>
+          <p>Submit
+            <input type="submit" name="button" id="button" value="Submit">
+          </p>
+          <p>Reset
+            <input type="button" name="button2" id="button2" value="Reset" onclick="resetForm()">
+          </p>
+  </form>
+  <p>&nbsp;</p>
+</body>
+
+</html>

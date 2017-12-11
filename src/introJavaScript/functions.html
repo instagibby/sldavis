@@ -1,0 +1,47 @@
+<!DOCTYPE hml>
+<html>
+  <head>
+    <title>Javascriptfunctions</title>
+    <style>
+  		body {
+  			background-color: #fafafa;
+  		}
+
+  		.highlightTitle {
+  			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  			font-style: italic;
+  			font-size: 14px;
+  			text-decoration: underline;
+  			color: #096;
+  		}
+  	</style>
+  </head>
+  <body>
+    <h2>WDV221 Intro Javascript</h2>
+    <h4>Create Javascript functions</h4>
+    <script>
+      function sayHello() {
+        alert("Spencer Davis!");
+      }
+
+      sayHello();
+
+      function printHello() {
+        document.write("Spencer Davis!");
+      }
+
+      printHello();
+      printHello();
+
+      function characterCount() {
+        var testString;
+        testString = window.prompt("test string");
+        alert(testString.length);
+      }
+
+    </script>
+
+    <h1><script>printHello();</script></h1>
+    <input type="button" value="Get String Character Count" onclick="characterCount();">
+  </body>
+</html>

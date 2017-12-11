@@ -1,0 +1,65 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>WDV221 Intro Javascript</title>
+
+<script>
+/*
+  unit 7
+  compare names takes the value from each name and then checks to see if they are the same
+*/
+  function compareNames() {
+      var inValue1 = document.getElementById("value1").value.toUpperCase();
+      var inValue2 = document.getElementById("value2").value.toUpperCase();
+      if (inValue1 == inValue2){
+          document.getElementById("result").innerHTML= "Same";
+      }
+      else {
+          document.getElementById("result").innerHTML= "Different";
+      }
+
+  }
+
+  function resetForm() {
+      document.getElementById("result").innerHTML= "";
+  }
+
+</script>
+
+</head>
+
+<body>
+<h2>WDV221 Intro Javascript</h2>
+<h3>Comparison and IF Statements - Compare Names Assignment </h3>
+<hr />
+<p>Please complete the following exercises on this page. When complete post this page to your  server. Make a link in your WDV221 homework  page for this assignment. </p>
+<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+<p>Using Blackboard submit this  Assignment.</p>
+<hr />
+<form id="form1" name="form1" method="post" action="">
+  <p>Name 1:
+    <input type="text" name="value1" id="value1" />
+  </p>
+  <p>Name 2:
+    <input type="text" name="value2" id="value2" />
+  </p>
+  <p>Result: <span id="result"></span> </p>
+  <p><input type="button" value="Compare Names" onClick="compareNames()" />
+  </p>
+  <p>
+    <input type="reset" name="Reset" id="button" value="Reset" onClick="resetForm()"/>
+  </p>
+</form>
+
+<h3>Instructions:</h3>
+<ol>
+  <li>Create a function called compareNames( ).</li>
+  <li>The function will compare the two input values from the form above.</li>
+  <li>The comparison should be case insensitive.</li>
+  <li>The results should display &quot;Same&quot; or &quot;Different&quot;.</li>
+  <li>Use a span element and its .innerHTML property to display the results.</li>
+  <li>Provide a reset function that will reset the form and results.</li></ol>
+</body>
+</html>

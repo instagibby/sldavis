@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #container {
+      height: auto;
+      width: 1000px;
+    }
+
+    div.tree {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      z-index: -1;
+      background-image: url(tree.png);
+      background-size: 100%;
+    }
+
+    div {
+      height: 300px;
+      width: 300px;
+    }
+    #container{
+
+    }
+
+    #apple1 {
+      transform: translate(50px, 100px);
+      -webkit-animation-name: fall1; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall1;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall1 {
+      0%   {transform: translate(50px, 100px);}
+      100% {transform: translate(50px, 480px);}
+    }
+    #apple2 {
+      transform: translate(100px, 155px);
+      -webkit-animation-name: fall2; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall2;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall2 {
+      0%   {transform: translate(100px, 155px);}
+      100% {transform: translate(100px, 480px);}
+    }
+    #apple3 {
+      transform: translate(100px, 50px);
+      -webkit-animation-name: fall3; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall3;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall3 {
+      0%   {transform: translate(100px, 50px);}
+      100% {transform: translate(100px, 480px);}
+    }
+    #apple4 {
+      transform: translate(150px, 100px);
+      -webkit-animation-name: fall4; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall4;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall4 {
+      0%   {transform: translate(150px, 100px);}
+      100% {transform: translate(150px, 480px);}
+    }
+    #apple5 {
+      transform: translate(100px, 175px);
+      -webkit-animation-name: fall5; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall5;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall5 {
+      0%   {transform: translate(100px, 175px);}
+      100% {transform: translate(100px, 480px);}
+    }
+    #apple6 {
+      transform: translate(0px, 275px);
+      -webkit-animation-name: fall6; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall6;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall6 {
+      0%   {transform: translate(0px, 275px);}
+      100% {transform: translate(0px, 480px);}
+    }
+    #apple7 {
+      transform: translate(-305px, 200px);
+      -webkit-animation-name: fall7; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall7;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall7 {
+      0%   {transform: translate(-305px, 200px);}
+      100% {transform: translate(-305px, 480px);}
+    }
+    #apple8 {
+      transform: translate(-190px, 230px);
+      -webkit-animation-name: fall8; /* Safari 4.0 - 8.0 */
+      -webkit-animation-duration: 1.5s; /* Safari 4.0 - 8.0 */
+      animation-name: fall8;
+      animation-duration: 1.5s;
+      animation-delay: 3s;
+      -webkit-animation-fill-mode: forwards;
+    }
+    @keyframes fall8 {
+      0%   {transform: translate(-190px, 230px);}
+      100% {transform: translate(-190px, 480px);}
+    }
+    #pumpkin {
+	transform: translate(-320px, 220px);
+	-webkit-animation-name: throw;
+	animation-name: throw;
+	-webkit-animation-duration: 5s;
+	animation-duration: 5s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes throw {
+	0% {transform: scale(100, 100) translate(-320px, 220px);}
+	50% {transform: scale(1, 1) translate(-320px, 220px);}
+  100% {transform: translate(-320px, 480px);}
+	}
+  </style>
+</head>
+
+<body>
+  <div class="tree">
+    <div id="container">
+      <img id="apple1" src="apple1.png" height="75px" width="75px" />
+      <img id="apple2" src="apple1.png" height="75px" width="75px" />
+      <img id="apple3" src="apple1.png" height="75px" width="75px" />
+      <img id="apple4" src="apple1.png" height="75px" width="75px" />
+      <img id="apple5" src="apple2.png" height="50px" width="50px" />
+      <img id="apple6" src="apple2.png" height="50px" width="50px" />
+      <img id="apple7" src="apple2.png" height="50px" width="50px" />
+      <img id="apple8" src="apple2.png" height="50px" width="50px" />
+      <img id="pumpkin" src="pumpkin.png" height="100px" width="100px" />
+    </div>
+  </div>
+
+
+</body>
+
+</html>

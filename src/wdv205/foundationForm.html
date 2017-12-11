@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foundation | Welcome</title>
+  <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+  <style>
+    .form-floating-label {
+      position: relative;
+
+    }
+
+    .form-floating-label [type='text'],
+    .form-floating-label [type='password'],
+    .form-floating-label [type='date'],
+    .form-floating-label [type='datetime'],
+    .form-floating-label [type='datetime-local'],
+    .form-floating-label [type='month'],
+    .form-floating-label [type='week'],
+    .form-floating-label [type='email'],
+    .form-floating-label [type='number'],
+    .form-floating-label [type='search'],
+    .form-floating-label [type='tel'],
+    .form-floating-label [type='time'],
+    .form-floating-label [type='url'],
+    .form-floating-label [type='color'],
+    .form-floating-label textarea {
+      margin-bottom: 0;
+      color: #8a8a8a;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 30px 1rem 1rem 25px;
+    }
+
+    .form-floating-label label {
+      color: #cacaca;
+      font-size: 18px;
+      position: absolute;
+      pointer-events: none;
+      left: 25px;
+      bottom: 0;
+      transition: all 0.2s ease-in;
+      font-weight: 300;
+    }
+
+    .form-floating-label textarea~label {
+      top: 20px;
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .form-floating-label input:focus~label,
+    .form-floating-label input:disabled[value]~label,
+    .form-floating-label.has-value input~label {
+      top: 0;
+      font-size: 14px;
+      color: dodgerblue;
+      font-weight: 400;
+    }
+
+    .form-floating-label textarea:focus~label,
+    .form-floating-label.has-value textarea~label {
+      top: 0;
+      font-size: 14px;
+      color: dodgerblue;
+      font-weight: 400;
+    }
+  </style>
+  <script type="text/javascript">
+    $('.form-floating-label input, .form-floating-label textarea').focusin(function() {
+      $(this).parent().addClass('has-value');
+    });
+
+    $('.form-floating-label input, .form-floating-label textarea').blur(function() {
+      if (!$(this).val().length > 0) {
+        $(this).parent().removeClass('has-value');
+      }
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- Start Top Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text">Foundation</li>
+        <li><a href="/wdv205/foundation.html">Home</a></li>
+        <li><a href="/wdv205/foundationForm.html">Form</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- End Top Bar -->
+
+  <div class="callout large primary">
+    <div class="row column text-center">
+      <h1>Foundation</h1>
+      <h2 class="subheader">Leave a Review</h2>
+    </div>
+  </div>
+
+  <form action="">
+    <div class="row">
+      <div class="small-12 column">
+        <div class="form-floating-label">
+          <input type="text" id="name" name="name" required>
+          <label for="email">Name*</label>
+        </div>
+      </div>
+      <div class="small-12 column">
+        <div class="form-floating-label">
+          <input type="tel" id="number" name="number">
+          <label for="number">Number</label>
+        </div>
+      </div>
+      <div class="small-12 column">
+        <div class="form-floating-label">
+          <input type="date" id="date" name="date" placeholder="">
+          <label for="date"></label>
+        </div>
+      </div>
+      <div class="small-12 column">
+        <div class="form-floating-label">
+          <input type="text" id="order" name="order">
+          <label for="order">Food Ordered*</label>
+        </div>
+      </div>
+      <div class="small-12 column">
+        <div class="form-floating-label">
+          <textarea name="Comments" id="Comments" rows="5" placeholder=""></textarea>
+          <label for="textarea">Comments</label>
+        </div>
+      </div>
+      <div class="medium-10 column bordered">
+        <fieldset class="small-12 cell">
+          <legend>Star Rating</legend>
+          <input type="radio" name="score" value="One" id="One" required><label for="One">One</label>
+          <input type="radio" name="score" value="Two" id="Two"><label for="Two">Two</label>
+          <input type="radio" name="score" value="Three" id="Three"><label for="Three">Three</label>
+          <input type="radio" name="score" value="Four" id="Four"><label for="Four">Four</label>
+          <input type="radio" name="score" value="Five" id="Five"><label for="Five">Five</label>
+        </fieldset>
+      </div>
+      <div class="medium-2 small-12 column">
+        <button type="button" class="success button expanded">Submit</button>
+      </div>
+    </div>
+  </form>
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+</body>
+
+</html>

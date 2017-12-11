@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>WDV221 Intro Javascript - Calculations and Textfields</title>
+
+  <style>
+    body {
+      background-color: #C99;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h2>WDV221 Intro Javascript</h2>
+  <h3>Project 3 - Calculations and Textfields </h3>
+  <h3>Assignment 1. Create an electronic Checkbook</h3>
+  <p>In this project you are going to create an electronic checkbook using Javascript. You can add amounts and withdraw amounts from your current balance. </p>
+  <form id="form2" name="form2" method="post" action="https://dmacc.blackboard.com/bbcswebdav/pid-2768632-dt-content-rid-29759587_1/courses/201801_WDV221_12397/201801_WDV221_12397_ImportedContent_20170828053841/Project3Assignment1Checkbook.htm">
+    <p>
+      Enter an amount:
+      <input type="text" name="amt" id="amt">
+    </p>
+    <p>
+      <input type="button" name="button3" id="button3" value="Deposit" onclick="deposit()" />
+      <input type="button" name="button4" id="button4" value="Withdraw" onclick="widthdraw()" />
+      <input type="button" name="button5" id="button5" value="Display Balance" onclick="displayBalance()" />
+    </p>
+    <p>Balance::
+      <input type="text" name="balance" id="balance" disabled>
+    </p>
+    <p>
+      <input type="reset" name="button2" id="button2" value="Reset">
+    </p>
+  </form>
+
+  <script>
+    var accountBalance = 0.00;
+
+    var amount = document.getElementById("amt");
+
+    function deposit() {
+      var numS = amount.value;
+      var num = parseFloat(numS);
+      if (num > 0) {
+        accountBalance += num;
+      }
+    }
+
+    function widthdraw() {
+      var numS = amount.value;
+      var num = parseFloat(numS);
+      if (num > 0 && num <= accountBalance) {
+        accountBalance -= num;
+      }
+    }
+
+    function displayBalance() {
+      var balanceTxt = document.getElementById("balance");
+      balanceTxt.value = accountBalance;
+    }
+  </script>
+
+  <h2>Part 1</h2>
+  <p>Instructions:</p>
+  <p>1. Create a global variable called accountBalance. Initialize it to 0.00 </p>
+  <p>2. Create a deposit function that will process a deposit to the account. This will add the amount entered in the Amount field to the accountBalance. </p>
+  <p>3. Create a withdraw function that will process a withdrawl from the account. This will subtract the amount entered in the Amount field from the accountBalance.</p>
+  <p>3. Create a displayBalance function that will display the current value of accountBalance in the Balance field.</p>
+  <p>4. Use the combined operators for the deposit and withdraw processes. </p>
+  <p>5. Use parseInt( ) or parseFloat( ) as needed.</p>
+
+  <p>&nbsp;</p>
+
+  <h2>Part 2 - Validation</h2>
+  <ol>
+    <li>Deposit values must be a positive number</li>
+    <li>Withdraw values must be a positive number</li>
+    <li>User can not withdraw more than thier balance</li>
+  </ol>
+
+
+
+
+</body>
+
+</html>

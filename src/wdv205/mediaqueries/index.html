@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Media Queries</title>
+  <style>
+
+    #container {
+      margin: auto;
+      width: 70vw;
+      height: auto;
+    }
+
+    #row1 {
+      float: left;
+      width: 48%;
+      padding: 1%;
+      margin: auto;
+    }
+
+    #row2 {
+      float: left;
+      width: 48%;
+      padding: 1%;
+      margin: auto;
+    }
+
+    img {
+      width: 95%;
+      margin: auto;
+      height: auto;
+    }
+
+
+    body > ul > li > a {
+        display: block;
+        color: black;
+        font-size: 1.5em;
+        background-color: white;
+        padding: 7px;
+        margin: 5px;
+    }
+
+    body > ul > li > a:hover {
+      background-color: black;
+      color: white;
+    }
+
+    ul {
+      display: block;
+
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: white;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 16px;
+        text-decoration: none;
+        background-color: black;
+    }
+
+    li a:hover {
+        background-color: white;
+        color: black;
+    }
+
+
+    .navigation {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      display: none;
+      list-style: none;
+
+    }
+
+    .nav-item {
+      width: 100px;
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #000;
+    }
+
+    .nav-item a {
+      display: block;
+      padding: .5em;
+      color: white;
+      font-size: 1.2em;
+      text-decoration: none;
+      transition: color 0.2s, background 0.5s;
+    }
+
+    .nav-item a:hover {
+      color: #c74438;
+    }
+
+    .site-wrap {
+      min-height: 100%;
+      min-width: 100%;
+      background-color: white;
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1;
+
+    }
+
+
+    .nav-trigger {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    label[for="nav-trigger"] {
+      position: fixed;
+      left: 15px; top: 15px;
+      z-index: 2;
+      display: none;
+      height: 30px;
+      width: 30px;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+      background-size: contain;
+    }
+
+    .nav-trigger + label, .site-wrap {
+      transition: left 0.2s;
+    }
+
+    .nav-trigger:checked + label {
+      left: 215px;
+    }
+
+    .nav-trigger:checked ~ .site-wrap {
+      left: 200px;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    li.colorwhite {
+      background-color: white;
+    }
+
+    #colorwhite {
+      display: none;
+    }
+
+
+
+    @media only screen and (max-width: 500px) {
+      #container {
+        width: 100%;
+      }
+      #row1 {
+        float: left;
+        width: 98%;
+        padding-top: 50px;
+        margin: auto 2%;
+      }
+      #row2 {
+        float: left;
+        width: 98%;
+        padding: 0;
+        margin: auto 2%;
+      }
+      #oompa {
+        display: none;
+      }
+      label[for="nav-trigger"] {
+        display:block;
+      }
+      .topnavbar {
+        display: none;
+      }
+      .site-wrap {
+        padding: 0;
+      }
+
+  }
+
+    @media only screen and (max-width: 1025px) {
+      #container {
+        width: 90%;
+      }
+      #row1 {
+        float: left;
+        width: 98%;
+        padding-top: 50px;
+        margin: auto 2%;
+      }
+      #row2 {
+        float: left;
+        width: 98%;
+        padding: 0;
+        margin: auto 2%;
+      }
+      label[for="nav-trigger"] {
+        display:block;
+      }
+      .topnavbar {
+        display: none;
+      }
+      .site-wrap {
+        padding: 0;
+      }
+      img {
+        width: 95%;
+        height: auto;
+        margin: auto;
+      }
+
+    }
+
+
+
+  </style>
+
+  <script>
+
+
+
+    function hideandseek() {
+      var x = document.getElementById("colorwhite");
+      if (x.style.display === "none") {
+          x.style.display = "block";
+      } else {
+          x.style.display = "none";
+      }
+    }
+
+
+
+  </script>
+
+</head>
+
+<body>
+
+    <ul class="navigation" id="colorwhite" style="display: none;">
+      <li class="colorwhite"><a href="#keanu">Keanu</a></li><br/><br/><br/>
+      <li class="colorwhite"><a href="#oompa">Oompa</a></li>
+    </ul>
+
+  <input type="checkbox" id="nav-trigger" class="nav-trigger" onchange="hideandseek()" />
+  <label for="nav-trigger"></label>
+
+  <div class="site-wrap">
+
+  <div id="container">
+
+  <nav class="topnavbar">
+    <ul>
+      <li><a href="#keanu">Keanu</a></li>
+      <li><a href="#oompa">Oompa Loompa</a></li>
+    </ul>
+  </nav>
+
+    <div id="row1">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque velit vehicula augue placerat placerat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed venenatis purus vestibulum, eleifend felis vitae, porttitor
+        erat. Maecenas pulvinar nec magna vitae porttitor. Morbi lacinia scelerisque ipsum, id fringilla sem tempor quis. In viverra tempus urna eu rhoncus. Integer a lacus eu diam accumsan vestibulum. Vestibulum nulla ante, facilisis nec purus sed, rutrum
+        consectetur eros. Quisque nisl nibh, pharetra a quam vitae, facilisis efficitur tellus. Nam lectus nunc, ornare non tellus sed, pretium vestibulum lorem. Donec vitae efficitur nisl, non suscipit enim. Cras id lorem quis eros placerat fringilla.
+        Nunc nec condimentum est, nec interdum sem. Donec ultrices ultrices vulputate. Quisque sit amet ligula augue. Nulla facilisi.</p>
+
+      <p>In hendrerit, tortor ac consequat dapibus, enim nisi pellentesque magna, id condimentum purus leo auctor nunc. In ut est non lorem mollis elementum. Curabitur nec elit ornare, commodo lectus eget, tempus est. Ut ut consequat enim. Duis mollis faucibus
+        elit et maximus. Integer molestie lacinia sagittis. Quisque efficitur consequat leo, ac malesuada libero accumsan ut. Praesent lobortis augue non viverra tempor. Donec orci purus, porttitor rutrum aliquet sed, semper non nulla. Aenean eu fringilla
+        nibh, a porta ipsum.</p>
+      <p><img src="/images/keanu.jpg"  id="keanu" /></p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque velit vehicula augue placerat placerat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed venenatis purus vestibulum, eleifend felis vitae, porttitor
+        erat. Maecenas pulvinar nec magna vitae porttitor. Morbi lacinia scelerisque ipsum, id fringilla sem tempor quis. In viverra tempus urna eu rhoncus. Integer a lacus eu diam accumsan vestibulum. Vestibulum nulla ante, facilisis nec purus sed, rutrum
+        consectetur eros. Quisque nisl nibh, pharetra a quam vitae, facilisis efficitur tellus. Nam lectus nunc, ornare non tellus sed, pretium vestibulum lorem. Donec vitae efficitur nisl, non suscipit enim. Cras id lorem quis eros placerat fringilla.
+        Nunc nec condimentum est, nec interdum sem. Donec ultrices ultrices vulputate. Quisque sit amet ligula augue. Nulla facilisi.</p>
+
+      <p>Aliquam id ullamcorper sapien, quis interdum nisl. Nullam faucibus euismod massa, vel consequat nisi blandit id. Donec vitae mattis urna. Praesent interdum, velit sed blandit lobortis, sapien felis molestie turpis, et pulvinar metus odio eget elit.
+        Vivamus facilisis et nunc in blandit. Aenean non magna eu dui lobortis pulvinar. Nunc bibendum odio quis ipsum cursus faucibus. Vestibulum quis ultrices leo. Praesent id sapien quis justo auctor faucibus vitae quis ex. Vivamus in nibh et augue
+        faucibus mattis. Nunc non rhoncus urna, mollis tempor mauris. Quisque nunc massa, imperdiet sed bibendum iaculis, rhoncus et ipsum. Sed faucibus elementum varius. Donec odio turpis, ultrices ac mauris et, aliquet cursus metus. Suspendisse tristique
+        elit in sem scelerisque sollicitudin.
+      </p>
+
+      <p>Sed ligula neque, fringilla in fringilla eu, mollis non erat. Vivamus in sollicitudin mauris. Suspendisse interdum ipsum nisl. Nunc vitae porta ex, ac porttitor risus. Fusce bibendum semper erat. Aliquam blandit varius ex a pulvinar. Nulla quis
+        quam eget nunc aliquam gravida. Suspendisse pulvinar tortor et venenatis consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce est urna, luctus ac iaculis nec, pellentesque ac purus. Sed bibendum
+        vehicula nibh, at condimentum elit porta viverra. Suspendisse potenti. Pellentesque dictum dolor pulvinar tincidunt efficitur. Aenean eget tristique nulla, non molestie est. Donec ut justo eu tellus euismod posuere.</p>
+
+      <p>Fusce condimentum ac tellus vitae bibendum. Proin porttitor ligula ut auctor egestas. Donec maximus rutrum dolor, quis mollis tellus laoreet vitae. Pellentesque molestie mauris id laoreet aliquam. Fusce nec turpis aliquet, rhoncus eros vitae, suscipit
+        nisl. Pellentesque ante turpis, faucibus at pharetra id, viverra in libero. Pellentesque condimentum libero id sodales maximus. Pellentesque tincidunt urna sed dolor ultricies, et faucibus ligula porttitor. Nullam scelerisque neque in nisl suscipit,
+        sed consequat massa rutrum. Donec risus purus, iaculis non auctor in, blandit sed ligula. Integer dignissim dolor id pharetra aliquet. Etiam eros arcu, efficitur non ultricies vitae, molestie bibendum enim. Sed id vestibulum nulla. Fusce vel euismod
+        nunc.
+      </p>
+
+      <p>In hendrerit, tortor ac consequat dapibus, enim nisi pellentesque magna, id condimentum purus leo auctor nunc. In ut est non lorem mollis elementum. Curabitur nec elit ornare, commodo lectus eget, tempus est. Ut ut consequat enim. Duis mollis faucibus
+        elit et maximus. Integer molestie lacinia sagittis. Quisque efficitur consequat leo, ac malesuada libero accumsan ut. Praesent lobortis augue non viverra tempor. Donec orci purus, porttitor rutrum aliquet sed, semper non nulla. Aenean eu fringilla
+        nibh, a porta ipsum.</p>
+    </div>
+    <div id="row2">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque velit vehicula augue placerat placerat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed venenatis purus vestibulum, eleifend felis vitae, porttitor
+        erat. Maecenas pulvinar nec magna vitae porttitor. Morbi lacinia scelerisque ipsum, id fringilla sem tempor quis. In viverra tempus urna eu rhoncus. Integer a lacus eu diam accumsan vestibulum. Vestibulum nulla ante, facilisis nec purus sed, rutrum
+        consectetur eros. Quisque nisl nibh, pharetra a quam vitae, facilisis efficitur tellus. Nam lectus nunc, ornare non tellus sed, pretium vestibulum lorem. Donec vitae efficitur nisl, non suscipit enim. Cras id lorem quis eros placerat fringilla.
+        Nunc nec condimentum est, nec interdum sem. Donec ultrices ultrices vulputate. Quisque sit amet ligula augue. Nulla facilisi.</p>
+
+      <p>Aliquam id ullamcorper sapien, quis interdum nisl. Nullam faucibus euismod massa, vel consequat nisi blandit id. Donec vitae mattis urna. Praesent interdum, velit sed blandit lobortis, sapien felis molestie turpis, et pulvinar metus odio eget elit.
+        Vivamus facilisis et nunc in blandit. Aenean non magna eu dui lobortis pulvinar. Nunc bibendum odio quis ipsum cursus faucibus. Vestibulum quis ultrices leo. Praesent id sapien quis justo auctor faucibus vitae quis ex. Vivamus in nibh et augue
+        faucibus mattis. Nunc non rhoncus urna, mollis tempor mauris. Quisque nunc massa, imperdiet sed bibendum iaculis, rhoncus et ipsum. Sed faucibus elementum varius. Donec odio turpis, ultrices ac mauris et, aliquet cursus metus. Suspendisse tristique
+        elit in sem scelerisque sollicitudin.
+      </p>
+
+      <p>Sed ligula neque, fringilla in fringilla eu, mollis non erat. Vivamus in sollicitudin mauris. Suspendisse interdum ipsum nisl. Nunc vitae porta ex, ac porttitor risus. Fusce bibendum semper erat. Aliquam blandit varius ex a pulvinar. Nulla quis
+        quam eget nunc aliquam gravida. Suspendisse pulvinar tortor et venenatis consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce est urna, luctus ac iaculis nec, pellentesque ac purus. Sed bibendum
+        vehicula nibh, at condimentum elit porta viverra. Suspendisse potenti. Pellentesque dictum dolor pulvinar tincidunt efficitur. Aenean eget tristique nulla, non molestie est. Donec ut justo eu tellus euismod posuere.</p>
+
+      <p>Fusce condimentum ac tellus vitae bibendum. Proin porttitor ligula ut auctor egestas. Donec maximus rutrum dolor, quis mollis tellus laoreet vitae. Pellentesque molestie mauris id laoreet aliquam. Fusce nec turpis aliquet, rhoncus eros vitae, suscipit
+        nisl. Pellentesque ante turpis, faucibus at pharetra id, viverra in libero. Pellentesque condimentum libero id sodales maximus. Pellentesque tincidunt urna sed dolor ultricies, et faucibus ligula porttitor. Nullam scelerisque neque in nisl suscipit,
+        sed consequat massa rutrum. Donec risus purus, iaculis non auctor in, blandit sed ligula. Integer dignissim dolor id pharetra aliquet. Etiam eros arcu, efficitur non ultricies vitae, molestie bibendum enim. Sed id vestibulum nulla. Fusce vel euismod
+        nunc.
+      </p>
+
+      <p>Sed ligula neque, fringilla in fringilla eu, mollis non erat. Vivamus in sollicitudin mauris. Suspendisse interdum ipsum nisl. Nunc vitae porta ex, ac porttitor risus. Fusce bibendum semper erat. Aliquam blandit varius ex a pulvinar. Nulla quis
+        quam eget nunc aliquam gravida. Suspendisse pulvinar tortor et venenatis consequat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce est urna, luctus ac iaculis nec, pellentesque ac purus. Sed bibendum
+        vehicula nibh, at condimentum elit porta viverra. Suspendisse potenti. Pellentesque dictum dolor pulvinar tincidunt efficitur. Aenean eget tristique nulla, non molestie est. Donec ut justo eu tellus euismod posuere.</p>
+
+      <p>Fusce condimentum ac tellus vitae bibendum. Proin porttitor ligula ut auctor egestas. Donec maximus rutrum dolor, quis mollis tellus laoreet vitae. Pellentesque molestie mauris id laoreet aliquam. Fusce nec turpis aliquet, rhoncus eros vitae, suscipit
+        nisl. Pellentesque ante turpis, faucibus at pharetra id, viverra in libero. Pellentesque condimentum libero id sodales maximus. Pellentesque tincidunt urna sed dolor ultricies, et faucibus ligula porttitor. Nullam scelerisque neque in nisl suscipit,
+        sed consequat massa rutrum. Donec risus purus, iaculis non auctor in, blandit sed ligula. Integer dignissim dolor id pharetra aliquet. Etiam eros arcu, efficitur non ultricies vitae, molestie bibendum enim. Sed id vestibulum nulla. Fusce vel euismod
+        nunc.
+      </p>
+      <p><img src="/images/ohno.jpg" height="500px" width="500px" id="oompa" /></p>
+      <p>In hendrerit, tortor ac consequat dapibus, enim nisi pellentesque magna, id condimentum purus leo auctor nunc. In ut est non lorem mollis elementum. Curabitur nec elit ornare, commodo lectus eget, tempus est. Ut ut consequat enim. Duis mollis faucibus
+        elit et maximus. Integer molestie lacinia sagittis. Quisque efficitur consequat leo, ac malesuada libero accumsan ut. Praesent lobortis augue non viverra tempor. Donec orci purus, porttitor rutrum aliquet sed, semper non nulla. Aenean eu fringilla
+        nibh, a porta ipsum.</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

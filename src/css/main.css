@@ -1,1 +1,341 @@
+div.row > div h1 {
+  text-align: center; }
 
+div.row > div h1.display-3 {
+  margin-bottom: .5em; }
+
+a.gitgrey {
+  color: white; }
+
+div.clairepetsits .card {
+  border-radius: 16px;
+  border-color: #212529;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background-image: url("/images/clairepetsits.jpg");
+  background-size: cover;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+
+div.clairepetsits .info {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  transform: translateY(100%) translateY(-88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.clairepetsits .info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("/images/clairepetsits.jpg");
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.clairepetsits .card:hover .info,
+div.clairepetsits .card:hover .info:before {
+  transform: translateY(0) translateZ(0); }
+
+div.clairepetsits .title {
+  margin: 0;
+  padding: 24px;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.87); }
+
+div.clairepetsits .description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5; }
+
+div.ttl .card {
+  border-radius: 16px;
+  border-color: #212529;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background-image: url("/images/ttl.jpg");
+  background-size: cover;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+
+div.ttl .info {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  transform: translateY(100%) translateY(-88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.ttl .info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("/images/ttl.jpg");
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.ttl .card:hover .info,
+div.ttl .card:hover .info:before {
+  transform: translateY(0) translateZ(0); }
+
+div.ttl .title {
+  margin: 0;
+  padding: 24px;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.87); }
+
+div.ttl .description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5; }
+
+div.sweets .card {
+  border-radius: 16px;
+  border-color: #212529;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background-image: url("/images/sweets.jpg");
+  background-size: cover;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+
+div.sweets .info {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  transform: translateY(100%) translateY(-88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.sweets .info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("/images/sweets.jpg");
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.sweets .card:hover .info,
+div.sweets .card:hover .info:before {
+  transform: translateY(0) translateZ(0); }
+
+div.sweets .title {
+  margin: 0;
+  padding: 24px;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.87); }
+
+div.sweets .description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5; }
+
+div.whatyoudontsee .card {
+  border-radius: 16px;
+  border-color: #212529;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background-image: url("/images/whatyoudontsee.jpg");
+  background-size: cover;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+
+div.whatyoudontsee .info {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  transform: translateY(100%) translateY(-88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.whatyoudontsee .info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("/images/whatyoudontsee.jpg");
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.whatyoudontsee .card:hover .info,
+div.whatyoudontsee .card:hover .info:before {
+  transform: translateY(0) translateZ(0); }
+
+div.whatyoudontsee .title {
+  margin: 0;
+  padding: 24px;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.87); }
+
+div.whatyoudontsee .description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5; }
+
+div.citygardens .card {
+  border-radius: 16px;
+  border-color: #212529;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background-image: url("/images/citygardens.jpg");
+  background-size: cover;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+
+div.citygardens .info {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  transform: translateY(100%) translateY(-88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.citygardens .info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("/images/citygardens.jpg");
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.citygardens .card:hover .info,
+div.citygardens .card:hover .info:before {
+  transform: translateY(0) translateZ(0); }
+
+div.citygardens .title {
+  margin: 0;
+  padding: 24px;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.87); }
+
+div.citygardens .description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5; }
+
+div.bootstraptheme .card {
+  border-radius: 16px;
+  border-color: #212529;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  background-image: url("/images/bootstraptheme.jpg");
+  background-size: cover;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
+
+div.bootstraptheme .info {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: #fff;
+  transform: translateY(100%) translateY(-88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.bootstraptheme .info:before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("/images/bootstraptheme.jpg");
+  filter: blur(10px);
+  background-size: cover;
+  opacity: 0.25;
+  transform: translateY(-100%) translateY(88px) translateZ(0);
+  transition: transform 0.5s ease-out; }
+
+div.bootstraptheme .card:hover .info,
+div.bootstraptheme .card:hover .info:before {
+  transform: translateY(0) translateZ(0); }
+
+div.bootstraptheme .title {
+  margin: 0;
+  padding: 24px;
+  font-size: 40px;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.87); }
+
+div.bootstraptheme .description {
+  margin: 0;
+  padding: 0 24px 24px;
+  font-size: 18px;
+  line-height: 1.5; }
+
+div.container div.row .card {
+  margin-bottom: 2em; }
+
+@media (max-width: 1279px) {
+  div.bootstraptheme .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.citygardens .title {
+    font-size: 2em; } }
+
+@media (max-width: 991px) {
+  div.bootstraptheme .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.citygardens .title {
+    font-size: 2.15em; } }
+
+@media (max-width: 767px) {
+  div.col-sm-12 {
+    margin-bottom: 2em; }
+  div.bootstraptheme .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.citygardens .title {
+    font-size: 2.15em; } }
+
+@media (max-width: 575px) {
+  div.col-sm-12 {
+    margin-bottom: 1em; } }

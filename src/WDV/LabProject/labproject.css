@@ -1,77 +1,263 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
 body {
-    background-color: #FDF3E7;
-    text-align: center;
-    font-size: 125%;
+  background-color: #FDF3E7;
+  text-align: center;
+  font-size: 125%;
 }
-html {
-    overflow-y:scroll;
-}
-h1{
-    color: #556B2F;
-}
-div.index-opening {
-    margin: 0 auto;
-    text-align: center;
-    width: 750px;
-}
-a {
-    color: darkgreen;
-    text-decoration: none;
-}
-a:hover {
-    color: Maroon;
-    text-decoration: underline;
-}
-nav {
-    text-align: center;
-    background-color: 	#8FBC8F;
-    line-height: 50px;
-}
-nav a {
-    color: white;
-    font-weight: bold;
-}
-nav li {
-    display: inline;
-    font-size: 30px;
-    list-style-type: none;
-    padding-left: 100px;
-    padding-right: 100px
-}
-nav a:hover {
-    color: Maroon;
-    text-decoration: underline;
-}
-h2 {
-    margin: 5px auto;
-}
-h3 {
-    color: maroon;
-    margin-bottom: 4px;
-}
-.green {
-    color: #6B8E23;
-}
-ul {
-    margin-top: 5px;
-}
-li {
-    width: 500px;
 
+html {
+  overflow-y: scroll;
 }
+
+h1 {
+  color: #556B2F;
+}
+
+div.index-opening {
+  margin: 0 auto;
+  text-align: center;
+  width: 750px;
+}
+
+a {
+  color: darkgreen;
+  text-decoration: none;
+}
+
+a:hover {
+  color: Maroon;
+  text-decoration: underline;
+}
+
+nav {
+  text-align: center;
+  background-color: #8FBC8F;
+  line-height: 50px;
+}
+
+a[href*="countryliving"], a[href*="bhg"] {
+  color: maroon;
+}
+
+nav a {
+  color: white;
+  font-weight: bold;
+}
+
+[title~=Better Homes Gardens Magazine] {
+  color: red;
+}
+
+nav li {
+  display: inline;
+  font-size: 30px;
+  list-style-type: none;
+  padding-left: 100px;
+  padding-right: 100px
+}
+
+nav a:hover {
+  color: Maroon;
+  text-decoration: underline;
+}
+
+h2 {
+  margin: 5px auto;
+}
+
+h3 {
+  color: maroon;
+  margin-bottom: 4px;
+}
+
+.green {
+  color: #6B8E23;
+}
+
+ul {
+  margin-top: 5px;
+}
+
+li {
+  width: 500px;
+}
+
 p {
   margin: 5px auto;
   text-align: center;
   width: 725px;
 }
+
 footer {
-    text-align: center;
+  text-align: center;
 }
+
 img {
-  box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
-  -webkit-box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
-  -moz-box-shadow:  0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
 }
+
 img.noshadow {
   box-shadow: none;
+}
+
+#box {
+  background-color: #8FBC8F;
+  position: absolute;
+  top: 10vh;
+  left: -715px;
+  display: grid;
+  width: 700px;
+  height: 700px;
+  justify-items: center;
+  align-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  transition-delay: .5s;
+  transition-duration: 5s;
+}
+#box.transition {
+  left: calc(50% - 350px);
+}
+
+input {
+  background-color: #fafafa;
+  margin-left: auto;
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-bottom: auto;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+}
+input:hover {
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -webkit-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+  -moz-box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+}
+
+.transition .tree {
+  visibility: hidden;
+  position: absolute;
+  bottom: 50px;
+  left: 325px;
+  height: 400px;
+  width: 50px;
+  border: 1px black solid;
+  background-color: #6d4c41;
+  animation-name: theTree;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes theTree {
+  0% {
+    height: 0;
+    width: 0;
+    visibility: visible;
+  }
+  100% {
+    height: 400px;
+    width: 50px;
+    visibility: visible;
+  }
+}
+
+h3.fixed1 {
+  position: relative;
+  bottom: 280px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+h4.fixed2 {
+  color: white;
+  position: relative;
+  bottom: 480px;
+}
+
+.transition .first {
+  position: absolute;
+  bottom: 300px;
+  left: 300px;
+  height: 200px;
+  width: 200px;
+  background-color: #18A31B;
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  border: 1px solid #00630f;
+  visibility: hidden;
+  animation-name: leavesGrow;
+  animation-delay: 4s;
+  animation-timing-function: ease-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.transition  .second {
+  position: absolute;
+  bottom: 370px;
+  left: 250px;
+  height: 200px;
+  width: 200px;
+  background-color: #18A31B;
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  border: 1px solid #00630f;
+  visibility: hidden;
+  animation-name: leavesGrow;
+  animation-delay: 4s;
+  animation-timing-function: ease-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+.transition  .third {
+  position: absolute;
+  bottom: 280px;
+  left: 190px;
+  height: 200px;
+  width: 200px;
+  background-color: #18A31B;
+  border-radius: 200px 200px 200px 200px;
+  -moz-border-radius: 200px 200px 200px 200px;
+  -webkit-border-radius: 200px 200px 200px 200px;
+  border: 1px solid #00630f;
+  visibility: hidden;
+  animation-name: leavesGrow;
+  animation-delay: 4s;
+  animation-timing-function: ease-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes leavesGrow {
+  0% {
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+    bottom: 50px;
+    left: 325px;
+    border-radius: 0 0 0 0;
+    -moz-border-radius: 0 0 0 0;
+    -webkit-border-radius: 0 0 0 0;
+    border: 0px solid #00630f;
+  }
+  100% {
+    visibility: visible;
+    height: 200px;
+    width: 200px;
+    border-radius: 200px 200px 200px 200px;
+    -moz-border-radius: 200px 200px 200px 200px;
+    -webkit-border-radius: 200px 200px 200px 200px;
+    border: 1px solid #00630f;
+  }
 }

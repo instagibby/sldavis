@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>WDV221 Intro Javascript - Variables and Data Types Assignment</title>
+
+	<style>
+		body {
+			background-color: #FC6;
+		}
+
+		.highlightTitle {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-style: italic;
+			font-size: 14px;
+			text-decoration: underline;
+			color: #096;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>WDV221 Intro Javascript</h2>
+	<h3>Variables and Data Types - String Object Assignment</h3>
+	<hr />
+	<p>Please complete the following exercises on this page. When complete post this page to your server. Make a link in your WDV221 homework page for this assignment. </p>
+	<p>Include a comment in each script with the exercise number and a description of what the script is supposed to do.</p>
+	<p>Using Blackboard submit this Assignment.</p>
+	<h3>For each exercise use a comment line to put the Exercise number within the script. Also place a short description of what the script is doing.</h3>
+	<hr />
+	<script>
+	// #1 - makes variable named inName that is saved as a global variable with an empty string
+		var inName = "";
+
+	// #2 - this creates a function called getName that prompts the user to enter a name and then saves it as a variable inName, and on the next line alerts the name that was previously entered.
+		function getName() {
+			inName = window.prompt("Enter a Name");
+			alert(inName);
+		}
+
+	// #3 creates a function called displayName that alerts the previously set value of inName (presumably a name) and then also alerts the length of the string that inName is set to.
+		function displayName() {
+			alert(inName);
+			alert(inName.length);
+		}
+
+		// #4 saves two global variables that are strings, which are my normal and school email addresses.
+		var emailAddress = "spencerdavis2012@gmail.com";
+		var yourEmailAddress = "sldavis7@dmacc.edu";
+
+		function getEmailName(x) {
+			var begin = x.indexOf('@');
+			var mailer = x.substr(0, begin);
+
+			alert(mailer);
+		}
+
+	</script>
+	<p>1. Define a global variable called inName. Assign it an initial value of &quot;&quot;.</p>
+
+	<p>2. Create a function called getName( ). The function will use a prompt to ask the user to enter a name. Store the result in the inName variable. Use an event handler to activate this function.</p>
+
+	<input type="button" value="Get Name" onclick="getName();">
+
+	<p>3. Create a function called displayName( ). The function will use alert( ) to display the value stored in the inName variable. It will also display the number of characters in the inName variable. Use and event handler to activate this function.</p>
+
+	<input type="button" value="Display Name" onclick="displayName();">
+
+	<p>Define a global variable called emailAddress. Assign it an email address. Define a global variable called yourEmailAddress and assign it the value of your DMACC email address.</p>
+
+	<p>Create a function called getEmailName( ). This function will accept one input parameter. When the function is called display only the name from the email address. For example if the user enters &quot;jLeenan@yahoo.com&quot; your function should display
+		&quot;jLeenan&quot;. Use an event handler to activate this function.</p>
+
+
+	<p>4. Use the getEmailName( ) function to process emailAddress.</p>
+
+	<input type="button" value="Personal e-mail" onclick="getEmailName(emailAddress);">
+
+	<p>5. Use the getEmailName( ) function to process yourEmailAddress.</p>
+
+	<input type="button" value="School e-mail" onclick="getEmailName(yourEmailAddress);">
+
+	<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+$cubeSize: 3em;
+$light: #ECECEC;
+$dark: #5a0990;
+
+@mixin box-maker($cubeSize, $color, $position) {
+  height: $cubeSize;
+  width: $cubeSize;
+  background-color: $color;
+  position: $position;
+}
+
+body {
+  background-color: $dark;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+.col-12 {
+  padding-top: 20px;
+}
+.loader {
+  width: $cubeSize;
+  height: $cubeSize;
+  animation: loaderAnim 1.25s infinite;
+  outline: 1px solid transparent;
+  #largeBox {
+    @include box-maker($cubeSize, $light, fixed);
+  outline: 1px solid transparent;
+  }
+  #smallBox {
+    @include box-maker($cubeSize, $dark, fixed);
+    z-index: 1;
+    outline: 1px solid transparent;
+    animation: smallBoxAnim 1.25s alternate infinite ease-in-out;
+  }
+}
+@media (max-width: 776px) {
+    .loader #largeBox {
+      height: 6em;
+      width: 6em;
+    }
+    .loader #smallBox {
+      height: 6em;
+      width: 6em;
+    }
+    .loader {
+      width: 6em;
+      height: 6em;
+    }
+    .col-12 {
+      padding-top: 50px;
+    }
+   }
+
+@keyframes smallBoxAnim {
+  0% {transform: scale(0.2);}
+  100% {transform: scale(0.75);}
+}
+
+@keyframes loaderAnim {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(90deg);}
+}

@@ -34,7 +34,7 @@ aside {
 }
 
 div.container {
-  width: 85%;
+  width: 85vw;
 }
 
 a {
@@ -70,4 +70,7 @@ h3.mainpara {
 
 h3.links {
   color: rgb(75, 9, 114);
+}
+h3 {
+  text-align:inherit;
 }
