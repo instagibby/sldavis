@@ -3,7 +3,7 @@
 
 <head>
   <title>CSS3 Features</title>
-  <link rel="stylesheet" href="/wdv205/scss.css" type="text/css" />
+  <link rel="stylesheet" href="/css/homepage.css" type="text/css" />
   <style>
     .flexbox {
       display: -webkit-flex;
@@ -55,20 +55,34 @@
       margin: auto 0 auto 2%;
     }
 
+    .borderoffset {
+      width: 150px;
+      height: 70px;
+      margin: 20px;
+      padding: 10px;
+      /* Thank you http://www.cssmatic.com/ */
+      background: rgba(248, 80, 50, 1);
+      background: -moz-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: -webkit-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: -o-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: -ms-linear-gradient(left, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      background: linear-gradient(to right, rgba(248, 80, 50, 1) 0%, rgba(230, 155, 145, 1) 18%, rgba(246, 41, 12, 1) 37%, rgba(230, 185, 179, 1) 66%, rgba(231, 56, 39, 1) 100%);
+      border: 5px solid red;
+      outline: 5px solid orange;
+      outline-offset: 15px;
+      font-size: .9em;
+    }
 
-    p::first-line {
-      font-style: italic;
-      color: green;
-    }
-    p::first-letter {
-      color: red;
-      font-weight: bold;
-    }
-    footer > div {
-     font-size: 2.5em;
-    }
-    footer {
-      background-color: #bbdefb;
+    .roundborders {
+      height: 150px;
+      width: 150px;
+      margin: auto;
+      border-radius: 50px 50px 50px 50px;
+      -moz-border-radius: 50px 50px 50px 50px;
+      -webkit-border-radius: 50px 50px 50px 50px;
+      border: 0px solid #000000;
+      background-color: rgb(255,0,0);opacity:0.5;;
+      text-align: center;
     }
 
   </style>
@@ -93,7 +107,6 @@
   <ul>
     <li><a href="http://www.clairepetsits.com">Web Fonts, Buttons Rounded with shadow, Text Handling, CSS3 Colors</a></li>
     <li><a href="/wdv205/css3features/pagination.html">Pagination</a></li>
-    <li><a href="/wdv205/workingit.scss"> SCSS workinit</a></li>
     <li>Column display below</li>
   </ul>
   <div class="leftside">
@@ -117,11 +130,7 @@
 
   </div>
 
-  <footer>
-    <div>
-      <p>This is me using a parent selector to make it big!</p>
-    </div>
-  </footer>
+
 
 
 

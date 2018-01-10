@@ -11,6 +11,17 @@ a.gitgrey {
 }
 
 
+a.btn-dark {
+  margin-left: 1.75em;
+}
+
+div.jumbotron.jumbotron-fluid {
+  text-align: center;
+}
+
+p.lead.leftalign, h4.leftalign, h6.leftalign {
+  text-align: left;
+}
 
 div.clairepetsits{
   .card {
@@ -65,7 +76,8 @@ div.clairepetsits{
   .title {
     margin: 0;
     padding: 24px;
-    font-size: 40px;
+    padding-bottom: 2em;
+    font-size: 1.8rem;
     line-height: 1;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -131,7 +143,8 @@ div.ttl{
   .title {
     margin: 0;
     padding: 24px;
-    font-size: 40px;
+    padding-bottom: 2em;
+    font-size: 1.8rem;
     line-height: 1;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -197,7 +210,8 @@ div.sweets{
   .title {
     margin: 0;
     padding: 24px;
-    font-size: 40px;
+    padding-bottom: 2em;
+    font-size: 1.8rem;
     line-height: 1;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -263,7 +277,8 @@ div.whatyoudontsee{
   .title {
     margin: 0;
     padding: 24px;
-    font-size: 40px;
+    padding-bottom: 2em;
+    font-size: 1.8rem;
     line-height: 1;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -329,7 +344,8 @@ div.citygardens{
   .title {
     margin: 0;
     padding: 24px;
-    font-size: 40px;
+    padding-bottom: 2em;
+    font-size: 1.8rem;
     line-height: 1;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -395,7 +411,8 @@ div.bootstraptheme{
   .title {
     margin: 0;
     padding: 24px;
-    font-size: 40px;
+    padding-bottom: 2em;
+    font-size: 1.8rem;
     line-height: 1;
     color: rgba(0, 0, 0, 0.87);
   }
@@ -437,5 +454,12 @@ div.container div.row .card{
 @media (max-width: 575px) {
   div.col-sm-12 {
     margin-bottom: 1em;
+  }
+  .display-3 {
+    font-size: 2.5rem;
+    line-height: 1;
+  }
+  .hidesmall {
+    display: none;
   }
 }

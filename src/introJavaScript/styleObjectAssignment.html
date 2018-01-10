@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WDV221 Style Object-CSS Interactions In Class Exercises</title>
+  <style type="text/css">
+      .style1 {
+      color: #FF0000
+    }
+
+
+  </style>
+
+  <script>
+	function toggleRedBlack(inID)	// 1. set paragraph 1 to color = red (actually made it to toggle red/black)
+	{
+		var nowColor = document.getElementById(inID).style.color
+
+		if (nowColor == "red")
+		{
+			document.getElementById(inID).style.color = "black";
+		}
+		else
+		{
+			document.getElementById(inID).style.color = "red";
+		}
+	}
+
+	function colorToBlack(inID)		// 2. set pararaph color to black with mouse over
+	{
+
+		document.getElementById(inID).style.color = "black";		// DOES NOT WORK
+	}
+
+	function colorToRed(inID)		// 2. set pararaph color to black with mouse over
+	{
+
+		document.getElementById(inID).style.color = "red";
+	}
+
+	function centerH3(inID)		// 3. center align H3
+	{
+		document.getElementById(inID).style.textAlign = "center";
+	}
+
+	function leftH3(inID)		// 3. left align H3
+	{
+		document.getElementById(inID).style.textAlign = "left";
+	}
+
+	function rightH3(inID)		// 4. left (right) align H3
+	{
+		document.getElementById(inID).style.textAlign = "right";
+	}
+
+	function changeFontToSansSerif(inID)	// 5. mouse over to change font family
+	{
+		var oldFont = document.getElementById(inID).style.fontFamily;
+
+		document.getElementById(inID).style.fontFamily = "sans-serif";
+	}
+
+	function defaultFont(inID)		// 5. clck to return to default font family
+	{
+		document.getElementById(inID).style.fontFamily = "";	// set to default font
+	}
+
+	function increaseSaleFont(inID)		// 6. increase "sale" to 24 pt size
+	{
+		document.getElementById(inID).style.fontSize = "24pt"
+	}
+
+	function defaultSaleFont(inID)		// 7. return "sale" to default size
+	{
+		document.getElementById(inID).style.fontSize = ""
+
+	}
+
+	function yellowBackground(inID)		// 8. mouse over to set yellow background
+	{
+		document.getElementById(inID).style.backgroundColor = "yellow";
+	}
+
+	function defaultBackground(inID)	// 8. mouse out return to default
+	{
+		document.getElementById(inID).style.backgroundColor = "";
+	}
+
+	function hideFrog(inID1,inID2)		// 9. click paragraph to hide the frog picture
+	{
+		document.getElementById(inID1).style.visibility = "hidden";
+		document.getElementById(inID2).style.visibility = "hidden";
+
+	}
+
+	function showFrog(inID1,inID2)		// 10. click button to show the frog picture
+	{
+		document.getElementById(inID1).style.visibility = "visible";
+		document.getElementById(inID2).style.visibility = "visible";
+	}
+
+	function doubleFrog(inID)	// 11. mouse over to double size of frog picture
+	{
+
+		document.getElementById(inID).style.width = "200px";
+		document.getElementById(inID).style.height = "200px";
+	}
+
+	function singleFrog(inID)		// 12. mouse out to return to picture to default size
+	{
+		document.getElementById(inID).style.width = "";
+		document.getElementById(inID).style.height = "";
+	}
+
+</script>
+</head>
+
+<body>
+<H1>WDV221 Intro Javascript</H1>
+<H3 id="firstH3">Style Object - CSS Interactions - In Class Exercise 9</H3>
+<P>Please modify this page to create the following Dynamic HMTL effects. </P>
+
+<P id="paragraph1" onClick="toggleRedBlack('paragraph1')">1. Click this paragraph to change the font color from "black to red" and "red to black". </P>
+
+<p>2. <SPAN id="paragraph2" onMouseOver="colorToBlack('paragraph2')" onMouseOut="colorToRed('paragraph2')" class="style1">Mouseover this paragraph to change the font color to black.</SPAN></P>
+
+<P onMouseOver="centerH3('firstH3')" onMouseOut="leftH3('firstH3')">3. Mousover this paragraph to center the H3 element containing "CSS
+Interactions".  (NOTE: On mouseout it will return to the left.)</P>
+
+<P>4. Click the button to left (NOTE: I will move right, since I have already moved left) align the H3 element. </P>
+<P><LABEL><INPUT id="button" name="button" value="Move H3 right" type="button" onClick="rightH3('firstH3')"></LABEL>
+</P>
+
+<P id="paragraph5" onMouseOver="changeFontToSansSerif('paragraph5')" onClick="defaultFont('paragraph5')">5. Part 1. Mouseover this paragraph to change the font to a font of your choice. Part 2. Click on this paragraph to return the font to the default
+font.</P>
+
+
+<P>6. Click on the button to make the word <span id="saleFont">SALE</span> font size 24. </P>
+<P><LABEL><INPUT id="button2" name="button2" value="24 pt Sale Font" type="button" onClick="increaseSaleFont('saleFont')"></LABEL>
+</P>
+
+
+<P>7. Click on the button to return the word to its original size.</P>
+<P><LABEL><INPUT id="button3" name="button3" value="default Sale Font" type="button" onClick="defaultSaleFont('saleFont')"></LABEL>
+</P>
+
+<P id="paragraph8" onMouseOver="yellowBackground('paragraph8')" onMouseOut="defaultBackground('paragraph8')">8. Use an eventhandler of your choice on this paragraph to make the paragraph background color yellow. </P>
+
+<P onClick="hideFrog('FrogPicture','FrogPicture2')">9. Use an onclick event to hide the Frog picture shown below. CLICK HERE!!!</P>
+
+<P>10. Use the following button to make the Frog  picture shown below
+reappear.</P>
+<P><INPUT id="FrogButton" name="FrogButton" value="Show Frog" type="button" onClick="showFrog('FrogPicture','FrogPicture2')"></P>
+
+<P>11. Mouseover the following image to make its height and width double its
+original size. </P>
+<P><IMG id="FrogPicture" src="/introJavaScript/frog.jpg" width="100" height="100" onMouseOver="doubleFrog('FrogPicture')" onClick="singleFrog('FrogPicture')" /><br />Mouse over to double the size and <span class="underline">click picture</span> to return to normal size.</P>
+<P><IMG id="FrogPicture2" src="/introJavaScript/frog.jpg" width="100" height="100" onMouseOver="doubleFrog('FrogPicture2')" onMouseOut="singleFrog('FrogPicture2')" /><br />Mouse over to double the size and mouse out to return to normal size.</P>
+
+
+<P>12. Use a click event on the image to make it return to original size. </P>
+<P>&nbsp;</P>
+</BODY>
+</HTML>

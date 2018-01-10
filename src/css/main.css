@@ -7,6 +7,15 @@ div.row > div h1.display-3 {
 a.gitgrey {
   color: white; }
 
+a.btn-dark {
+  margin-left: 1.75em; }
+
+div.jumbotron.jumbotron-fluid {
+  text-align: center; }
+
+p.lead.leftalign, h4.leftalign, h6.leftalign {
+  text-align: left; }
+
 div.clairepetsits .card {
   border-radius: 16px;
   border-color: #212529;
@@ -49,7 +58,8 @@ div.clairepetsits .card:hover .info:before {
 div.clairepetsits .title {
   margin: 0;
   padding: 24px;
-  font-size: 40px;
+  padding-bottom: 2em;
+  font-size: 1.8rem;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87); }
 
@@ -101,7 +111,8 @@ div.ttl .card:hover .info:before {
 div.ttl .title {
   margin: 0;
   padding: 24px;
-  font-size: 40px;
+  padding-bottom: 2em;
+  font-size: 1.8rem;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87); }
 
@@ -153,7 +164,8 @@ div.sweets .card:hover .info:before {
 div.sweets .title {
   margin: 0;
   padding: 24px;
-  font-size: 40px;
+  padding-bottom: 2em;
+  font-size: 1.8rem;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87); }
 
@@ -205,7 +217,8 @@ div.whatyoudontsee .card:hover .info:before {
 div.whatyoudontsee .title {
   margin: 0;
   padding: 24px;
-  font-size: 40px;
+  padding-bottom: 2em;
+  font-size: 1.8rem;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87); }
 
@@ -257,7 +270,8 @@ div.citygardens .card:hover .info:before {
 div.citygardens .title {
   margin: 0;
   padding: 24px;
-  font-size: 40px;
+  padding-bottom: 2em;
+  font-size: 1.8rem;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87); }
 
@@ -309,7 +323,8 @@ div.bootstraptheme .card:hover .info:before {
 div.bootstraptheme .title {
   margin: 0;
   padding: 24px;
-  font-size: 40px;
+  padding-bottom: 2em;
+  font-size: 1.8rem;
   line-height: 1;
   color: rgba(0, 0, 0, 0.87); }
 
@@ -338,4 +353,9 @@ div.container div.row .card {
 
 @media (max-width: 575px) {
   div.col-sm-12 {
-    margin-bottom: 1em; } }
+    margin-bottom: 1em; }
+  .display-3 {
+    font-size: 2.5rem;
+    line-height: 1; }
+  .hidesmall {
+    display: none; } }
