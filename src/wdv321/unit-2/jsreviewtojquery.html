@@ -12,12 +12,46 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
   <link rel="shortcut icon" href="/images/slogo.png" />
   <link rel="stylesheet" href="/css/main.css" />
-  <style>
-    ul {
-      list-style-type: none;
+  <script src="../jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script>
+
+    function getDate() {
+      n = new Date();
+      y = n.getFullYear();
+      m = n.getMonth() + 1;
+      d = n.getDate();
+
+      return m + "/" + d + "/" + y;
     }
-  </style>
-  <!-- www.sldavis.info/css/main.scss -->
+
+
+    var totalPrice = "";
+
+    function clacPrice() {
+      p = $("#price").val();
+      q = $("#quantity").val();
+      totalPrice = q * p;
+
+      $("#writeHere").html("Your total price will be: $" + totalPrice);
+      return totalPrice;
+    }
+
+    var teams = new Array("Evil Genius", "Optic Gaming", "OG", "Team Liquid");
+
+
+    function showTeams() {
+      for (var i = 0; i < teams.length; i++) {
+        $("#teamWriteHere").append(`<li>Team ${i + 1}: ${teams[i]}</li>`);
+      }
+    }
+
+    $(function() {
+      showTeams();
+      pastDate = $("#datePaste").html(getDate());
+    });
+
+
+  </script>
 </head>
 
 <body>
@@ -63,24 +97,24 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="row">
         <div class="col-12">
-          <h1>Homework</h1>
-          <ul>
-            <li>
-              <a href="/wdv321/unit-1/jsreview.html">Unit-1 Javascript Reveiw</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-2/jsreviewtojquery.html">Unit-2 javascript to Jquery</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-3/jqueryui.html">Unit-3 JqueryUI</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-4/complaintForm.html">Unit-4 Complaint Form</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicPageStructure.html">Unit-5 Dynamic Page Structure *Lab*</a>
-            </li>
-          </ul>
+          <p>Todays date is: <span id="datePaste"></span>
+          </p>
+          <form>
+            <label for="price">Price</label>
+            <input id="price" type="number" name="name">
+            <label for="Quantity">Quantity</label>
+            <input id="quantity" type="number" name="name">
+            <p>
+              <input type="button" onclick="clacPrice();" name="Calculate" value="Calculate">
+            </p>
+            <p><span id="writeHere"></span>
+            </p>
+            <ul id="teamWriteHere">
+
+            </ul>
+
+
+          </form>
 
         </div>
       </div>
@@ -88,10 +122,10 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script src="/wdv205/portfolio/js/shards.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="/wdv205/portfolio/js/shards.min.js"></script>
 </body>
 
 </html>

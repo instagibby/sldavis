@@ -12,12 +12,16 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
   <link rel="shortcut icon" href="/images/slogo.png" />
   <link rel="stylesheet" href="/css/main.css" />
-  <style>
-    ul {
-      list-style-type: none;
-    }
-  </style>
-  <!-- www.sldavis.info/css/main.scss -->
+  <script src="../jquery-3.2.1.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script>
+
+
+
+    $("#teams").selectmenu();
+
+  </script>
 </head>
 
 <body>
@@ -63,35 +67,54 @@
     <div class="jumbotron jumbotron-fluid">
       <div class="row">
         <div class="col-12">
-          <h1>Homework</h1>
-          <ul>
-            <li>
-              <a href="/wdv321/unit-1/jsreview.html">Unit-1 Javascript Reveiw</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-2/jsreviewtojquery.html">Unit-2 javascript to Jquery</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-3/jqueryui.html">Unit-3 JqueryUI</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-4/complaintForm.html">Unit-4 Complaint Form</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicPageStructure.html">Unit-5 Dynamic Page Structure *Lab*</a>
-            </li>
-          </ul>
 
+
+          <form>
+            <p>
+              <div id="datepicker">
+              </div>
+              <p>
+                <a href="#" title="Told You So">NothingGoesHere</a>
+                <input title="Nothing happens here either..">
+              </p>
+            </p>
+            <div>
+              <label for="teams">Select a team:</label>
+              <select name="teams" id="teams">
+                <optgroup label="Soccer">
+                  <option value="ManchesterUnited">Manchester United</option>
+                  <option value="Arsenal">Arsenal</option>
+                </optgroup>
+                <optgroup label="DotA">
+                  <option value="EvilGenius">Evil Genius</option>
+                  <option value="TeamLiquid">Team Liquid</option>
+                </optgroup>
+              </select>
+              <fieldset>
+                <legend>Select a Fruit: </legend>
+                <label for="radio-1">Orange</label>
+                <input type="radio" name="radio-1" id="radio-1">
+                <label for="radio-2">Banana</label>
+                <input type="radio" name="radio-1" id="radio-2">
+                <label for="radio-3">Lemon</label>
+                <input type="radio" name="radio-1" id="radio-3">
+              </fieldset>
+            </div>
+          </form>
         </div>
       </div>
     </div>
 
+    <script>
+      $("#datepicker").datepicker();
+      $(document).tooltip();
+      $("input[type='radio']").checkboxradio();
+    </script>
 
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script src="/wdv205/portfolio/js/shards.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="/wdv205/portfolio/js/shards.min.js"></script>
 </body>
 
 </html>
