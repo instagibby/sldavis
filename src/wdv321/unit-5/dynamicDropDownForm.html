@@ -12,12 +12,14 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
   <link rel="shortcut icon" href="/images/slogo.png" />
   <link rel="stylesheet" href="/css/main.css" />
-  <style>
-    ul {
-      list-style-type: none;
-    }
-  </style>
-  <!-- www.sldavis.info/css/main.scss -->
+  <script src="../jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script>
+    var productsArray = new Array("Pen", "Paper", "Pencil");
+
+    var colorsArray = new Array("Red", "Yellow", "Green");
+  </script>
+
+
 </head>
 
 <body>
@@ -60,37 +62,37 @@
   <!-- nav menu end --->
 
   <div class="container col-lg-9">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="row">
-        <div class="col-12">
-          <h1>Homework</h1>
-          <ul>
-            <li>
-              <a href="/wdv321/unit-1/jsreview.html">Unit-1 Javascript Reveiw</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-2/jsreviewtojquery.html">Unit-2 javascript to Jquery</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-3/jqueryui.html">Unit-3 JqueryUI</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-4/complaintForm.html">Unit-4 Complaint Form</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicPageStructure.html">Unit-5 Dynamic Page Structure *Lab*</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicDropDownForm.html">Unit-5 Dynamic Drop Down</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicFormStructureAssignment.html">Unit-5 Dynamic Form</a>
-            </li>
-          </ul>
 
-        </div>
-      </div>
-    </div>
+    <h3>Dynamic Form Example</h3>
+    <p>
+      Add Products
+      <input checked type="radio" name="radio" id="addProducts" value="addProducts" onclick="checkTest();" />
+    </p>
+    <p>Add Colors
+      <input type="radio" name="radio" id="addColors" value="addColors" onclick="checkTest();" />
+    </p>
+    <p>Result Drop Down Box</p>
+    <p>
+      <select name="displayItems" id="displayItems">
+        <script>
+        function checkTest(){
+          if ($("#addProducts").is(":checked")) {
+            $("#displayItems").html("");
+            for(i=0; i<productsArray.length; i++) {
+              $("#displayItems").append("<option>" + productsArray[i] + "</option>" );
+            }
+          } else {
+              $("#displayItems").html("");
+              for(i=0; i<colorsArray.length; i++) {
+                $("#displayItems").append("<option>" + colorsArray[i] + "</option>" );
+              }
+            }
+        }
+        checkTest();
+        </script>
+    </select>
+    </p>
+  </div>
 
 
 

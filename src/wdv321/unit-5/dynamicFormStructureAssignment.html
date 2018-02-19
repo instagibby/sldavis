@@ -12,12 +12,16 @@
   <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
   <link rel="shortcut icon" href="/images/slogo.png" />
   <link rel="stylesheet" href="/css/main.css" />
-  <style>
-    ul {
-      list-style-type: none;
-    }
-  </style>
-  <!-- www.sldavis.info/css/main.scss -->
+  <script src="../jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script>
+    var complaints = new Array("Timing", "Quality", "Personal", "Overall Satisfaction");
+    var technicalProblems = new Array("Don't Understand Device", "Doesn't Charge", "Uninitiated Actions", "Messages Fail to send");
+    var productIssues = new Array('Mishapned', 'Damaged', 'Wrong Product', 'Troubleshooting');
+
+
+
+
+  </script>
 </head>
 
 <body>
@@ -60,39 +64,67 @@
   <!-- nav menu end --->
 
   <div class="container col-lg-9">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="row">
-        <div class="col-12">
-          <h1>Homework</h1>
-          <ul>
-            <li>
-              <a href="/wdv321/unit-1/jsreview.html">Unit-1 Javascript Reveiw</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-2/jsreviewtojquery.html">Unit-2 javascript to Jquery</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-3/jqueryui.html">Unit-3 JqueryUI</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-4/complaintForm.html">Unit-4 Complaint Form</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicPageStructure.html">Unit-5 Dynamic Page Structure *Lab*</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicDropDownForm.html">Unit-5 Dynamic Drop Down</a>
-            </li>
-            <li>
-              <a href="/wdv321/unit-5/dynamicFormStructureAssignment.html">Unit-5 Dynamic Form</a>
-            </li>
-          </ul>
-
-        </div>
-      </div>
+    <p>
+      <label>Please Select your reason for contactin us.
+    <select name="contactType" id="contactType">
+      <option id="complaints" value="C">Complaints</option>
+      <option id="technicalProblems" value="T">Technical Problems</option>
+      <option id="productIssues" value="P">Product Issues</option>
+    </select>
+  </label>
+    </p>
+    <select name="displayItems" id="displayItems">
+    </select>
+    <p id="technicalProblemsHere">
+    </p>
+    <div id="productsHere">
     </div>
 
+    <ol>
+      <li>When Complaints are selected please dynamically create and display a new drop down list that includes at least four options of your choice.</li>
+      <li>When Technical Problems are selected please dynamically create and display at least four types of problems with an associated checkbox.</li>
+      <li>When Product Issues aer selected please dynamically create and display at least four types options as a grouped set of radio buttons. </li>
+      <li>When a new option is selected your script should remove any of the dynamic content. </li>
+    </ol>
 
+
+
+
+  </div>
+
+<script>
+  function checkTest(){
+    if ($("#complaints").is(":selected ")) {
+      $("#displayItems").html("");
+      $("#technicalProblemsHere").html("");
+      $("#productsHere").html("");
+      $("#displayItems").css( "display", "inline" )
+      for(i=0; i<complaints.length; i++) {
+        $("#displayItems").append("<option>" + complaints[i] + "</option>" );
+      }
+    } else if ($("#technicalProblems").is(":selected ")) {
+        $("#technicalProblemsHere").html("");
+        $("#productsHere").html("");
+        $("#displayItems").hide();
+        for(i=0; i<technicalProblems.length; i++) {
+          $("#technicalProblemsHere").append("<p>"+ technicalProblems[i] + " <input type='checkbox' name='techProblems' value='" + technicalProblems[i] + "'/></p>");
+        }
+      } else {
+        $("#technicalProblemsHere").html("");
+        $("#productsHere").html("");
+        $("#displayItems").hide();
+        for(i=0; i<productIssues.length; i++) {
+          $("#productsHere").append("<p>"+ productIssues[i] + " <input type='radio' name='products' value='" + productIssues[i] + "'/></p>");
+        }
+      }
+  }
+
+  $( "#contactType" ).change(function() {
+    checkTest();
+  });
+  checkTest();
+
+  </script>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
