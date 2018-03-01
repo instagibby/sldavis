@@ -10,7 +10,7 @@ $inCalzone = $_POST["calzone"];
 $inActivity = $_POST["activityOption"];
 
 	//Method 1.  This uses a loop to read each set of name-value pairs stored in the $_POST array
-	if( $inHoneypot  != null ){
+	if( $inHoneypot > 1 ){
 		return;
 	}else{
 

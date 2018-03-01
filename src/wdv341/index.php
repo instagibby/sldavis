@@ -1,3 +1,5 @@
+<?php
+?>
 <!doctype html>
 <html lang="en">
 
@@ -17,7 +19,7 @@
       list-style-type: none;
     }
   </style>
-  <!-- www.sldavis.info/css/main.scss -->
+
 </head>
 
 <body>
@@ -67,7 +69,16 @@
           <h1>Homework</h1>
           <ul>
             <li>
-              <a href="/wdv341/exampleForm.html">First PHP form handler</a>
+              <a href="/wdv341/unit-3/index.php">First PHP form handler</a>
+            </li>
+            <li>
+              <a href="/wdv341/unit-4/index.php">First PHP form handler</a>
+            </li>
+            <li>
+              <a href="/wdv341/unit-5/index.php">First PHP form handler</a>
+            </li>
+            <li>
+              <a href="/wdv341/unit-6/exampleForm.html">First PHP form handler</a>
             </li>
           </ul>
 
