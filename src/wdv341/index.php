@@ -69,16 +69,16 @@
           <h1>Homework</h1>
           <ul>
             <li>
-              <a href="/wdv341/unit-3/index.php">First PHP form handler</a>
+              <a href="/wdv341/unit-3/index.php">Unit - 3</a>
             </li>
             <li>
-              <a href="/wdv341/unit-4/index.php">First PHP form handler</a>
+              <a href="/wdv341/unit-4/index.php">Unit - 4</a>
             </li>
             <li>
-              <a href="/wdv341/unit-5/index.php">First PHP form handler</a>
+              <a href="/wdv341/unit-5/index.php">Unit - 5</a>
             </li>
             <li>
-              <a href="/wdv341/unit-6/exampleForm.html">First PHP form handler</a>
+              <a href="/wdv341/unit-6/exampleForm.html">Unit - 6</a>
             </li>
           </ul>
 

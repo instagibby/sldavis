@@ -1,27 +1,9 @@
 <?php
-if( isset($_GET['submit']) )
-{
-    //be sure to validate and clean your variables
-    $val1 = htmlentities($_GET['val1']);
-    $val2 = htmlentities($_GET['val2']);
-
-    //then you can use them in a PHP function.
-    $result = myFunction($val1, $val2);
-}
-?>
-
-<?php if( isset($result) ) echo $result; //print the result above the form ?>
-
-
- Create a function that will accept a date input and format it into mm/dd/yyyy format.
- Create a function that will accept a date input and format it into dd/mm/yyyy format to use when working with international dates.
- Create a function that will accept a string input.  It will do the following things to the string:
- Display the number of characters in the string
- Trim any leading or trailing whitespace
- Display the string as all lowercase characters
- Will display whether or not the string contains "DMACC" either upper or lowercase
- Create a function that will accept a number and display it as a formatted number.   Use 1234567890 for your testing.
- Create a function that will accept a number and display it as US currency.  Use 123456 for your testing.
+  $yourName = "Spencer Davis";
+  $num1 = 2;
+  $num2 = 3;
+  $numTotal = $num1 + $num2;
+ ?>
 
 <!doctype html>
 <html lang="en">
@@ -83,26 +65,26 @@ if( isset($_GET['submit']) )
     <a class="gitgrey hidesmall d-sm-none d-xl-block" href="https://github.com/instagibby/sldavis"><i class="fab fa-2x fa-github"></i></a>
   </nav>
   <!-- nav menu end --->
-
-  <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-    Name: <input type="date" name="fname">
-    <input type="submit">
-  </form>
-
   <?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      // collect value of input field
-      $name = $_POST['fname'];
-      if (empty($name)) {
-          echo "Empty!";
-      } else {
-        $date=date_create("2013-03-15");
-        date_format($date,"Y/m/d");
-
-      }
-  }
+    echo "<h1>" . $yourName . "</h1>";
   ?>
+  <h2><?php echo $yourName; ?></h2>
+  <?php
+    echo "<p>Num1:" . $num1 . "</p>";
+    echo "<p>Num2:" . $num2 . "</p>";
+    echo "<p>Total:" . $numTotal . "</p>";
 
+    echo "<script>
+          var jsArray = ['PHP', 'HTML', 'Javascript'];
+
+          function printThis(){
+              for (var i=0; i<jsArray.length; i++){
+                document.write('<p>'+ jsArray[i] + '</p>');
+              }
+            };
+          printThis();
+          </script>";
+    ?>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
