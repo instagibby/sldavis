@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>WDV321 Advanced Javascript - AJAX Text Example</title>
+
+  <script src="jquery-2.1.4.js"></script>
+
+  <script>
+    $(document).ready(function() {
+
+      $("button").click(function() {
+        $.getJSON( "900006361.json", function( data ) {
+          var items = [];
+          $.each( data, function( key, val ) {
+            items.push( "<li id='" + key + "'>" + val + "</li>" );
+          });
+
+          $( "<ul/>", {
+            "class": "my-new-list",
+            html: items.join( "" )
+          }).appendTo( "body" );
+        });
+      });
+      $("button").click(function() {
+        $.getJSON( "900668871.json", function( data ) {
+          var items = [];
+          $.each( data, function( key, val ) {
+            items.push( "<li id='" + key + "'>" + val + "</li>" );
+          });
+
+          $( "<ul/>", {
+            "class": "my-new-list",
+            html: items.join( "" )
+          }).appendTo( "body" );
+        });
+      });
+      $("button").click(function() {
+        $.getJSON( "903998004.json", function( data ) {
+          var items = [];
+          $.each( data, function( key, val ) {
+            items.push( "<li id='" + key + "'>" + val + "</li>" );
+          });
+
+          $( "<ul/>", {
+            "class": "my-new-list",
+            html: items.join( "" )
+          }).appendTo( "body" );
+        });
+      });
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <body>
+
+    <h1>WDV321 Advanced Javascript</h1>
+
+    <h2>AJAX using JQuery</h2>
+
+    <p>This example will use AJAX to access a file on the server when the button is clicked. The contents the file will be placed inside the following heading. It should replace the starting text.
+
+      <div id="myDiv">
+        <h2>Let AJAX change this text</h2></div>
+      <button type="button">Change Content</button>
+
+  </body>
+
+</html>

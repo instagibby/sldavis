@@ -1,33 +1,34 @@
-books = {
-  "JavaBook": [{
-    "ISBN": "0-596-0016-2",
-    "Title": "Java and XML",
-    "Price": "39.95",
-    "Publisher": "O'Reilly &amp; Associates",
-    "Authors": [{
-      "Fname": "Brett",
-      "Lname": "McLaughlin",
-      "AuthorPrice": "22.00",
-    }],
-    "Copyright": "2000",
-    "Comments": "Update Required",
-  }],
-
-  "VB6Book": [{
-    "ISBN": "1-861003-32-3",
-    "Title": "Professional Visual Basic 6 XML",
-    "Price": "49.99",
-    "Publisher": "Wrox Press",
-    "Authors": [{
-        "Fname": "James",
-        "Lname": "Britt",
-        "AuthorPrice": "",
-      },
-      {
-        "Fname": "Tuen",
-        "Lname": "Duynstee",
-        "AuthorPrice": "",
-      }
-    ]
-  }]
+{
+	"books": {
+		"JavaBook": {
+			"ISBN": "0-596-0016-2",
+			"Title": "Java and XML",
+			"Price": "39.95",
+			"Publisher": "O'Reilly &amp; Associates",
+			"Authors": [{
+				"Fname": "Brett",
+				"Lname": "McLaughlin",
+				"AuthorPrice": "22.00"
+			}],
+			"Copyright": "2000",
+			"Comments": "Update Required"
+		},
+		"VB6Book": {
+			"ISBN": "1-861003-32-3",
+			"Title": "Professional Visual Basic 6 XML",
+			"Price": "49.99",
+			"Publisher": "Wrox Press",
+			"Authors": [{
+					"Fname": "James",
+					"Lname": "Britt",
+					"AuthorPrice": ""
+				},
+				{
+					"Fname": "Tuen",
+					"Lname": "Duynstee",
+					"AuthorPrice": ""
+				}
+			]
+		}
+	}
 }
