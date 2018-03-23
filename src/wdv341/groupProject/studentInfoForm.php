@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <title>DMACC Portfolio Day Bio Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/normalize.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
@@ -245,7 +243,7 @@
         $website = test_input($_POST["websiteAddress"]);
         // check if URL address syntax is valid
         if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$website)) {
-          $websiteErr = "Invalid URL";
+          $websiteErr = "Invalid URL, format like www.google.com";
           $isFormValid = false;
         }
       }
@@ -315,7 +313,7 @@
         }
       }
       if ($isFormValid) {
-          $submitMsg = "Submitted successfully!";
+          $submitMsg = "<div class=\"alert alert-success\" role=\"alert\"/>Submitted successfully!</div>";
       }
 
       $programArray[$program] = "selected";
@@ -383,11 +381,11 @@
 
 	<div class="main form">
 
-	<h2><span><?php echo $submitMsg ?></span></h2>
+	<h2><?php echo $submitMsg ?></h2>
 	</table>
 	<form id="portfolioBioForm" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
     <h3>Styling thanks to Prof. Jeff</h3>
-    <h4>Team Members</h4>
+    <h4>Team Members:</h4>
       <p>Spencer Davis, Almir Mujic and James Borlaug</p>
     </ul>
 		<table>
