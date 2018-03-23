@@ -1,10 +1,8 @@
-<?php
-?>
-<!doctype html>
+
 <html lang="en">
 
 <head>
-  <title>WDV341 Homework</title>
+  <title>WDV321 Homework</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -19,7 +17,7 @@
       list-style-type: none;
     }
   </style>
-
+  <!-- www.sldavis.info/css/main.scss -->
 </head>
 
 <body>
@@ -49,8 +47,8 @@
             <a class="dropdown-item" href="/WDV/Homework/wdv101homework.html">Intro HTML/CSS (2017)</a>
             <a class="dropdown-item" href="/wdv205/index.html">Adv CSS (2017)</a>
             <a class="dropdown-item" href="/introJavaScript/index.html">Intro Javascript (2017)</a>
-            <a class="dropdown-item" href="/wdv321/index.html">Advanced Javascript (2018)</a>
-            <a class="dropdown-item" href="/wdv341/index.html">Intro PHP (2018)<span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="/wdv321/index.html">Advanced Javascript (2018)<span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="/wdv341/index.html">Intro PHP (2018)</a>
           </div>
         </li>
         <li>
@@ -69,19 +67,37 @@
           <h1>Homework</h1>
           <ul>
             <li>
-              <a href="/wdv341/unit-3/index.php">Unit - 3</a>
+              <a href="/wdv321/unit-1/jsreview.html">Unit-1 Javascript Reveiw</a>
             </li>
             <li>
-              <a href="/wdv341/unit-4/index.php">Unit - 4</a>
+              <a href="/wdv321/unit-2/jsreviewtojquery.html">Unit-2 javascript to Jquery</a>
             </li>
             <li>
-              <a href="/wdv341/unit-5/index.php">Unit - 5</a>
+              <a href="/wdv321/unit-3/jqueryui.html">Unit-3 JqueryUI</a>
             </li>
             <li>
-              <a href="/wdv341/unit-6/exampleForm.html">Unit - 6</a>
+              <a href="/wdv321/unit-4/complaintForm.html">Unit-4 Complaint Form</a>
             </li>
             <li>
-              <a href="/wdv341/groupProject/studentInfoForm.php">Group Project - Self Submitting Form and Verification with regex</a>
+              <a href="/wdv321/unit-5/dynamicPageStructure.html">Unit-5 Dynamic Page Structure *Lab*</a>
+            </li>
+            <li>
+              <a href="/wdv321/unit-5/dynamicDropDownForm.html">Unit-5 Dynamic Drop Down</a>
+            </li>
+            <li>
+              <a href="/wdv321/unit-5/dynamicFormStructureAssignment.html">Unit-5 Dynamic Form</a>
+            </li>
+            <li>
+              <a href="/wdv321/unit-6">Unit-6 Cookie Handling</a>
+            </li>
+            <li>
+              <a href="/wdv321/unit-7/jsonData.JSON">Unit-7 JSON data</a>
+            </li>
+            <li>
+              <a href="/wdv321/unit-8/inclassagain/inclass.html">Unit-8 Dynamic Form</a>
+            </li>
+            <li>
+              <a href="/wdv321/teamAjax/teamAjax.html">Team AJAX Assignment</a>
             </li>
           </ul>
 

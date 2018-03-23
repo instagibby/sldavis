@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Dynamic Page Structure</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/css/shards.min.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
+  <link rel="shortcut icon" href="/images/slogo.png" />
+  <link rel="stylesheet" href="/css/main.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+
+
+    var cupcakes = ["<option value='van'>Vanilla Cupcake</option>", "<option value='choc'>Chocolate Cupcake</option>", "<option value='red'>Red Velvet Cupcake</option>"];
+
+    var candy = ["<option value='lic'>Licorice</option>", "<option value='lol'>Lolipops</option>", "<option value='cor'>Candy Corn</option>"];
+
+    $(document).ready(function(){
+
+      function displayItemInformation(item){
+        $('#itemDescription').html(item.description);
+        $('#itemPrice').html(item.price);
+        $('#itemImage').attr('src',item.image);
+        $('#imageText').html('');
+      }
+
+      $('#select').change(function(){
+
+        var selectedItem = $('#select').find(":selected").text();
+        var itemJson = "";
+
+        if(selectedItem == "Vanilla Cupcake"){
+          itemJson = "vanilla.JSON";
+        }else if(selectedItem == "Chocolate Cupcake"){
+          itemJson = "chocolate.JSON";
+        }else if(selectedItem == "Red Velvet Cupcake"){
+          itemJson = "redVelvet.JSON";
+        }else if(selectedItem == "Licorice"){
+          itemJson = "licorice.JSON";
+        }else if(selectedItem == "Lolipops"){
+          itemJson = "lolipops.JSON";
+        }else if(selectedItem == "Candy Corn"){
+          itemJson = "candyCorn.JSON";
+        }
+
+        $.getJSON( itemJson, function( item ) {
+          displayItemInformation(item);
+        });
+      });
+
+      $('#cupcakeRadio, #candyRadio').click(function(){
+        var treatType = $(this).val();
+        $('#select').empty();
+        $('#select').append("<option>Select One...</option>");
+
+        $('#itemDescription').html('');
+        $('#itemPrice').html('');
+        $('#itemImage').attr('src','');
+
+        if(treatType == "candy"){
+          for(var i = 0; i < candy.length; i++){
+            $('#select').append(candy[i]);
+          }
+
+        }else if(treatType == "cupcakes"){
+          for(var i = 0; i < cupcakes.length; i++){
+            $('#select').append(cupcakes[i]);
+          }
+        }
+      });
+
+    });
+
+  </script>
+</head>
+
+<body>
+
+  <!--Nav menu -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="/">Spencer Davis</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/resume/index.html">Resume</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/resume/index.html#contact-form">Contact Me</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Homework
+        </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="/WDV/Homework/wdv101homework.html">Intro HTML/CSS (2017)</a>
+            <a class="dropdown-item" href="/wdv205/index.html">Adv CSS (2017)</a>
+            <a class="dropdown-item" href="/introJavaScript/index.html">Intro Javascript (2017)</a>
+            <a class="dropdown-item" href="/wdv321/index.html">Advanced Javascript (2018)<span class="sr-only">(current)</span></a>
+          </div>
+        </li>
+        <li>
+          <a class="gitgrey d-sm-block d-lg-none d-xl-none" href="https://github.com/instagibby/sldavis"><i class="fab fa-2x fa-github"></i></a>
+        </li>
+      </ul>
+    </div>
+    <a class="gitgrey hidesmall d-sm-none d-xl-block" href="https://github.com/instagibby/sldavis"><i class="fab fa-2x fa-github"></i></a>
+  </nav>
+  <!-- nav menu end --->
+  <div class="container col-lg-9">
+    <h1>WDV321 Advanced Javascript</h1>
+    <h2>AJAX Team Project</h2>
+    <h3>Team Members: </h3>
+    <p>Spencer Davis</p>
+    <p>Brady Chiles</p>
+    <form name="form1" method="post" action="">
+      <h2>TRICK OR TREAT!!!</h2>
+
+        <input type="radio" name="treatType" value="cupcakes" id="cupcakeRadio" checked>
+        <label for="cupcakesRadio">Cupcakes</label>
+
+        <input type="radio" name="treatType" value="candy" id="candyRadio">
+        <label for="candyRadio">Candy</label>
+
+
+
+      <p>Make your choice:
+        <label>
+          <select name="select" id="select">
+            <option selected>Select One...</option>
+            <option value="van">Vanilla Cupcake</option>
+            <option value="choc">Chocolate Cupcake</option>
+            <option value="red">Red Velvet Cupcake</option>
+          </select>
+        </label>
+      </p>
+      <p>Description: <span id="itemDescription"></span></p>
+      <p>Price: <span id="itemPrice"></span></p>
+      <p id="imageText">Image</p><img src="" id="itemImage">
+
+    </form>
+    </div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  <script src="/wdv205/portfolio/js/shards.min.js"></script>
+</body>
+
+</html>
