@@ -1,0 +1,216 @@
+{
+  "recipes": {
+    "porkCarnitas": {
+      "name": "Pork Carnitas (Slow Cooker Pulled Pork)",
+      "servings": 10,
+      "image": "/images/porkCarnitas.jpg",
+      "cooktime": "6-10hr Cook time",
+      "difficulty": "**",
+      "ingredients": [{
+        "name": "Onion",
+        "quantity": 1,
+        "unit": "cup - chopped",
+        "optional": false
+      }, {
+        "name": "Jalepeno",
+        "quantity": 1,
+        "unit": "deseeded and chopped",
+        "optional": true
+      }, {
+        "name": "Salt",
+        "quantity": 2.5,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Black Pepper",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "optional": false
+      }, {
+        "name": "Oranges",
+        "quantity": 2,
+        "unit": "juiced",
+        "optional": false
+      }, {
+        "name": "Dried Oregano",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Ground Cumin",
+        "quantity": 2,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Olive Oil",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      }],
+      "instructions": [
+        "Rinse and dry the pork shoulder, rub in salt and pepper.",
+        "Combine the rub ingredients then rub all over the pork.",
+        "Place the pork in a slow cooker (fat cap up), top with the onion, jalapeño, minced garlic (do not worry about spreading it) and squeeze over the juice of the orange.",
+        "Slow Cook on low for 8 to 10 hours or on high for 6 hours (or 1h 30 m in an electric pressure cooker on high. If using stovetop pressure cooker, please see notes).",
+        "The meat should be tender and falling off the bone. Remove from the slow cooker and let cool slightly. Then shred the pork using two forks.",
+        "Skim off the fat from the juices remaining in the slow cooker and discard the fat.",
+        "Then if you are left with a lot more than {0} to {1} cups of juice, then reduce it (either in the slow cooker on the sauté setting with the lid off, or in a saucepan). The liquid will be SALTY, it is the seasoning for the pork. Set aside."
+      ],
+      "instructionsParams": [{}, {}, {}, {}, {}, {},
+        {
+          "0": 1.5,
+          "1": 2
+        }
+      ]
+    },
+    "crockpotChili": {
+      "name": "Crockpot Chili",
+      "servings": 6,
+      "image": "/images/chili.jpg",
+      "cooktime": "25 minutes",
+      "difficulty": "*",
+      "ingredients": [{
+        "name": "Onion",
+        "quantity": 1,
+        "unit": "cup",
+        "optional": false
+      }, {
+        "name": "Cooking Oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "optional": false
+      }, {
+        "name": "Chopped Peppers",
+        "quantity": 1,
+        "unit": "cup",
+        "optional": false
+      }, {
+        "name": "Chili Powder",
+        "quantity": 4,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Hot Chili Powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Ground beef or chicken",
+        "quantity": 1,
+        "unit": "lb(s)",
+        "optional": false
+      }, {
+        "name": "Red Beans",
+        "quantity": 30,
+        "unit": "oz",
+        "optional": false
+      }, {
+        "name": "Kidney Beans",
+        "quantity": 30,
+        "unit": "oz",
+        "optional": false
+      }, {
+        "name": "Tomato Puree",
+        "quantity": 30,
+        "unit": "oz",
+        "optional": false
+      }, {
+        "name": "Tomato Sauce",
+        "quantity": 30,
+        "unit": "oz",
+        "optional": false
+      }, {
+        "name": "Shredded Cheese",
+        "quantity": 1,
+        "unit": "cup",
+        "optional": true
+      }, {
+        "name": "Sour Cream",
+        "quantity": 0.5,
+        "unit": "cup",
+        "optional": true
+      }],
+      "instructions": [
+        "Heat cooking oil in 2 quart skillet.",
+        "Saute onions and peppers for 5 minutes.",
+        "Add spices and stir for 30 seconds.",
+        "Add meat and cook until browned. Approximately 15 minutes.",
+        "Pour contents of skillet into 3 quart crock pot.",
+        "Rinse beans and place in crockpot.",
+        "Open and pour Tomato puree and sauce into crock pot.",
+        "Cover crockpot and cook on low for 6 hours.",
+        "Serve into individual bowls and top with sour cream and cheese."
+      ],
+      "instructionsParams": [{}, {}, {}, {}, {}, {}, {}, {}, {}]
+    },
+    "tomBasPasta": {
+      "name": "Tomato Basil Pasta",
+      "servings": 4,
+      "image": "/images/tomBasPasta.jpg",
+      "cooktime": "15 minutes",
+      "difficulty": 3,
+      "ingredients": [{
+        "name": "Pasta (I used Linguine)",
+        "quantity": 12,
+        "unit": "oz",
+        "optional": false
+      }, {
+        "name": "Diced Tomatos - with liquid",
+        "quantity": 15,
+        "unit": "oz",
+        "optional": false
+      }, {
+        "name": "Sweet Onion",
+        "quantity": 1,
+        "unit": "Large",
+        "optional": false
+      }, {
+        "name": "Garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "optional": false
+      }, {
+        "name": "Red Pepper Flakes",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Dried Oregano",
+        "quantity": 2,
+        "unit": "tsp",
+        "optional": false
+      }, {
+        "name": "Basil, Chopped",
+        "quantity": 2,
+        "unit": "large sprigs",
+        "optional": false
+      }, {
+        "name": "Vegetable Broth",
+        "quantity": 4.5,
+        "unit": "cups",
+        "optional": false
+      }, {
+        "name": "Extra Virgin Olive Oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "optional": false
+      }, {
+        "name": "Parmesan Cheese for garnish",
+        "quantity": 0.5,
+        "unit": "cup",
+        "optional": false
+      }],
+      "instructions": [
+        "Place pasta, tomatoes, onion, garlic, basil, in a large stock pot. Pour in vegetable broth. Sprinkle on top the pepper flakes and oregano. Drizzle top with oil.",
+        "Cover pot and bring to a boil. Reduce to a low simmer and keep covered and cook for about 10 minutes, stirring every 2 minutes or so. Cook until almost all liquid has evaporated – I left about an inch of liquid in the bottom of the pot – but you can reduce as desired.",
+        "Season to taste with salt and pepper , stirring pasta several times to distribute the liquid in the bottom of the pot. Serve garnished with Parmesan cheese."
+      ],
+      "instructionsParams": [{}, {}, {}]
+    }
+  }
+}

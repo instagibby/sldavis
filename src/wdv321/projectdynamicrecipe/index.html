@@ -13,18 +13,162 @@
   <link rel="shortcut icon" href="/images/slogo.png" />
   <link rel="stylesheet" href="/css/main.css" />
   <script src="../jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+  <style>
+    html {
+      overflow-y: scroll;
+    }
+
+    div.container {
+      text-align: center;
+    }
+
+    ul,
+    ol {
+      list-style-position: inside;
+      text-align: left;
+      padding-left: 0;
+    }
+  </style>
   <script>
+    function cookieMaker(cookieName) {
+      let cookieTest = Cookies.get(cookieName);
+      if (cookieTest !== undefined && cookieTest !== null) {
+        //exists, do nothing
+
+        console.log("exists, do nothing");
+      } else {
+        //make cookie, with value 0 and expires in 3 days
+        Cookies.set(cookieName, 0, {
+          expires: 3
+        });
+
+      }
+    }
+
+    function cookieCounter() {
+      let selected = $('#select').find(":selected").val();
+      //console.log(selectedItem);
+      cookieMaker(selected);
+      testSelectedItem = Cookies.get(selected);
+      if (testSelectedItem && testSelectedItem !== "default") {
+        console.log("worked")
+        if (selected === ("crockpotChili")) {
+          console.log("worked1")
+        } else if (selected === ("tomBasPasta")) {
+          console.log("worked2")
+        } else if (selected === ("porkCarnitas")) {
+          console.log("worked3")
+        }
+      }
+      console.log(testSelectedItem);
+    }
+    /*
+        var cookieCount = parseInt(Cookies.get('recipeViews'));
+        cookieCount +=1;
+        Cookies.set('recipeViews', cookieCount);
+        console.log(Cookies.get());
+
+        */
+    var recipeList;
+    $.getJSON("recipes.JSON", function(item) {
+      recipeList = item;
+      //console.log(recipeList.recipes.porkCarnitas.name);
+    });
+
+    function resetPage() {
+      $('#itemImage').attr('src', '');
+      $('#servings').html('');
+      $('#cooktime').html('');
+      $('#difficulty').html('');
+      $('#recipeName').html('');
+      $('#ingredients').hide();
+      $('#instructions').hide();
+      $('#ingredientsHere').html("");
+      $('#instructionsHere').html("");
+      $('#instructions').val("Show Instructions");
+      $('#ingredients').val("Show Ingredients");
+    }
+
+    function formatString(str, params) {
+      let ret = str;
+      for (const [key, val] of Object.entries(params)) {
+        ret = ret.replace('{' + key + '}', val);
+      }
+      return ret;
+    }
+
+    function loadContent(selected) {
+      $('#recipeName').html(selected.name);
+      $('#itemImage').attr('src', selected.image);
+      $('#servings').html('Serves: ' + selected.servings);
+      $('#cooktime').html('Prep: ' + selected.cooktime);
+      $('#difficulty').html('Difficulty: ' + selected.difficulty);
+      $('#ingredients').show();
+      $('#instructions').show();
+    }
+
+    $(document).ready(function() {
+      var selectedItem;
+      $('#ingredients').hide();
+      $('#instructions').hide();
+
+      $('#select').change(function() {
+
+        resetPage();
+        selectedItem = $('#select').find(":selected").val();
+        if (selectedItem === ("crockpotChili")) {
+          loadContent(recipeList.recipes.crockpotChili);
+        } else if (selectedItem === ("tomBasPasta")) {
+          loadContent(recipeList.recipes.tomBasPasta);
+        } else if (selectedItem === ("porkCarnitas")) {
+          loadContent(recipeList.recipes.porkCarnitas);
+        } else if (selectedItem === ("default")) {
+          resetPage();
+        }
+
+      });
+
+      //show ingredients
+      $('#ingredients').click(() => {
+        let buttonValue = $('#ingredients').val()
+        if (buttonValue === 'Show Ingredients') {
+          let ingredList = recipeList.recipes[selectedItem].ingredients;
+          for (var i = 0; i < ingredList.length; i++) {
+            if (ingredList[i].optional === true) {
+              $('#ingredientsHere').append("<li>" + ingredList[i].name + ": " + ingredList[i].quantity + " " + ingredList[i].unit + " *Optional*</li>");
+            } else {
+              $('#ingredientsHere').append("<li>" + ingredList[i].name + ": " + ingredList[i].quantity + " " + ingredList[i].unit + "</li>");
+            }
+            $('#ingredients').val("Hide Ingredients");
+          }
+        } else {
+          $('#ingredients').val("Show Ingredients");
+          $('#ingredientsHere').html("");
+        }
+      });
+
+      //show instructions
+      $('#instructions').click(() => {
+        let buttonValue = $('#instructions').val()
+        if (buttonValue === 'Show Instructions') {
+          let ingredList = recipeList.recipes[selectedItem].instructions;
+          let paramList = recipeList.recipes[selectedItem].instructionsParams;
+          for (var i = 0; i < ingredList.length; i++) {
+            $('#instructionsHere').append("<li>" + formatString(ingredList[i], paramList[i]) + "</li>");
+          }
+          $('#instructions').val("Hide Instructions");
+        } else {
+          $('#instructionsHere').html("");
+          $('#instructions').val("Show Instructions");
+        }
+      });
+
+    });
 
 
-    var crockpotChilli = {
-      name:'Crockpot Chili',
-      servings: 6,
-      image:'/images/chili.jpg',
-      cooktime:'25 minutes',
-      difficulty: 2,
-      ingredients: [],
-      instructions: []
-    };
+    /*
     var tomBasPasta = {
       name:'Tomato Basil Pasta',
       servings: 4,
@@ -40,9 +184,21 @@
       image:'/images/porkCarnitas.jpg',
       cooktime:'15 min prep - 6 hr Cook time',
       difficulty: 2,
-      ingredients: [],
-      instructions: []
-    }
+      ingredients: [
+        {name : 'Onion - chopped', quantity : 1, unit: 'cup', optional: false},
+        {name : 'Jalepeno', quantity : 1, unit: 'deseeded and chopped', optional: true},
+        {name : 'Salt', quantity : 2.5, unit: 'tsp', optional: false},
+        {name : 'Black Pepper', quantity : 1, unit: 'tsp', optional: false},
+        {name : 'Garlic', quantity : 4, unit: 'cloves', optional: false},
+        {name : 'Oranges', quantity : 2, unit: 'juiced', optional: false},
+        {name : 'Dried Oregano', quantity : 1, unit: 'tsp', optional: false},
+        {name : 'Ground Cumin', quantity : 2, unit: 'tsp', optional: false},
+        {name : 'Olive Oil', quantity : 1, unit: 'tsp', optional: false},
+      ],
+      instructions: [
+        'Rinse and dry the pork shoulder, rub in salt and pepper.', 'Combine the rub ingredients then rub all over the pork.', 'Place the pork in a slow cooker (fat cap up), top with the onion, jalapeño, minced garlic (do not worry about spreading it) and squeeze over the juice of the orange.', 'Slow Cook on low for 8 to 10 hours or on high for 6 hours (or 1h 30 m in an electric pressure cooker on high. If using stovetop pressure cooker, please see notes).', 'The meat should be tender and falling off the bone. Remove from the slow cooker and let cool slightly. Then shred the pork using two forks.', 'Skim off the fat from the juices remaining in the slow cooker and discard the fat. Then if you are left with a lot more than 1 1/2 to 2 cups of juice, then reduce it (either in the slow cooker on the sauté setting with the lid off, or in a saucepan). The liquid will be SALTY, it is the seasoning for the pork. Set aside.'
+      ]
+    };
 
     function addIngredient(varName, name, quantity, unit, optional){
       function ingredient(name, quantity, unit, optional){
@@ -54,21 +210,46 @@
       x = varName.ingredients.length;
       varName.ingredients[x] = new ingredient(name, quantity, unit, optional);
     };
-    function makePorkCarnitas(){
-      addIngredient(porkCarnitas, 'Onion - Chopped', 1, 'cup', false);
-      addIngredient(porkCarnitas, 'Jalepeno', 1, 'deseeded, chopped', false);
-      addIngredient(porkCarnitas, 'Salt', 2.5, 'tsp', false);
-      addIngredient(porkCarnitas, 'Black Pepper', 1, 'tsp', false);
-      addIngredient(porkCarnitas, 'Garlic', 4, 'cloves', false);
-      addIngredient(porkCarnitas, 'Oranges', 2, 'juiced', false);
-      addIngredient(porkCarnitas, 'Dried Oregano', 1, 'tsp', false);
-      addIngredient(porkCarnitas, 'Ground Cumin', 2, 'tsp', false);
-      addIngredient(porkCarnitas, 'Olive Oil', 1, 'tsp', false);
-      porkCarnitas.instructions = [
-        'Rinse and dry the pork shoulder, rub in salt and pepper.', 'Combine the rub ingredients then rub all over the pork.', 'Place the pork in a slow cooker (fat cap up), top with the onion, jalapeño, minced garlic (do not worry about spreading it) and squeeze over the juice of the orange.', 'Slow Cook on low for 8 to 10 hours or on high for 6 hours (or 1h 30 m in an electric pressure cooker on high. If using stovetop pressure cooker, please see notes).', 'The meat should be tender and falling off the bone. Remove from the slow cooker and let cool slightly. Then shred the pork using two forks.', 'Skim off the fat from the juices remaining in the slow cooker and discard the fat. Then if you are left with a lot more than 1 1/2 to 2 cups of juice, then reduce it (either in the slow cooker on the sauté setting with the lid off, or in a saucepan). The liquid will be SALTY, it is the seasoning for the pork. Set aside.'
-      ];
+
+    function makeTomBasPasta(){
+      addIngredient(tomBasPasta, 'Pasta (I used Linguine)', 12, 'oz', false);
+      addIngredient(tomBasPasta, 'Diced Tomatos - with liquid', 15, 'oz', false);
+      addIngredient(tomBasPasta, 'Sweet Onion', 1, 'Large', false);
+      addIngredient(tomBasPasta, 'Garlic', 4, 'cloves', false);
+      addIngredient(tomBasPasta, 'Red Pepper Flakes', .5, 'tsp', false);
+      addIngredient(tomBasPasta, 'Dried Oregano', 2, 'tsp', false);
+      addIngredient(tomBasPasta, 'Basil, Chopped', 2, 'large sprigs', false);
+      addIngredient(tomBasPasta, 'Vegetable Broth', 4.5, 'cups', false);
+      addIngredient(tomBasPasta, 'Extra Virgin Olive Oil', 2, 'tbsp', false);
+      addIngredient(tomBasPasta, 'Parmesan Cheese for garnish', .5, 'cup', false);
+      tomBasPasta.instructions = [
+        'Place pasta, tomatoes, onion, garlic, basil, in a large stock pot. Pour in vegetable broth. Sprinkle on top the pepper flakes and oregano. Drizzle top with oil.','Cover pot and bring to a boil. Reduce to a low simmer and keep covered and cook for about 10 minutes, stirring every 2 minutes or so. Cook until almost all liquid has evaporated – I left about an inch of liquid in the bottom of the pot – but you can reduce as desired.','Season to taste with salt and pepper , stirring pasta several times to distribute the liquid in the bottom of the pot. Serve garnished with Parmesan cheese.'
+      ]
     };
-    makePorkCarnitas();
+    makeTomBasPasta();
+
+    var crockpotChilli = {
+      name:'Crockpot Chili',
+      servings: 6,
+      image:'/images/chili.jpg',
+      cooktime:'25 minutes',
+      difficulty: 2,
+      ingredients: [
+        {name : 'Onion', quantity : 1, unit: 'cup', optional: false},
+        {name : 'Cooking Oil', quantity : 2, unit: 'tbsp', optional: false},
+        {name : 'Chopped Peppers', quantity : 1, unit: 'cup', optional: false},
+        {name : 'Chili Powder', quantity : 4, unit: 'tsp', optional: false},
+        {name : 'Hot Chili Powder', quantity : 1, unit: 'tsp', optional: false},
+        {name : 'Ground beef or chicken', quantity : 1, unit: 'lb(s)', optional: false},
+        {name : 'Red Beans', quantity : 30, unit: 'oz', optional: false},
+        {name : 'Kidney Beans', quantity : 30, unit: 'oz', optional: false},
+        {name : 'Tomato Puree', quantity : 30, unit: 'oz', optional: false},
+        {name : 'Tomato Sauce', quantity : 30, unit: 'oz', optional: false},
+        {name : 'Shredded Cheese', quantity : 1, unit: 'cup', optional: true},
+        {name : 'Sour Cream', quantity : 0.5, unit: 'cup', optional: true},
+      ],
+      instructions: []
+    };
 
     function makeCrockpotChilli(){
       addIngredient(crockpotChilli, 'Onion', 1, 'cup', false);
@@ -88,36 +269,21 @@
     }
     makeCrockpotChilli();
 
-    function makeTomBasPasta(){
-      addIngredient(tomBasPasta, 'Pasta (I used Linguine)', 12, 'oz', false);
-      addIngredient(tomBasPasta, 'Diced Tomatos - with liquid', 15, 'oz', false);
-      addIngredient(tomBasPasta, 'Sweet Onion', 1, 'Large', false);
-      addIngredient(tomBasPasta, 'Garlic', 4, 'cloves', false);
-      addIngredient(tomBasPasta, 'Red Pepper Flakes', .5, 'tsp', false);
-      addIngredient(tomBasPasta, 'Dried Oregano', 2, 'tsp', false);
-      addIngredient(tomBasPasta, 'Basil, Chopped', 2, 'large sprigs', false);
-      addIngredient(tomBasPasta, 'Vegetable Broth', 4.5, 'cups', false);
-      addIngredient(tomBasPasta, 'Extra Virgin Olive Oil', 2, 'tbsp', false);
-      addIngredient(tomBasPasta, 'Parmesan Cheese for garnish', .5, 'cup', false);
-      tomBasPasta.instructions = [
-        'Place pasta, tomatoes, onion, garlic, basil, in a large stock pot. Pour in vegetable broth. Sprinkle on top the pepper flakes and oregano. Drizzle top with oil.','Cover pot and bring to a boil. Reduce to a low simmer and keep covered and cook for about 10 minutes, stirring every 2 minutes or so. Cook until almost all liquid has evaporated – I left about an inch of liquid in the bottom of the pot – but you can reduce as desired.','Season to taste with salt and pepper , stirring pasta several times to distribute the liquid in the bottom of the pot. Serve garnished with Parmesan cheese.'
-      ]
+    function makePorkCarnitas(){
+      addIngredient(porkCarnitas, 'Onion - Chopped', 1, 'cup', false);
+      addIngredient(porkCarnitas, 'Jalepeno', 1, 'deseeded and chopped', true);
+      addIngredient(porkCarnitas, 'Salt', 2.5, 'tsp', false);
+      addIngredient(porkCarnitas, 'Black Pepper', 1, 'tsp', false);
+      addIngredient(porkCarnitas, 'Garlic', 4, 'cloves', false);
+      addIngredient(porkCarnitas, 'Oranges', 2, 'juiced', false);
+      addIngredient(porkCarnitas, 'Dried Oregano', 1, 'tsp', false);
+      addIngredient(porkCarnitas, 'Ground Cumin', 2, 'tsp', false);
+      addIngredient(porkCarnitas, 'Olive Oil', 1, 'tsp', false);
+      porkCarnitas.instructions = ;
     };
-    makeTomBasPasta();
+    makePorkCarnitas();
 
-    function selectRecipe(recipeName){
-      if ($('#chili').is(":selected")){
-        for(i=0; i<recipeName.length; i++) {
-          $("#recipeHere").append("<p>" + recipeName[i] + "</p>" );
-        }
-      }
-    };
-    
-
-    //console.log(porkCarnitas);
-    //console.log(porkCarnitas.ingredients);
-    //console.log(porkCarnitas.instructions);
-
+    */
   </script>
 </head>
 
@@ -162,14 +328,28 @@
 
   <div class="container col-lg-9">
     <h3>Choose a Recipe!</h3>
-      <select>
-        <option>Pick From these Three!</option>
-        <option id="chili">Crock Pot Chili</option>
-        <option id="tombaspasta">Tomato Basil Pasta</option>
-        <option id="porkcarnitas">Pork Carnitas</option>
+    <label>
+    <select name="select" id="select" value="default">
+        <option id="default" selected value="default">Pick From these Three!</option>
+        <option id="chili" value="crockpotChili">Crockpot Chili</option>
+        <option id="tombaspasta" value="tomBasPasta">Tomato Basil Pasta</option>
+        <option id="porkcarnitas" value="porkCarnitas">Pork Carnitas</option>
       </select>
     </label>
     <div id="recipeHere">
+      <h1 id="recipeName"></h1>
+      <div><img id="itemImage" height="300px" /></div>
+      <div class="col-lg-6 offset-lg-3 offset-sm-0">
+        <h4 id="cooktime"></h4>
+        <h4 id="servings"></h4>
+        <h4 id="difficulty"></h4>
+        <input type="button" value="Show Ingredients" id="ingredients" />
+        <input type="button" value="Show Instructions" id="instructions" />
+        <ul id="ingredientsHere">
+        </ul>
+        <ol id="instructionsHere">
+        </ol>
+      </div>
     </div>
 
 

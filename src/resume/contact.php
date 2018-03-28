@@ -11,6 +11,12 @@
   <link rel="shortcut icon" href="/images/slogo.png" />
   <link rel="stylesheet" href="/css/main.css" />
 
+  <style>
+  div.container {
+    text-align: left;
+
+  }
+  </style>
 </head>
 
 <body>
@@ -62,40 +68,60 @@
           Thanks for reaching out to me, I'll get back to you as soon as possible!
           </div>
           <div class="container">
-            <h1 class="display-3">Spencer Davis</h1>
-            <h4 class="leftalign">Employment</h4>
-            <p class="lead leftalign">
-              <strong>Experience Specialist/Solutions Specialist, December 2015-Present Verizon Wireless, Ankeny, IA.</strong></br>
-              In charge of handling sensitive customer information as well as cash transactions.</br>
-              Knowledgeable about current promotions, plan and phone pricing.</br>
-              Highest rated store employee for the customer satisfaction survey.</br>
-              Capable of troubleshooting and diagnosing technical issues on mobile devices.</br>
-              <p class="lead leftalign">
-                <strong>Server/Bartender, August 2011 - December 2015 The Spice: Thai Cuisine, Ames, IA.</strong></br>
-                Trained new employees on their tasks and responsibilities.</br>
-                Had access to manager computer code to assist co workers’ problems when boss is occupied.</br>
-                Asked to assist in manager duties.</br>
-                Thorough understanding of food preparation, cooking, storing, and restocking processes.</br>
-                Learning and knowing the ins and outs of the dishes and sauces we sell has helped develop attention to detail.
-              </p>
-              <h4>Education</h4>
-              <p class="lead leftalign">
-                Des Moines Area Community College, Ankeny, IA. 2016 - Present</p>
-              <p class="lead leftalign" style="text-indent: 10%;">Liberal Arts (Pursuing)</p>
-              <p class="lead leftalign" style="text-indent: 10%;">Web Dev Diploma (Pursuing)</p>
-              <p class="lead leftalign">Ames High School, Ames, IA, graduated 2012
-
-              </p>
-              <h4 class="leftalign">Employment</h4>
-              <h6 class="leftalign">Excel in Customer Service, Leadership, Time Management, Flexibility, Detail Orientation,  Technology;</h6>
-              <p class="lead leftalign">
-                Strive to meet customers in an efficient and friendly manner.</br>
-                Repeatedly assist other employee’s customers in understanding and handling situations.</br>
-                Working in the customer service/sales industry requires focus and haste. The customer must know about all of the promotions as well as get the products they need in an efficient manner.</br>
-                Small restaurants require everyone to work as quickly and precisely as possible. I’ve had several years of practice to make sure everyone has what they need and nobody has to wait for me to get them assistance.</br>
-                Certified in Microsoft: Word, Excel, and Powerpoint. As well as Google docs, Google Spreadsheet, and Google Slides.</br>
-                Written over thirty thousand lines of code to create web apps as well as phone apps.</br>
-                Capable of coding in: Javascript, Python, c# and able to use wordpress.</p>
+            <p>
+              <strong>EMPLOYMENT</strong></p>
+            <p>Experience Specialist/Solutions Specialist, December 2015-Present</p>
+            <p>Verizon Wireless, Ankeny, IA.</p>
+            <p>Server/Bartender, August 2011 - December 2015</p>
+            <p>The Spice: Thai Cuisine, Ames, IA,</p>
+            <p><strong>EDUCATION</strong></p>
+            <p>Des Moines Area Community College, Ankeny, IA. 2016 - May 2019 (expected)</p>
+            <p>Web Development Associate's Degree - GPA: 3.43, Dean&rsquo;s List</p>
+            <p><strong>Skills</strong></p>
+            <p>HTML, CSS, JavaScript, jQuery, SASS, Git, Bootstrap, PHP, AJAX, JSON</p>
+            <p>WordPress, Responsive Design, Photoshop, Adobe XD: <strong><em>Intermediate</em></strong>.</p>
+            <p>Unity Engine: Self taught - <strong><em>Intermediate</em></strong>.</p>
+            <p>Python, C#: Self taught - <strong><em>Novice</em></strong>.</p>
+            <p>React, Angular, SQL: <strong><em>Spring 2018 Semester</em></strong>.</p>
+            <p><strong>Projects</strong></p>
+            <p><strong>Unity 2D Game</strong></p>
+            <ul>
+              <li><strong>Multiplayer server-client game</strong></li>
+            </ul>
+            <ul>
+              <li>Team of four using git and github for version control</li>
+            </ul>
+            <ul>
+              <li>Client-side development using Unity Engine and C#</li>
+            </ul>
+            <ul>
+              <li>Designed and implemented the Resource Page and associated scripts</li>
+            </ul>
+            <p><strong>Claire Pet Sits</strong></p>
+            <ul>
+              <li>Originally made as final project for Intro to HTML</li>
+              <li>Retrofit using Bootstrap for mobile compatibility</li>
+              <li>Simple Javascript app to estimate price</li>
+              <li>Functioning form for requesting a stay</li>
+            </ul>
+            <p><strong>Sweet Buffet</strong></p>
+            <ul>
+              <li>WordPress e-commerce site </li>
+              <li>Upsells and cross sells</li>
+              <li>Discount and coupon management system</li>
+            </ul>
+            <p><strong>What You Don't See - Team Built</strong></p>
+            <ul>
+              <li>Proposal WordPress site for the Iowa Narcotics Officers Association</li>
+              <li>Event management and booking system</li>
+              <li>Login system that filters content based on role specified</li>
+            </ul>
+            <p><strong>PHP Portfolio Day Project - Team Built</strong></p>
+            <ul>
+              <li>Built using HTML, CSS, Jquery and PHP</li>
+              <li>Self submitting form that validates with regex</li>
+              <li>Designed to display errors as they occur</li>
+            </ul>
           </div>
         </div>
       </div>
