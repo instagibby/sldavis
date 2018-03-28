@@ -19,7 +19,6 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script>
-
 	$(document).ready(function(){
 		if( $("select[name=program]	option:selected").val() == "webDevelopment")
 		{
@@ -29,7 +28,6 @@
 		{
 			$(".secondWeb").css("display", "none");
 		}
-
 		$("select#program").change(function(){
 			if( $("select#program option:checked").val() == "webDevelopment")
 			{
@@ -40,7 +38,6 @@
 				$(".secondWeb").css("display", "none");
 			}
 		});
-
 		function resetForm(){
 			$("#firstName").val("");
 			$("#lastName").val("");
@@ -86,7 +83,6 @@
 	.robotic{
 		display: none;
 	}
-
 	.form {
 		background-color:white;
 		padding-left: 5em;
@@ -146,31 +142,20 @@
   $programArray["photography"] = "";
   $programArray["videoProduction"] = "";
   $programArray["webDevelopment"] = "";
-
   $program2Array["animation"] = "";
   $program2Array["graphicDesign"] = "";
   $program2Array["photography"] = "";
   $program2Array["videoProduction"] = "";
   $program2Array["webDevelopment"] = "";
-
   $firstNameErr = $emailErr  = $websiteErr = $emailErr = $website2Err = $careerGoalsErr = $threeWordsErr = "";
   $lastNameErrMsg = $emailToLoginErr = $programErr = $program2Err = $website = $linkedInErr = $hometownErr = "";
-
-
-
-
-
-
-
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
       function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
       }
-
       $firstName = $_POST["firstName"];
       $lastName = $_POST["lastName"];
       $program = $_POST["program"];
@@ -183,10 +168,7 @@
       $careerGoals = $_POST["careerGoals"];
       $threeWords = $_POST["threeWords"];
       $emailToLogin = $_POST["emailToLogin"];
-
-
       $isFormValid = true;
-
       if (empty($_POST["firstName"])) {
         $firstNameErr = "Name is required";
         $isFormValid = false;
@@ -198,7 +180,6 @@
           $isFormValid = false;
         }
       }
-
       if (empty($_POST["lastName"])) {
         $lastNameErrMsg = "Last name is required";
         $isFormValid = false;
@@ -210,7 +191,6 @@
           $isFormValid = false;
         }
       }
-
       if (empty($_POST["emailToLogin"])) {
         $emailToLoginErr = "Login is required";
         $isFormValid = false;
@@ -222,21 +202,18 @@
           $isFormValid = false;
         }
       }
-
       if ($_POST["program"] != "default") {
         $programErr = "";
       } else {
         $programErr = "Please Select a Program";
         $isFormValid = false;
       }
-
       if ($_POST["program2"] != "none") {
         $program2Err = "";
       } else {
         $program2Err = "Please Select a Secondary Program";
         $isFormValid = false;
       }
-
       if (empty($_POST["websiteAddress"])) {
         $websiteErr = "";
       } else {
@@ -247,7 +224,6 @@
           $isFormValid = false;
         }
       }
-
       if (empty($_POST["websiteAddress2"])) {
         $website2Err = "";
       } else {
@@ -258,7 +234,6 @@
           $isFormValid = false;
         }
       }
-
       if (empty($_POST["email"])) {
         $emailErr = "";
       } else {
@@ -269,7 +244,6 @@
           $isFormValid = false;
         }
       }
-
       if (empty($_POST["linkedIn"])) {
         $linkedInErr = "";
       } else {
@@ -280,19 +254,16 @@
           $isFormValid = false;
         }
       }
-
       if (empty($_POST["hometown"])) {
         $hometownErr = "Hometown is required";
         $isFormValid = false;
       } else {
         $hometown = test_input($_POST["hometown"]);
-
         if (!preg_match('/^[a-zA-Z0-9, ]*$/i', $hometown)) {
           $hometownErr = "Use only letters, numbers, spaces and commas";
           $isFormValid = false;
         }
       }
-
       if (empty($_POST["careerGoals"])) {
         $careerGoalsErr = "";
       } else {
@@ -302,7 +273,6 @@
             $isFormValid = false;
         }
       }
-
       if (empty($_POST["threeWords"])) {
         $threeWordsErr = "";
       } else {
@@ -315,15 +285,12 @@
       if ($isFormValid) {
           $submitMsg = "<div class=\"alert alert-success\" role=\"alert\"/>Submitted successfully!</div>";
       }
-
       $programArray[$program] = "selected";
       $program2Array[$program2] = "selected";
-
       if(strlen($honeyPot) > 0 ){
         $isFormValid = false;
       }
     }
-
   ?>
 
 
@@ -447,7 +414,7 @@
 		<td><input type="submit" id="submitBio" name="submitBio" value="Submit Bio" /></td>
 		</tr>
 		<tr>
-		<td><input type="reset" id="resetBio" name="resetBio" value="Reset Bio"/></td>
+		<td><input type="button" onclick="location.href='/wdv341/groupProject/studentInfoForm.php'" value="Reset Bio"/></td>
 		</tr>
 		</table>
 	</form>
