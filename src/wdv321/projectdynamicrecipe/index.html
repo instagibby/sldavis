@@ -30,103 +30,182 @@
       text-align: left;
       padding-left: 0;
     }
+
+    #ingredients,
+    #instructions,
+    #radios {
+      display: none;
+    }
   </style>
   <script>
-    function cookieMaker(cookieName) {
-      let cookieTest = Cookies.get(cookieName);
-      if (cookieTest !== undefined && cookieTest !== null) {
-        //exists, do nothing
-
-        console.log("exists, do nothing");
-      } else {
-        //make cookie, with value 0 and expires in 3 days
-        Cookies.set(cookieName, 0, {
-          expires: 3
-        });
-
-      }
-    }
-
-    function cookieCounter() {
-      let selected = $('#select').find(":selected").val();
-      //console.log(selectedItem);
-      cookieMaker(selected);
-      testSelectedItem = Cookies.get(selected);
-      if (testSelectedItem && testSelectedItem !== "default") {
-        console.log("worked")
-        if (selected === ("crockpotChili")) {
-          console.log("worked1")
-        } else if (selected === ("tomBasPasta")) {
-          console.log("worked2")
-        } else if (selected === ("porkCarnitas")) {
-          console.log("worked3")
-        }
-      }
-      console.log(testSelectedItem);
-    }
-    /*
-        var cookieCount = parseInt(Cookies.get('recipeViews'));
-        cookieCount +=1;
-        Cookies.set('recipeViews', cookieCount);
-        console.log(Cookies.get());
-
-        */
     var recipeList;
-    $.getJSON("recipes.JSON", function(item) {
+    var selectedItem;
+    var newQuantity;
+    var newIngred;
+
+
+    $.getJSON('recipes.JSON', function(item) {
       recipeList = item;
-      //console.log(recipeList.recipes.porkCarnitas.name);
     });
 
     function resetPage() {
       $('#itemImage').attr('src', '');
-      $('#servings').html('');
-      $('#cooktime').html('');
-      $('#difficulty').html('');
-      $('#recipeName').html('');
-      $('#ingredients').hide();
-      $('#instructions').hide();
-      $('#ingredientsHere').html("");
-      $('#instructionsHere').html("");
-      $('#instructions').val("Show Instructions");
-      $('#ingredients').val("Show Ingredients");
+      $('#half, #double').prop('checked', false);
+      $('#regular').prop('checked', true);
+      $('#servings, #cooktime, #difficulty, #recipeName, #ingredientsHere, #instructionsHere').html('');
+      $('#ingredients, #instructions, #radios').hide();
+      $('#instructions').val('Show Instructions');
+      $('#ingredients').val('Show Ingredients');
+    }
+
+    function loadContent() {
+      $('#recipeName').html(recipeList.recipes[selectedItem].name);
+      $('#itemImage').attr('src', recipeList.recipes[selectedItem].image);
+      $('#servings').html('Serves: ' + recipeList.recipes[selectedItem].servings);
+      $('#cooktime').html('Prep: ' + recipeList.recipes[selectedItem].cooktime);
+      $('#difficulty').html('Difficulty: ' + recipeList.recipes[selectedItem].difficulty);
+      $('#ingredients, #instructions, #radios').show();
     }
 
     function formatString(str, params) {
       let ret = str;
-      for (const [key, val] of Object.entries(params)) {
+      for (var [key, val] of Object.entries(params)) {
+        val *= newQuantity;
         ret = ret.replace('{' + key + '}', val);
       }
       return ret;
     }
 
-    function loadContent(selected) {
-      $('#recipeName').html(selected.name);
-      $('#itemImage').attr('src', selected.image);
-      $('#servings').html('Serves: ' + selected.servings);
-      $('#cooktime').html('Prep: ' + selected.cooktime);
-      $('#difficulty').html('Difficulty: ' + selected.difficulty);
-      $('#ingredients').show();
-      $('#instructions').show();
+    function cookieMaker(cookieName) {
+      let cookieTest = Cookies.get(cookieName);
+      if (cookieTest !== undefined && cookieTest !== null) {
+        //exists, do nothing
+        //console.log('exists, do nothing');
+      } else {
+        //make cookie, with value 0 and expires in 3 days
+        Cookies.set(cookieName, 0, {
+          expires: 3
+        });
+      }
+    }
+
+    function cookieCounter() {
+      let selected = $('#select').find(':selected').val();
+      //console.log(selectedItem);
+      //test if cookie is made, if not makes it @ 0 views
+      cookieMaker(selected);
+      selectCookie = Cookies.get(selected);
+      if (selectCookie && selectCookie !== 'default') {
+        //console.log('worked')
+        //adds a view to cookie
+        if (selected === ('crockpotChili')) {
+          let cookieCount = parseInt(Cookies.get(selected));
+          cookieCount += 1;
+          Cookies.set(selected, cookieCount);
+          //  console.log('worked1')
+        } else if (selected === ('tomBasPasta')) {
+          //console.log('worked2')
+          let cookieCount = parseInt(Cookies.get(selected));
+          cookieCount += 1;
+          Cookies.set(selected, cookieCount);
+        } else if (selected === ('porkCarnitas')) {
+          //console.log('worked3')
+          let cookieCount = parseInt(Cookies.get(selected));
+          cookieCount += 1;
+          Cookies.set(selected, cookieCount);
+        }
+      }
+    }
+
+    function instructionsClicked(){
+      let buttonValue = $('#instructions').val()
+      if (buttonValue === 'Show Instructions') {
+        let ingredList = recipeList.recipes[selectedItem].instructions
+        let paramList = recipeList.recipes[selectedItem].instructionsParams;
+        for (var i = 0; i < ingredList.length; i++) {
+          $('#instructionsHere').append("<li>" + formatString(ingredList[i], paramList[i]) + "</li>");
+        }
+        $('#instructions').val('Hide Instructions');
+
+      } else {
+        $('#instructionsHere').html('');
+        $('#instructions').val('Show Instructions');
+
+      }
+    }
+
+    function increasePortions() {
+      newQuantity = $('input[name=radio]:checked').val();
+      let list = recipeList.recipes[selectedItem].ingredients;
+      $('#ingredients').val('Hide Ingredients');
+      $('#ingredientsHere').html('');
+      switch (newQuantity) {
+        case '2':
+          $('#servings').html('Serves: ' + recipeList.recipes[selectedItem].servings * 2);
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].optional === true) {
+              $('#ingredientsHere').append("<li>" + list[i].name + ": " + list[i].quantity * 2 + " " + list[i].unit + " *Optional*</li>");
+            } else {
+              $('#ingredientsHere').append("<li>" + list[i].name + ": " + list[i].quantity * 2 + " " + list[i].unit + "</li>");
+            }
+            $('#ingredients').val('Hide Ingredients');
+          }
+          break;
+        case '0.5':
+          $('#servings').html('Serves: ' + recipeList.recipes[selectedItem].servings * 0.5);
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].optional === true) {
+              $('#ingredientsHere').append("<li>" + list[i].name + ": " + list[i].quantity * 0.5 + " " + list[i].unit + " *Optional*</li>");
+            } else {
+              $('#ingredientsHere').append("<li>" + list[i].name + ": " + list[i].quantity * 0.5 + " " + list[i].unit + "</li>");
+            }
+            $('#ingredients').val('Hide Ingredients');
+          }
+          break;
+        default:
+          $('#servings').html('Serves: ' + recipeList.recipes[selectedItem].servings);
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].optional === true) {
+              $('#ingredientsHere').append("<li>" + list[i].name + ": " + list[i].quantity + " " + list[i].unit + " *Optional*</li>");
+            } else {
+              $('#ingredientsHere').append("<li>" + list[i].name + ": " + list[i].quantity + " " + list[i].unit + "</li>");
+            }
+            $('#ingredients').val('Hide Ingredients');
+          }
+      }
     }
 
     $(document).ready(function() {
-      var selectedItem;
-      $('#ingredients').hide();
-      $('#instructions').hide();
+
 
       $('#select').change(function() {
 
         resetPage();
-        selectedItem = $('#select').find(":selected").val();
-        if (selectedItem === ("crockpotChili")) {
-          loadContent(recipeList.recipes.crockpotChili);
-        } else if (selectedItem === ("tomBasPasta")) {
-          loadContent(recipeList.recipes.tomBasPasta);
-        } else if (selectedItem === ("porkCarnitas")) {
-          loadContent(recipeList.recipes.porkCarnitas);
-        } else if (selectedItem === ("default")) {
-          resetPage();
+        selectedItem = $('#select').find(':selected').val();
+
+        switch (selectedItem) {
+          case 'crockpotChili':
+            loadContent();
+            cookieCounter();
+            break;
+          case 'tomBasPasta':
+            loadContent();
+            cookieCounter();
+            break;
+          case 'porkCarnitas':
+            loadContent();
+            cookieCounter();
+            break;
+          case 'default':
+            resetPage();
+            break;
+          default:
+            console.log("Error Loading Recipe");
         }
+      });
+
+      $('input[name=radio]').change(() => {
+        increasePortions();
 
       });
 
@@ -134,35 +213,16 @@
       $('#ingredients').click(() => {
         let buttonValue = $('#ingredients').val()
         if (buttonValue === 'Show Ingredients') {
-          let ingredList = recipeList.recipes[selectedItem].ingredients;
-          for (var i = 0; i < ingredList.length; i++) {
-            if (ingredList[i].optional === true) {
-              $('#ingredientsHere').append("<li>" + ingredList[i].name + ": " + ingredList[i].quantity + " " + ingredList[i].unit + " *Optional*</li>");
-            } else {
-              $('#ingredientsHere').append("<li>" + ingredList[i].name + ": " + ingredList[i].quantity + " " + ingredList[i].unit + "</li>");
-            }
-            $('#ingredients').val("Hide Ingredients");
-          }
+          increasePortions();
         } else {
-          $('#ingredients').val("Show Ingredients");
-          $('#ingredientsHere').html("");
+          $('#ingredientsHere').html('');
+          $('#ingredients').val('Show Ingredients');
         }
       });
 
       //show instructions
       $('#instructions').click(() => {
-        let buttonValue = $('#instructions').val()
-        if (buttonValue === 'Show Instructions') {
-          let ingredList = recipeList.recipes[selectedItem].instructions;
-          let paramList = recipeList.recipes[selectedItem].instructionsParams;
-          for (var i = 0; i < ingredList.length; i++) {
-            $('#instructionsHere').append("<li>" + formatString(ingredList[i], paramList[i]) + "</li>");
-          }
-          $('#instructions').val("Hide Instructions");
-        } else {
-          $('#instructionsHere').html("");
-          $('#instructions').val("Show Instructions");
-        }
+        instructionsClicked()
       });
 
     });
@@ -306,6 +366,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/resume/index.html#contact-form">Contact Me</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/wdv321/projectdynamicrecipe/cookieCounter.html">Show Me Da Cookies</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Homework
@@ -339,22 +402,33 @@
     <div id="recipeHere">
       <h1 id="recipeName"></h1>
       <div><img id="itemImage" height="300px" /></div>
+
       <div class="col-lg-6 offset-lg-3 offset-sm-0">
         <h4 id="cooktime"></h4>
         <h4 id="servings"></h4>
         <h4 id="difficulty"></h4>
+        <div id="radios">
+          <input type="radio" id="regular" name="radio" value="1" checked>
+          <label for="regular">Regular</label>
+          <input type="radio" id="double" name="radio" value="2">
+          <label for="double">Double</label>
+          <input type="radio" id="half" name="radio" value="0.5">
+          <label for="half">Half</label>
+        </div>
+      <div>
         <input type="button" value="Show Ingredients" id="ingredients" />
         <input type="button" value="Show Instructions" id="instructions" />
+      </div>
+      <div>
         <ul id="ingredientsHere">
         </ul>
+      </div>
+      <div>
         <ol id="instructionsHere">
         </ol>
       </div>
+      </div>
     </div>
-
-
-
-
 
   </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
