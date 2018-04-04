@@ -281,7 +281,7 @@ div.teamProjectPhp .description {
   font-size: 18px;
   line-height: 1.5; }
 
-div.bootstraptheme .card {
+div.projectDynamic .card {
   border-radius: 16px;
   border-color: #212529;
   margin: 0 auto;
@@ -289,11 +289,11 @@ div.bootstraptheme .card {
   max-width: 100%;
   min-height: 500px;
   overflow: hidden;
-  background-image: url("/images/bootstraptheme.jpg");
+  background-image: url("/images/projectDynamic.jpg");
   background-size: cover;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12); }
 
-div.bootstraptheme .info {
+div.projectDynamic .info {
   position: relative;
   width: 100%;
   height: 500px;
@@ -301,7 +301,7 @@ div.bootstraptheme .info {
   transform: translateY(100%) translateY(-88px) translateZ(0);
   transition: transform 0.5s ease-out; }
 
-div.bootstraptheme .info:before {
+div.projectDynamic .info:before {
   z-index: -1;
   display: block;
   position: absolute;
@@ -309,18 +309,18 @@ div.bootstraptheme .info:before {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-image: url("/images/bootstraptheme.jpg");
+  background-image: url("/images/projectDynamic.jpg");
   filter: blur(10px);
   background-size: cover;
   opacity: 0.25;
   transform: translateY(-100%) translateY(88px) translateZ(0);
   transition: transform 0.5s ease-out; }
 
-div.bootstraptheme .card:hover .info,
-div.bootstraptheme .card:hover .info:before {
+div.projectDynamic .card:hover .info,
+div.projectDynamic .card:hover .info:before {
   transform: translateY(0) translateZ(0); }
 
-div.bootstraptheme .title {
+div.projectDynamic .title {
   margin: 0;
   padding: 24px;
   padding-bottom: 2em;
@@ -328,7 +328,7 @@ div.bootstraptheme .title {
   line-height: 1;
   color: rgba(0, 0, 0, 0.87); }
 
-div.bootstraptheme .description {
+div.projectDynamic .description {
   margin: 0;
   padding: 0 24px 24px;
   font-size: 18px;
@@ -338,17 +338,17 @@ div.container div.row .card {
   margin-bottom: 2em; }
 
 @media (max-width: 1279px) {
-  div.bootstraptheme .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.teamProjectPhp .title {
+  div.projectDynamic .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.teamProjectPhp .title {
     font-size: 2em; } }
 
 @media (max-width: 991px) {
-  div.bootstraptheme .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.teamProjectPhp .title {
+  div.projectDynamic .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.teamProjectPhp .title {
     font-size: 2.15em; } }
 
 @media (max-width: 767px) {
   div.col-sm-12 {
     margin-bottom: 2em; }
-  div.bootstraptheme .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.teamProjectPhp .title {
+  div.projectDynamic .title, div.clairepetsits .title, div.ttl .title, div.sweets .title, div.whatyoudontsee .title, div.teamProjectPhp .title {
     font-size: 2.15em; } }
 
 @media (max-width: 575px) {
