@@ -42,7 +42,7 @@
     var selectedItem;
     var newQuantity;
     var newIngred;
-
+    var isInstructionsClicked = false;
 
     $.getJSON('recipes.JSON', function(item) {
       recipeList = item;
@@ -126,11 +126,11 @@
           $('#instructionsHere').append("<li>" + formatString(ingredList[i], paramList[i]) + "</li>");
         }
         $('#instructions').val('Hide Instructions');
-
+        instructions = true;
       } else {
         $('#instructionsHere').html('');
         $('#instructions').val('Show Instructions');
-
+        instructions = false;
       }
     }
 
@@ -206,7 +206,12 @@
 
       $('input[name=radio]').change(() => {
         increasePortions();
+        if (!isInstructionsClicked) {
 
+        } else {
+          isInstructionsClicked = true;
+          $('#instructions').val('Hide Instructions');
+        }
       });
 
       //show ingredients
@@ -366,9 +371,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/resume/index.html#contact-form">Contact Me</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/wdv321/projectdynamicrecipe/cookieCounter.html">Show Me Da Cookies</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Homework
@@ -415,18 +417,12 @@
           <input type="radio" id="half" name="radio" value="0.5">
           <label for="half">Half</label>
         </div>
-      <div>
         <input type="button" value="Show Ingredients" id="ingredients" />
         <input type="button" value="Show Instructions" id="instructions" />
-      </div>
-      <div>
         <ul id="ingredientsHere">
         </ul>
-      </div>
-      <div>
         <ol id="instructionsHere">
         </ol>
-      </div>
       </div>
     </div>
 
