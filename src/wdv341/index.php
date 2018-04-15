@@ -84,6 +84,9 @@
               <a href="/wdv341/unit-6/formemailer/index.html">Unit - 6 - Contact Form w/ Email</a>
             </li>
             <li>
+              <a href="/wdv341/unit-7/formValidationAssignment.php">Unit - 7</a>
+            </li>
+            <li>
               <a href="/wdv341/groupProject/studentInfoForm.php">Group Project - Self Submitting Form and Verification with regex</a>
             </li>
           </ul>
