@@ -8,15 +8,19 @@ $inConfirm = $_POST["confirm"];
 $inPizza = $_POST["pizza"];
 $inCalzone = $_POST["calzone"];
 $inActivity = $_POST["activityOption"];
+$honeyPotFeedback = "";
+
+
+$tableBody = "";		//use a variable to store the body of the table being built by the script
 
 	//Method 1.  This uses a loop to read each set of name-value pairs stored in the $_POST array
-	if( $inHoneypot > 1 ){
-		return;
+	if(strlen($inHoneypot) > 0 ){
+		$honeyPotFeedback = "Sorry Mr.Robot Form Doesn't Like Robots...";
 	}else{
 
 
 
-		$tableBody = "";		//use a variable to store the body of the table being built by the script
+
 
 		foreach($_POST as $key => $value)		//This will loop through each name-value in the $_POST array
 		{
@@ -32,12 +36,6 @@ $inActivity = $_POST["activityOption"];
 
 
 
-	//Method 2.  This method pulls the individual name-value pairs from the $_POST using the name
-	//as the key in an associative array.
-
-
-
-
 
 ?>
 <!DOCTYPE html>
@@ -49,9 +47,9 @@ $inActivity = $_POST["activityOption"];
 <body>
 	<h1>WDV341 Intro PHP</h1>
 		<h2>Form Handler Result Page - Code Example</h2>
-			<p>This page displays the results of the Server side processing. </p>
-			<p>The PHP page has been formatted to use the Model-View-Controller (MVC) concepts. </p>
-		<h3>Display the values from the form using Method 1. Uses a loop to process through the $_POST array</h3>
+		<h3>
+			<?= $honeyPotFeedback ?>
+		</h3>
 			<p>
 				<table border='a'>
 			    <tr>
