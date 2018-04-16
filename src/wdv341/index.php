@@ -89,6 +89,18 @@
             <li>
               <a href="/wdv341/groupProject/studentInfoForm.php">Group Project - Self Submitting Form and Verification with regex</a>
             </li>
+            <li>
+              <a href="/wdv341/unit-10/connection.php">Unit - 10</a>
+            </li>
+            <li>
+              <a href="/wdv341/unit-12/eventsForm.php">Unit - 12</a>
+            </li>
+            <li>
+              <a href="/wdv341/unit-13/selectEvents.php">Unit - 13 - Display All Events / Update / Delete</a>
+            </li>
+            <li>
+              <a href="/wdv341/unit-13/selectOneEvent.php">Unit - 13 - Select One Event</a>
+            </li>
           </ul>
 
         </div>

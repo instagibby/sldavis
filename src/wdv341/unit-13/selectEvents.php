@@ -23,19 +23,13 @@ tr:nth-child(even) {
 <body>
 
   <?php
-  $serverName = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "wdv341";
+  include '../connection.php';
+
   $languageArray = array();
 
   try {
-      $conn = new PDO("mysql:host=$serverName;dbname=$database", $username, $password);
       // set the PDO error mode to exception
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      echo "<p>Connected successfully</p>";
-
-
 
       echo "<table>" . "\n";
       echo "<tr>" . "\n";
@@ -50,7 +44,7 @@ tr:nth-child(even) {
       echo "</tr>" . "\n";
 
 
-      $stmt = $conn->query("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, `event_date`, `event_time`  FROM `wdv341_event` ");
+      $stmt = $conn->query("SELECT `event_id`, `event_name`, `event_description`, `event_presenter`, `event_date`, `event_time`  FROM `341_event` ");
       while ($row = $stmt->fetch())
         {
           $languageArray[$row[0]] = $row[1];
@@ -67,7 +61,6 @@ tr:nth-child(even) {
         }
 
       echo "</table>";
-      echo "<p>New records created successfully</p>";
       }
 
   catch(PDOException $e)
