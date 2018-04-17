@@ -51,6 +51,7 @@
             <a class="dropdown-item" href="/introJavaScript/index.html">Intro Javascript (2017)</a>
             <a class="dropdown-item" href="/wdv321/index.html">Advanced Javascript (2018)</a>
             <a class="dropdown-item" href="/wdv341/index.html">Intro PHP (2018)<span class="sr-only">(current)</span></a>
+            <a class="dropdown-item" href="/angular5">Playing with Angular (2018)</a>
           </div>
         </li>
         <li>
@@ -100,6 +101,9 @@
             </li>
             <li>
               <a href="/wdv341/unit-13/selectOneEvent.php">Unit - 13 - Select One Event</a>
+            </li>
+            <li>
+              <a href="/wdv341/skillTest/displayEvents.php">Skill Test</a>
             </li>
           </ul>
         </div>
