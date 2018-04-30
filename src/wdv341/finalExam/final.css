@@ -1,0 +1,48 @@
+ul {
+  list-style-type: none;
+}
+hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.signedOnName {
+  font-weight: bold;
+  text-align: right;
+  padding: 10px 20px 10px 10px;
+}
+button > a {
+  text-decoration: none;
+  color: white;
+}
+ button > a:hover {
+  color: white;
+  text-decoration: none;
+}
+.noMargin {
+  margin-top: 0;
+  padding-top: 0;
+}
+.alignLeft {
+  text-align: left;
+  font-weight: 600;
+}

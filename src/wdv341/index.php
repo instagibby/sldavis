@@ -105,6 +105,9 @@
             <li>
               <a href="/wdv341/skillTest/displayEvents.php">Skill Test</a>
             </li>
+            <li>
+              <a href="/wdv341/finalExam">Final Project</a>
+            </li>
           </ul>
         </div>
       </div>
