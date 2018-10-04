@@ -83,25 +83,32 @@
             $event_presenter = $row['event_presenter'];
             $event_date = $row['event_date'];
             $event_time = $row['event_time'];
+            //  Date Fixed
+            $stringDate = strtotime($event_date);
+            $dateFormatted = date("m/d/y", $stringDate);
+            //  String Fixed
+            $stringTime = strtotime($event_time);
+            $stringFormatted = date("g:i A", $stringTime);
 
-              echo '<div class="col-md-4">';
+
+
+            echo '<div class="col-md-4">';
               echo '<div class="card" style="width: 24rem;">';
-              echo '<img class="card-img-top" src="' . $row['event_image'] . '" height="227px" width="286"  alt="Card image cap">';
-                echo '<div class="card-body">';
-                  echo '<h5 class="card-title">' . $event_name . '</h5>';
-                  echo '<h6 class="card-subtitle mb-2 text-muted">' . $event_presenter . '</h6>';
-                  echo '<p class="card-text">' . $event_description . '</p>';
-                  if(isset($_SESSION["admin"]))
-                    {
-                      if($_SESSION["admin"]){
-                      echo '<a href="updateEventsPage.php?event_id=' . $row['event_id'] . '" class="card-link">Update Event</a>';
+                echo '<img class="card-img-top" src="' . $row['event_image'] . '" height="227px" width="286"  alt="Card image cap">';
+                  echo '<div class="card-body">';
+                    echo '<h5 class="card-title">' . $event_name . '</h5>';
+                    echo '<h6 class="card-subtitle mb-2 text-muted">' . $event_presenter . '</h6>';
+                    echo '<p class="card-text">' . $event_description . '<br/>' . $dateFormatted . '<br/>' . $stringFormatted . '</p>';
+                      if(isset($_SESSION["admin"]))
+                      {
+                        if($_SESSION["admin"]){
+                        echo '<a href="updateEventsPage.php?event_id=' . $row['event_id'] . '" class="card-link">Update Event</a>';
+                        }
                       }
-                    }
                 echo '</div>';
               echo '</div>';
             echo '</div>';
           }
-
         ?>
       </div>
     </div>

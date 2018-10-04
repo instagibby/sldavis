@@ -39,9 +39,11 @@ $sucessMsg = "";
   </style>
   <script>
     function resetForm() {
-      $("#inName").val("");
-      $("#inEmail").val("");
-      $("#RadioGroup1").val("default");
+      $("#event_date").val("");
+      $("#event_description").val("");
+      $("#event_presenter").val("");
+      $("#event_date").val("");
+      $("#event_time").val("");
     }
   </script>
 
