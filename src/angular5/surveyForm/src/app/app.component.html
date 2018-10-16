@@ -1,0 +1,71 @@
+<div class="container">
+  <h1>WDV341 Intro PHP</h1>
+  <h3>Survey Form</h3>
+  <div>
+    <div class="row">
+      <form name="form1" class="form-control">
+        <div class="col-md-4 offset-md-4">
+          Email:
+          <input class="form-control" type="text" name="cust_email" id="cust_email">
+        </div>
+        <br>
+        <div class="row align-items-center">
+          <div class="col-md-3 offset-md-4">
+            <p>Please rate the following times from best (1) to worst (4)</p>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            Monday/Wednesday 10:10am-Noon
+            <select class="form-control" [(ngModel)]="selected1" (ngModelChange)="onChangeFirst($event)" name="selected1">
+              <ng-container *ngFor="let o of optionList; let i = index">
+                <option [value]="o.description" [hidden]="!o.selected === false">{{ o.description }}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            Tuesday 6:00pm-9:00pm
+            <select class="form-control" [(ngModel)]="selected2" (ngModelChange)="onChangeSecond($event)" name="selected2">
+              <ng-container *ngFor="let o of optionList; let i = index">
+                <option [value]="o.description" [hidden]="!o.selected === false"  >{{ o.description }}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            Wednesday 6:00pm-9:00pm
+            <select class="form-control" [(ngModel)]="selected3" (ngModelChange)="onChangeThird($event)" name="selected3">
+              <ng-container *ngFor="let o of optionList; let i = index">
+                <option [value]="o.description" [hidden]="!o.selected === false">{{ o.description }}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+              Tuesday/Thursday 10:10am-Noon
+            <select class="form-control" [(ngModel)]="selected4" (ngModelChange)="onChangeFourth($event)" name="selected4">
+              <ng-container *ngFor="let o of optionList; let i = index">
+                <option [value]="o.description" [hidden]="!o.selected === false">{{ o.description }}</option>
+              </ng-container>
+            </select>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-4 offset-md-4 center">
+            <button class="btn btn-primary" (click)="onButtonSubmit()">Submit</button>
+            <button class="btn btn-secondary" (click)="resetPage()">
+              Reset
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>

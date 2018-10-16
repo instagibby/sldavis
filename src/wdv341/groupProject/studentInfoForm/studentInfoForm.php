@@ -12,8 +12,6 @@
   <link href="css/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-  <!-- css3-mediaqueries.js for IE less than 9 -->
-
 <script src="css3-mediaqueries.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -67,15 +65,15 @@
 		margin: 0 auto;
 	}
 	.frame{
-		background-image: url("orange popsicle.jpg");
+		background-image: url("images/orange popsicle.jpg");
 		padding: 1em;
 	}
 	.frame2{
-		background-image: url("citrus.jpg");
+		background-image: url("images/citrus.jpg");
 		padding: 1.3em;
 	}
 	body{
-		background-image: url("bodacious.png");
+		background-image: url("images/bodacious.png");
 		margin: 1.5em;
 	}
 
@@ -102,16 +100,16 @@
 	}
 	.citrus{
 		margin: auto;
-		background-image: url("raspberry.jpg");
+		background-image: url("images/raspberry.jpg");
 		padding: 1.3em;
 		width: 70%;
 	}
 	.bamboo{
-		background-image: url("bamboo.jpg");
+		background-image: url("images/bamboo.jpg");
 		padding: 1em;
 	}
 	.violet{
-		background-image: url("ultra violet.png");
+		background-image: url("images/ultra violet.png");
 		padding: .5em;
 	}
 	.secondWeb{
@@ -372,7 +370,7 @@
 <div class="frame">
 
   <div class="main">
-  <div><img src="madonna.gif" alt="Mix gif" ></div>
+  <div><img src="images/madonna.gif" alt="Mix gif" ></div>
   <br>
 
 

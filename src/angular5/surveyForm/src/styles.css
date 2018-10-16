@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+a {
+  color: inherit;
+}
+
+a:active,
+a:hover,
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+div.container {
+  text-align: center;
+}
+div.container > div {
+  text-align: left;
+}
+div.col-md-5 > p {
+  text-align: center;
+}
+.center {
+  text-align: center;
+}
+div.row {
+  margin-bottom: 1em;
+}
