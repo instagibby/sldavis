@@ -1,6 +1,6 @@
 # Dynamic Recipe Project
 
-INSTRUCTIONS:
+### INSTRUCTIONS:
 
 A company is creating a website featuring a variety of recipes. They would like their recipes to have some dynamic functionality.
 
@@ -11,7 +11,7 @@ They are asking you to submit an example recipe format for their review. The fol
 The recipe's displayable area should be broken down into three main areas. The heading, ingredient list and preparation instructions.
 
 
-The recipe heading should:
+#### The recipe heading should:
 
 Display the name of the recipe
 An image representing the recipe. 
