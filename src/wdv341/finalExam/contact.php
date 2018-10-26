@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION["admin"])) {
+if (isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])) {
   $signIn = $_SESSION["username"];
   $signedInAs = '<div class="signedOnName">Signed In as: ' . $signIn . '</div>';
   $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signedOnName"><a href="../finalExam">Logout</a></button></div>';
@@ -42,27 +42,30 @@ if (isset($_SESSION["admin"])) {
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="/">Spencer Davis</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">Login</a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="events.php">Events</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="contact.php">Contact</a>
-      </li>
-      <?php
-        if(isset($_SESSION["admin"]))
-          {
-            if($_SESSION["admin"]){
-            echo "<li><a class=\"nav-link\"href=\"admin.php\"/>Admin</a></li>";
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="events.php">Events</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="contact.php">Contact<span class="sr-only">(current)</span></a>
+        </li>
+        <?php
+          if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"]))
+            {
+              if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])){
+              echo "<li><a class=\"nav-link\"href=\"admin.php\"/>Admin</a></li>";
+              }
             }
-          }
-      ?>
-    </ul>
+        ?>
+      </ul>
+    </div>
+
   </nav>
   <!-- nav menu end --->
 

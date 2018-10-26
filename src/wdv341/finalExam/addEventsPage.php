@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION["admin"]) {
+if (isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])) {
 
 } else {
   header("location:../finalExam");
@@ -9,8 +9,8 @@ if ($_SESSION["admin"]) {
 $signIn = $_SESSION["username"];
 $signedInAs = '<div class="signedOnName">Signed In as: ' . $signIn . '</div>';
 $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signedOnName"><a href="../finalExam">Logout</a></button></div>';
-$sucessMsg = "";
-
+$successMsg = "";
+$errMsg = "";
 ?>
 <!doctype html>
 <html lang="en">
@@ -32,11 +32,6 @@ $sucessMsg = "";
       padding-top: 0px;
     }
   </style>
-  <style>
-    div.jumbotron {
-      padding-top: 0px;
-    }
-  </style>
   <script>
     function resetForm() {
       $("#event_date").val("");
@@ -51,23 +46,24 @@ $sucessMsg = "";
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="/">Spencer Davis</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="events.php">Events</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="admin.php">Admin</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
-      </li>
-    </ul>
-
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="events.php">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin.php"/>Admin</span></a>
+        </li>
+      </ul>
+    </div>
   </nav>
   <!-- nav menu end --->
 
@@ -90,10 +86,8 @@ $sucessMsg = "";
         $event_time = "";
         $event_image = "";
 
-        if(isset($_POST["submit"]))
-          {
-            if(!empty($_FILES['uploaded_file']))
-            {
+        if(isset($_POST["submit"]) && isset($_SESSION["admin"])){
+            if(!empty($_FILES['uploaded_file'])){
               $path = "../finalExam/images/";
               $path = $path . basename( $_FILES['uploaded_file']['name']);
               if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
@@ -123,7 +117,9 @@ $sucessMsg = "";
             // insert a row
 
             $stmt->execute();
-            $sucessMsg = '<h2 class="alert alert-success">Event Updated Inserted Correctly!</h2>';
+            $successMsg = '<h2 class="alert alert-success">Event Updated Inserted Correctly!</h2>';
+          } else {
+            $errMsg = '<h2 class="alert alert-warning">Hello Resume Admin, Sorry I can\'t let you cahnge anything!</h2>';
           }
 
 
@@ -133,7 +129,8 @@ $sucessMsg = "";
     </div>
     <br>
     <br>
-    <?=$sucessMsg?>
+    <?=$errMsg?>
+    <?=$successMsg?>
     <div class="row">
       <div class="col-md-4 offset-md-4">
         <div id="orderArea">

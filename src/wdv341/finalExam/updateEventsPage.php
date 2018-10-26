@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION["admin"]) {
+if (isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])) {
 
 } else {
   header("location:../finalExam");
@@ -10,6 +10,7 @@ $signIn = $_SESSION["username"];
 $signedInAs = '<div class="signedOnName">Signed In as: ' . $signIn . '</div>';
 $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signedOnName"><a href="../finalExam">Logout</a></button></div>';
 $sucessMsg = "";
+$errMsg = "";
 
 ?>
 <!doctype html>
@@ -31,6 +32,9 @@ $sucessMsg = "";
     div.jumbotron {
       padding-top: 0px;
     }
+    div.card-body {
+      text-align: center;
+    }
   </style>
   <script>
     function resetForm() {
@@ -44,23 +48,24 @@ $sucessMsg = "";
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="/">Spencer Davis</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="events.php">Events</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
-      </li>
-      <li class="nav-item active">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Login<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="events.php">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+        <li class="nav-item">
         <a class="nav-link" href="admin.php">Admin</a>
-      </li>
-    </ul>
-
+        </li>
+      </ul>
+    </div>
   </nav>
   <!-- nav menu end --->
 
@@ -72,34 +77,71 @@ $sucessMsg = "";
   <div class="jumbotron jumbotron-fluid">
     <?=$signedInAs?>
     <?=$logout?>
-    <div class="row">
-      <?php
-        include '../connection.php';
+    <div class="row justify-content-center">
+    <?php
+    include '../connection.php';
 
-        if(isset($_GET["event_id"])){
-          $updated_id = $_GET["event_id"];
-          $displayForm = "";
-        } else {
-          $updated_id = 0;
-          $displayForm = "hidden";
-        }
+    if(isset($_GET["event_id"]) && ($_SESSION["admin"] || $_SESSION["resumeAdmin"])){
+      $updated_id = $_GET["event_id"];
+      $displayForm = "";
+    } else {
+      $updated_id = 0;
+      $displayForm = "hidden";
+    }
 
-        $event_name = "";
-        $event_date = "";
-        $event_description = "";
-        $event_presenter = "";
-        $event_time = "";
-        $event_image = "";
 
-        if(isset($_POST["submit"]))
-          {
+
+    $stmt = $conn->query("SELECT * FROM `341_event` ");
+
+
+    while ($row = $stmt->fetch())
+      {
+        $event_name = $row['event_name'];
+        $event_description = $row['event_description'];
+        $event_presenter = $row['event_presenter'];
+        $event_image = $row['event_image'];
+        $event_date = $row['event_date'];
+        $event_time = $row['event_time'];
+        //  Date Fixed
+        $stringDate = strtotime($event_date);
+        $dateFormatted = date("m/d/y", $stringDate);
+        //  String Fixed
+        $stringTime = strtotime($event_time);
+        $stringFormatted = date("g:i A", $stringTime);
+        ?>
+
+        <article>
+          <div class="col-md-4 col-sm-12">
+            <div class="card" style="width: 23em;">
+              <img class="card-img-top" src=" <?=$event_image?>" height="227px" alt="Card image cap"/>
+                <div class="card-body">
+                  <h5 class="card-title"> <?=$event_name?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$event_presenter?></h6>
+                  <p class="card-text"><?=$event_description?><br/><?=$dateFormatted?><br/><?=$stringFormatted?></p>
+                    <?php
+                    if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"]) )
+                    {
+                      if($_SESSION["admin"] || $_SESSION["resumeAdmin"]){
+                      echo '<a href="updateEventsPage.php?event_id=' . $row['event_id'] . ',#event_name' . '" class="card-link">Update Event</a>';
+                      }
+                    }
+                    ?>
+              </div>
+            </div>
+          </div>
+        </article>
+        <?php
+      }
+
+      if(isset($_POST["submit"]))
+        {
+          if ($_SESSION["admin"]){
+
             if(!empty($_FILES['uploaded_file']))
             {
               $path = "../finalExam/images/";
               $path = $path . basename( $_FILES['uploaded_file']['name']);
               if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
-
-              } else{
 
               }
             }
@@ -124,62 +166,36 @@ $sucessMsg = "";
             // insert a row
 
             $stmt->execute();
+
             $sucessMsg = '<h2 class="alert alert-success">Event Updated Inserted Correctly!</h2>';
+          }else{
+            $errMsg = '<h2 class="alert alert-warning">Hello Resume Admin, Sorry I can\'t let you cahnge anything!</h2>';
           }
+        } else {
 
-
-
-          if($updated_id == $updated_id) {
-            $stmt = $conn->query("SELECT * FROM `341_event` WHERE event_id = '$updated_id' ");
-            while ($row = $stmt->fetch())
-              {
-                $languageArray[$row[0]] = $row[1];
-
-                $event_name = $row['event_name'];
-                $event_description = $row['event_description'];
-                $event_presenter = $row['event_presenter'];
-                $event_date = $row['event_date'];
-                $event_time = $row['event_time'];
-                $event_image = $row['event_image'];
-
-              }
-          }
-
-        $stmt = $conn->prepare("SELECT event_id,event_name,event_description, event_presenter, event_time, event_date, event_image FROM 341_event");
-        $stmt->execute();
-      ?>
-      <table border='1'>
-        <tr>
-          <td>ID</td>
-          <td>Name</td>
-          <td>Description</td>
-          <td>Host</td>
-          <td>Time</td>
-          <td>Date</td>
-          <td>Image URL</td>
-          <td>UPDATE</td>
-          <td>DELETE</td>
-      <?php
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
-        {
-          echo "<tr>";
-            echo "<td>" . $row['event_id'] . "</td>";
-            echo "<td>" . $row['event_name'] . "</td>";
-            echo "<td>" . $row['event_description'] . "</td>";
-            echo "<td>" . $row['event_presenter'] . "</td>";
-            echo "<td>" . $row['event_time'] . "</td>";
-            echo "<td>" . $row['event_date'] . "</td>";
-            echo "<td>" . $row['event_image'] . "</td>";
-            echo "<td><a href='updateEventsPage.php?event_id=" . $row['event_id'] . "'>Update</a></td>";
-            echo "<td><a href='deleteEvent.php?event_id=" . $row['event_id'] . "'>Delete</a></td>";
-          echo "</tr>";
         }
+
+      if($updated_id == $updated_id) {
+        $stmt = $conn->query("SELECT * FROM `341_event` WHERE event_id = '$updated_id' ");
+        while ($row = $stmt->fetch())
+          {
+            $languageArray[$row[0]] = $row[1];
+
+            $event_name = $row['event_name'];
+            $event_description = $row['event_description'];
+            $event_presenter = $row['event_presenter'];
+            $event_date = $row['event_date'];
+            $event_time = $row['event_time'];
+            $event_image = $row['event_image'];
+
+          }
+      }
       ?>
-      </table>
 
     </div>
     <br>
     <br>
+    <?=$errMsg?>
     <?=$sucessMsg?>
     <div class="row">
       <div class="col-md-4 offset-md-4">
@@ -188,19 +204,19 @@ $sucessMsg = "";
       			<h3>Event Update Form</h3>
             <div class="alignLeft">
               <p>Event Name:
-      			    <input class="form-control" type="text" name="event_name" id="event_name" placeholder="Event Name" value="<?php echo($event_name); ?>" required />
+      			    <input class="form-control" type="text" name="event_name" id="event_name" placeholder="Event Name" value="<?=$event_name?>" required />
               </p>
               <p>Event Description
-      			    <input class="form-control" type="text" name="event_description" id="event_description" placeholder="Description" value="<?php echo($event_description);?>" required />
+      			    <input class="form-control" type="text" name="event_description" id="event_description" placeholder="Description" value="<?=$event_description?>" required />
         			</p>
               <p>Event Host
-      			    <input class="form-control" type="text" name="event_presenter" id="event_presenter" placeholder="Host Name" value="<?php echo($event_presenter); ?>" required />
+      			    <input class="form-control" type="text" name="event_presenter" id="event_presenter" placeholder="Host Name" value="<?=$event_presenter?>" required />
               </p>
               <p>Event Date
-      			    <input class="form-control" type="date" name="event_date" id="event_date" value="<?php echo($event_date); ?>" required />
+      			    <input class="form-control" type="date" name="event_date" id="event_date" value="<?=$event_date?>" required />
         			</p>
               <p>Event Time
-      			    <input class="form-control" type="time" name="event_time" id="event_time" value="<?php echo($event_time); ?>" required />
+      			    <input class="form-control" type="time" name="event_time" id="event_time" value="<?=$event_time?>" required />
         			</p>
               <p>
                 Image Upload:

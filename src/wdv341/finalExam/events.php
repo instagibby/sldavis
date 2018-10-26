@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if (isset($_SESSION["admin"])) {
+  if (isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])) {
     $signIn = $_SESSION["username"];
     $signedInAs = '<div class="signedOnName">Signed In as: ' . $signIn . '</div>';
     $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signedOnName"><a href="../finalExam">Logout</a></button></div>';
@@ -32,38 +32,50 @@
   <link rel="stylesheet" href="final.css" />
   <style>
     <?=$styleJumbo?>
+    @media screen and (max-width: 375px) {
+      .col-sm-12 {
+        padding: 0;
+      }
+    }
+    div.container>div>div.row {
+      margin-top: 1rem;
+    }
+    div.card-body {
+      text-align: center;
+    }
+
   </style>
 
 </head>
 
 <body>
 
-  <!--Nav menu -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="/">Spencer Davis</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php">Login</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="events.php">Events</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
-      </li>
-      <?php
-        if(isset($_SESSION["admin"]))
-          {
-            if($_SESSION["admin"]){
-            echo "<li><a class=\"nav-link\"href=\"admin.php\"/>Admin</a></li>";
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="events.php">Events<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+        <?php
+          if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"]))
+            {
+              if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])){
+              echo "<li><a class=\"nav-link\"href=\"admin.php\"/>Admin</a></li>";
+              }
             }
-          }
-      ?>
-    </ul>
-    <!--<a class="gitgrey hidesmall d-sm-none d-xl-block" href="https://github.com/instagibby/sldavis"><i class="fab fa-2x fa-github"></i></a> -->
+        ?>
+      </ul>
+    </div>
 
   </nav>
   <!-- nav menu end --->
@@ -72,7 +84,7 @@
     <div class="jumbotron jumbotron-fluid">
       <?=$signedInAs?>
       <?=$logout?>
-      <div class="row">
+      <div class="row justify-content-center">
         <?php
         // $stmt = $conn->prepare("SELECT event_name, event_description, event_time, event_date FROM `341_event`");
         $stmt = $conn->query("SELECT * FROM `341_event` ");
@@ -81,6 +93,7 @@
             $event_name = $row['event_name'];
             $event_description = $row['event_description'];
             $event_presenter = $row['event_presenter'];
+            $event_image = $row['event_image'];
             $event_date = $row['event_date'];
             $event_time = $row['event_time'];
             //  Date Fixed
@@ -89,25 +102,29 @@
             //  String Fixed
             $stringTime = strtotime($event_time);
             $stringFormatted = date("g:i A", $stringTime);
+            ?>
 
-
-
-            echo '<div class="col-md-4">';
-              echo '<div class="card" style="width: 24rem;">';
-                echo '<img class="card-img-top" src="' . $row['event_image'] . '" height="227px" width="286"  alt="Card image cap">';
-                  echo '<div class="card-body">';
-                    echo '<h5 class="card-title">' . $event_name . '</h5>';
-                    echo '<h6 class="card-subtitle mb-2 text-muted">' . $event_presenter . '</h6>';
-                    echo '<p class="card-text">' . $event_description . '<br/>' . $dateFormatted . '<br/>' . $stringFormatted . '</p>';
-                      if(isset($_SESSION["admin"]))
-                      {
-                        if($_SESSION["admin"]){
-                        echo '<a href="updateEventsPage.php?event_id=' . $row['event_id'] . '" class="card-link">Update Event</a>';
+            <article>
+              <div class="col-md-4 col-sm-12">
+                <div class="card" style="width: 23em;">
+                  <img class="card-img-top" src=" <?=$event_image?>" height="227px" alt="Card image cap"/>
+                    <div class="card-body">
+                      <h5 class="card-title"> <?=$event_name?></h5>
+                      <h6 class="card-subtitle mb-2 text-muted"><?=$event_presenter?></h6>
+                      <p class="card-text"><?=$event_description?><br/><?=$dateFormatted?><br/><?=$stringFormatted?></p>
+                        <?php
+                        if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"]) )
+                        {
+                          if($_SESSION["admin"] || $_SESSION["resumeAdmin"]){
+                          echo '<a href="updateEventsPage.php?event_id=' . $row['event_id'] . '" class="card-link">Update Event</a>';
+                          }
                         }
-                      }
-                echo '</div>';
-              echo '</div>';
-            echo '</div>';
+                        ?>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <?php
           }
         ?>
       </div>

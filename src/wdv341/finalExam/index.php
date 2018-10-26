@@ -4,8 +4,7 @@ session_start();
 if(isset($_POST["submit"]))
   {
     // Checks if returning from another page or self posted
-  }
-    else {
+  } else {
       if (isset($_SESSION["admin"])) {
         session_unset();
         session_destroy();
@@ -43,6 +42,7 @@ if(isset($_POST["submit"]))
     $adminDisplayForm = "";
     $_SESSION["admin"] = false;
     $_SESSION["username"] = "";
+    $_SESSION["resumeAdmin"] = false;
 
     if(isset($_POST["submit"]))
     	{
@@ -56,8 +56,13 @@ if(isset($_POST["submit"]))
               $errMsg = '<h5 class="alert alert-danger">Please Try Again</h5>';
             } else {
 
-              $_SESSION["admin"] = true;
-              $_SESSION["username"] = $signIn["user_name"];
+              if ($signIn["user_name"] == "resumeAdmin"){
+                $_SESSION["resumeAdmin"] = true;
+                $_SESSION["username"] = $signIn["user_name"];
+              } else{
+                $_SESSION["admin"] = true;
+                $_SESSION["username"] = $signIn["user_name"];
+              }
               header("location:../finalExam/admin.php");
             }
           }
@@ -76,19 +81,21 @@ if(isset($_POST["submit"]))
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="/">Spencer Davis</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="events.php">Events</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.php">Contact</a>
-      </li>
-    </ul>
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.php">Login<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="events.php">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+      </ul>
+    </div>
   </nav>
   <!-- nav menu end --->
   <div class="container col-lg-9">
