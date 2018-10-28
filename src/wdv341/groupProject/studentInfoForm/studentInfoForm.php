@@ -62,18 +62,6 @@
 		display: block;
 		margin: 0 auto;
 	}
-	.frame{
-		background-image: url("orange popsicle.jpg");
-		padding: 1em;
-	}
-	.frame2{
-		background-image: url("citrus.jpg");
-		padding: 1.3em;
-	}
-	.main {
-		padding: 1em;
-		background-color: white;
-	}
 	form{
 		text-align: center;
 	}
@@ -84,25 +72,10 @@
 		display: none;
 	}
 	.form {
-		background-color:white;
-		padding-left: 5em;
+		background-color:white;
 	}
 	p {
 		align:left;
-	}
-	.citrus{
-		margin: auto;
-		background-image: url("raspberry.jpg");
-		padding: 1.3em;
-		width: 70%;
-	}
-	.bamboo{
-		background-image: url("bamboo.jpg");
-		padding: 1em;
-	}
-	.violet{
-		background-image: url("ultra violet.png");
-		padding: .5em;
 	}
 	.secondWeb{
 		display: none;
@@ -118,6 +91,18 @@
 		color: #d42a58;
 		font-weight: bold;
 	}
+
+  @media (min-width: 1200px){
+    .container {
+        max-width: 750px;
+    }
+  }
+  @media (min-width: 768px){
+    .container {
+      max-width: 530px;
+    }
+  }
+
   </style>
 
 
@@ -338,104 +323,134 @@
     <a class="gitgrey hidesmall d-sm-none d-xl-block" href="https://www.linkedin.com/in/spencer-davis-618a58155/"><i class="fab fa-2x fa-linkedin"></i></a>
     <a class="gitgrey hidesmall d-sm-none d-xl-block" href="https://github.com/instagibby"><i class="fab fa-2x fa-github"></i></a>
   </nav>
-<section class="orange">
-<div class="frame2">
-<div class="frame">
-
-  <div class="main">
-  <div><img src="madonna.gif" alt="Mix gif" ></div>
-
-
-<section class="citrus">
-<section class="bamboo">
-<section class="violet">
-
-	<div class="main form">
-
-	<h2><?php echo $submitMsg ?></h2>
-	</table>
-	<form id="portfolioBioForm" method="post" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
-    <h3>Styling thanks to Prof. Jeff</h3>
+  <div>
+    <img class="img-fluid" src="madonna.gif" alt="Mix gif" >
+  </div>
+
+
+<div class="container">
+	<h2><?=$submitMsg ?></h2>
+	<form id="portfolioBioForm" method="post" action="<?=htmlentities($_SERVER['PHP_SELF']); ?>">
     <h4>Team Members:</h4>
       <p>Spencer Davis, Almir Mujic, and James Borlaug</p>
-    </ul>
-		<table>
-		<tr>
-		<td>*Login Email:<br> <input type="text" id="emailToLogin" name="emailToLogin" value="<?php echo $emailToLogin ?>"/><br><span class="error"><?php echo $emailToLoginErr;?></span></td>
-		</tr>
-		<tr>
-		<td>*First Name:<br> <input type="text" id="firstName" name="firstName" value="<?php echo $firstName ?>"/><br><span class="error"><?php echo $firstNameErr;?></span></td>
-		</tr>
-		<tr>
-		<td>*Last Name:<br> <input type="text" id="lastName" name="lastName" value="<?php echo $lastName ?>" /><br><span class="error" ><?php echo $lastNameErrMsg;?></span></td>
-		</tr>
-		<tr>
-		<td >*Program:<br> <select id="program" name="program">
-				<option value="<?php echo $program ?>">---Select Your Program---</option>
-				<option value="animation" <?php echo $programArray["animation"] ?>>Animation</option>
-				<option value="graphicDesign" <?php echo $programArray["graphicDesign"] ?> >Graphic Design</option>
-				<option value="photography" <?php echo $programArray["photography"] ?> >Photography</option>
-				<option value="videoProduction"<?php echo $programArray["videoProduction"] ?> >Video Production</option>
-				<option value="webDevelopment" <?php echo $programArray["webDevelopment"] ?>>Web Development</option>
-			</select><br><span class="error" id="programError"><?php echo $programErr;?></span><td>
-		</tr>
-		<tr>
-		<td>*Secondary Program:<br> <select id="program2" name="program2">
-				<option value="<?php echo $program2 ?>" >---No Secondary Program---</option>
-				<option value="animation" <?php echo $program2Array["animation"] ?> >Animation</option>
-				<option value="graphicDesign" <?php echo $program2Array["graphicDesign"] ?>  >Graphic Design</option>
-				<option value="photography" <?php echo $program2Array["photography"] ?>  >Photography</option>
-				<option value="videoProduction" <?php echo $program2Array["videoProduction"] ?>  >Video Production</option>
-				<option value="webDevelopment" <?php echo $program2Array["webDevelopment"] ?>  >Web Development</option>
-			</select><br><span class="error" id="program2Error"><?php echo $program2Err;?></span><td>
-		</tr>
-		<tr>
-		<td>Website Address:<br> <input type="text" id="websiteAddress" name="websiteAddress" value="<?php echo $websiteAddress ?>"/><br><span class="error" id="websiteAddressError"><?php echo $websiteErr;?></span></td>
-		</tr>
-		<tr>
-		<td>Personal Email:<br><input type="text" id="email" name="email" value="<?php echo $email ?>" /><br><span class="error" id="emailError"><?php echo $emailErr;?></span></td>
-		</tr>
-		<tr>
-		<td>LinkedIn Profile:<br><input type="text" id="linkedIn" name="linkedIn" value="<?php echo $linkedIn ?>" /><br><span class="error" id="linkedInError"><?php echo $linkedInErr;?></span></td>
-		<tr>
-		<td><span class="secondWeb">Secondary Website Address (git repository, etc.):<br> <input type="text" id="websiteAddress2" name="websiteAddress2" value="<?php echo $websiteAddress2 ?>"/><br><span class="error" id="websiteAddress2Error"><?php echo $website2Err;?></span></span></td>
-		</tr>
-		<tr>
-		<td>*Hometown:<br> <input type="text" id="hometown" name="hometown" value="<?php echo $hometown ?>"/><br><span class="error" id="hometownError"><?php echo $hometownErr;?></span></td>
-		</tr>
-		<tr>
-		<td>Career Goals:<br> <textarea id="careerGoals" name="careerGoals" value="<?php echo $careerGoals ?>"> </textarea><br><span class="error" id="careerGoalsError"><?php echo $careerGoalsErr;?></span></td>
-		</tr>
-		<tr>
-		<td>3 Words that Describe You:<br> <input type="text" id="threeWords" name="threeWords" value="<?php echo $threeWords ?>"/><br><span class="error" id="threeWordsError"><?php echo $threeWordsErr;?></span></td>
-		<p class="robotic" id="pot">
-			<label>Leave Blank</label>
-			<input type="hidden" name="honeypot" id="inRobotest" class="inRobotest" value="" />
-		</p>
-
-		</tr>
-		<tr>
-		<td><input type="submit" id="submitBio" name="submitBio" value="Submit Bio" /></td>
-		</tr>
-		<tr>
-		<td><input type="button" onclick="location.href='/wdv341/groupProject/studentInfoForm.php'" value="Reset Bio"/></td>
-		</tr>
-		</table>
-	</form>
-	</div>
-
-
-</section>
-</section>
-</section>
-
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="firstName">*First Name:</label><br/>
+         <input class="form-control" type="text" id="firstName" name="firstName" value="<?=$firstName ?>"/>
+         <small><span class="error"><?=$firstNameErr;?><span/></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="lastName">*Last Name:</label><br/>
+         <input class="form-control" type="text" id="lastName" name="lastName" value="<?=$lastName ?>"/>
+         <small><span class="error" ><?=$lastNameErrMsg;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="emailToLogin">*Login Email:</label><br/>
+         <input class="form-control" type="text" id="emailToLogin" name="emailToLogin" value="<?=$emailToLogin ?>"/>
+         <small><span class="error"><?=$emailToLoginErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="email">Personal Email:</label><br/>
+         <input class="form-control" type="text" id="email" name="email" value="<?=$email ?>"/>
+         <small><span class="error" id="emailError"><?=$emailErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="program">*Primary Program:</label><br/>
+         <select class="custom-select form-control"  id="program" name="program">
+           <option value="<?=$program ?>">Select Your Program</option>
+           <option value="animation" <?=$programArray["animation"]?>>Animation</option>
+           <option value="graphicDesign" <?=$programArray["graphicDesign"]?>>Graphic Design</option>
+           <option value="photography" <?=$programArray["photography"]?>>Photography</option>
+           <option value="videoProduction"<?=$programArray["videoProduction"]?>>Video Production</option>
+           <option value="webDevelopment" <?=$programArray["webDevelopment"]?>>Web Development</option>
+         </select>
+         <small><span class="error" id="programError"><?=$programErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="program2">*Secondary Program:</label><br/>
+         <select class="custom-select form-control"  id="program2" name="program2">
+           <option value="<?=$program2 ?>">No Secondary Program</option>
+           <option value="animation" <?=$program2Array["animation"] ?> >Animation</option>
+           <option value="graphicDesign" <?=$program2Array["graphicDesign"] ?>  >Graphic Design</option>
+           <option value="photography" <?=$program2Array["photography"] ?>  >Photography</option>
+           <option value="videoProduction" <?=$program2Array["videoProduction"] ?>  >Video Production</option>
+           <option value="webDevelopment" <?=$program2Array["webDevelopment"] ?>  >Web Development</option>
+         </select>
+         <small><span class="error" id="program2Error"><?=$program2Err;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+          <label for="websiteAddress">Website Address:</label><br/>
+          <input class="form-control" type="text" id="websiteAddress" name="websiteAddress" value="<?=$websiteAddress ?>"/>
+          <small><span class="error" id="websiteAddressError"><?=$websiteErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="linkedIn">LinkedIn Profile:</label><br/>
+         <input class="form-control" type="text" id="linkedIn" name="linkedIn" value="<?=$linkedIn ?>" />
+         <small><span class="error" id="linkedInError"><?=$linkedInErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12 secondWeb">
+        <div class="form-group">
+         <label for="websiteAddress2">Secondary Website Address (git repository, etc.):</label>
+           <input class="form-control" type="text" id="websiteAddress2" name="websiteAddress2" value="<?=$websiteAddress2 ?>"/>
+         <small><span class="error" id="websiteAddress2Error"><?=$website2Err;?></span></small>
+       </div>
+  		</div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="hometown">*Hometown:</label><br/>
+         <input class="form-control" type="text" id="hometown" name="hometown" value="<?=$hometown ?>"/>
+         <small><span class="error" id="hometownError"><?=$hometownErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="threeWords">Three Words that Describe You:</label><br/>
+         <input class="form-control" type="text" id="threeWords" name="threeWords" value="<?=$threeWords ?>"/>
+         <small><span class="error" id="threeWordsError"><?=$threeWordsErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+         <label for="careerGoals">Career Goals:</label><br/>
+         <textarea id="careerGoals" class="form-control" name="careerGoals" value="<?=$careerGoals ?>"></textarea>
+         <small><span class="error" id="careerGoalsError"><?=$careerGoalsErr;?></span></small>
+       </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="form-group">
+          <p class="robotic" id="pot">
+            <label>Leave Blank</label><br/>
+            <input class="form-control" type="hidden" name="honeypot" id="inRobotest" class="inRobotest" value="" />
+          </p>
+          <button class="btn btn-primary" type="submit" id="submitBio" name="submitBio" value="Submit Bio">Submit Bio</button>
+      		<button class="btn btn-secondary" onclick="location.href='/wdv341/groupProject/studentInfoForm.php'" value="Reset Bio"/>Reset Bio</button>
+        </div>
+      </div>
+	 </form>
+ </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <script src="/wdv205/portfolio/js/shards.min.js"></script>
 
-</section>
+
 </body>
 
 
