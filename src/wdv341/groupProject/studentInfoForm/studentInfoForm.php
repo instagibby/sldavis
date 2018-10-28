@@ -57,35 +57,44 @@
   <style>
   * {
     font-family: 'Roboto', sans-serif;
-    }
+  }
+  
 	img{
 		display: block;
 		margin: 0 auto;
 	}
+
 	form{
 		text-align: center;
 	}
+
 	h2 {
 		text-align: center;
 	}
+
 	.robotic{
 		display: none;
 	}
+
 	.form {
 		background-color:white;
 	}
+
 	p {
 		align:left;
 	}
-	.secondWeb{
+
+	.secondWeb {
 		display: none;
 	}
-	table{
-		margin: auto;
-	}
-	table td{
-		padding-bottom: .75em;
-	}
+
+  element.style {
+    border: solid;
+    border-color: #5a6169;
+    border-width: thin;
+    padding: 1em;
+  }
+
 	.error{
 		font-style: italic;
 		color: #d42a58;
