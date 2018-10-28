@@ -17,100 +17,96 @@
   <script
     src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
   <script>
-	$(document).ready(function(){
-		if( $("select[name=program]	option:selected").val() == "webDevelopment")
-		{
-			$(".secondWeb").css("display", "inline");
-		}
-		else
-		{
-			$(".secondWeb").css("display", "none");
-		}
-		$("select#program").change(function(){
-			if( $("select#program option:checked").val() == "webDevelopment")
-			{
-				$(".secondWeb").css("display", "inline");
-			}
-			else
-			{
-				$(".secondWeb").css("display", "none");
-			}
-		});
-		function resetForm(){
-			$("#firstName").val("");
-			$("#lastName").val("");
-			$("#program").val("default");
-			$("#websiteAddress").val("");
-			$("#websiteAddress2").val("");
-			$("#email").val("");
-			$("#hometown").val("");
-			$("#careerGoals").val("");
-			$("#threeWords").val("");
-		}
-	});
-
-
-	</script>
+  	$(document).ready(function(){
+  		if( $("select[name=program]	option:selected").val() == "webDevelopment")
+  		{
+  			$(".secondWeb").css("display", "inline");
+  		}
+  		else
+  		{
+  			$(".secondWeb").css("display", "none");
+  		}
+  		$("select#program").change(function(){
+  			if( $("select#program option:checked").val() == "webDevelopment")
+  			{
+  				$(".secondWeb").css("display", "inline");
+  			}
+  			else
+  			{
+  				$(".secondWeb").css("display", "none");
+  			}
+  		});
+  		function resetForm(){
+  			$("#firstName").val("");
+  			$("#lastName").val("");
+  			$("#program").val("default");
+  			$("#websiteAddress").val("");
+  			$("#websiteAddress2").val("");
+  			$("#email").val("");
+  			$("#hometown").val("");
+  			$("#careerGoals").val("");
+  			$("#threeWords").val("");
+  		}
+  	});
+	</script>
 
   <style>
-  * {
-    font-family: 'Roboto', sans-serif;
-  }
-  
-	img{
-		display: block;
-		margin: 0 auto;
-	}
-
-	form{
-		text-align: center;
-	}
-
-	h2 {
-		text-align: center;
-	}
-
-	.robotic{
-		display: none;
-	}
-
-	.form {
-		background-color:white;
-	}
-
-	p {
-		align:left;
-	}
-
-	.secondWeb {
-		display: none;
-	}
-
-  element.style {
-    border: solid;
-    border-color: #5a6169;
-    border-width: thin;
-    padding: 1em;
-  }
-
-	.error{
-		font-style: italic;
-		color: #d42a58;
-		font-weight: bold;
-	}
-
-  @media (min-width: 1200px){
-    .container {
-        max-width: 750px;
+    * {
+      font-family: 'Roboto', sans-serif;
     }
-  }
-  @media (min-width: 768px){
-    .container {
-      max-width: 530px;
+
+  	img{
+  		display: block;
+  		margin: 0 auto;
+  	}
+
+  	form{
+  		text-align: center;
+      border: solid;
+      border-color: #5a6169;
+      border-width: thin;
+      padding: 1em;
+  	}
+
+  	h2 {
+  		text-align: center;
+  	}
+
+  	.robotic{
+  		display: none;
+  	}
+
+  	.form {
+  		background-color:white;
+  	}
+
+  	p {
+  		align:left;
+  	}
+
+  	.secondWeb {
+  		display: none;
+  	}
+
+  	.error{
+  		font-style: italic;
+  		color: #d42a58;
+  		font-weight: bold;
+  	}
+
+    @media (min-width: 1200px){
+      .container {
+          max-width: 750px;
+      }
     }
-  }
+    @media (min-width: 768px){
+      .container {
+        max-width: 530px;
+      }
+    }
 
   </style>
 
@@ -357,14 +353,14 @@
          <small><span class="error" ><?=$lastNameErrMsg;?></span></small>
        </div>
       </div>
-      <div class="col-lg-6 col-md-12">
+      <div class="col-lg-12">
         <div class="form-group">
          <label for="emailToLogin">*Login Email:</label><br/>
          <input class="form-control" type="text" id="emailToLogin" name="emailToLogin" value="<?=$emailToLogin ?>"/>
          <small><span class="error"><?=$emailToLoginErr;?></span></small>
        </div>
       </div>
-      <div class="col-lg-6 col-md-12">
+      <div class="col-lg-12">
         <div class="form-group">
          <label for="email">Personal Email:</label><br/>
          <input class="form-control" type="text" id="email" name="email" value="<?=$email ?>"/>
