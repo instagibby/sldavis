@@ -5,7 +5,7 @@ if(isset($_POST["submit"]))
   {
     // Checks if returning from another page or self posted
   } else {
-      if (isset($_SESSION["admin"])) {
+      if (isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])) {
         session_unset();
         session_destroy();
       }
@@ -59,7 +59,7 @@ if(isset($_POST["submit"]))
               if ($signIn["user_name"] == "resumeAdmin"){
                 $_SESSION["resumeAdmin"] = true;
                 $_SESSION["username"] = $signIn["user_name"];
-              } else{
+              } else {
                 $_SESSION["admin"] = true;
                 $_SESSION["username"] = $signIn["user_name"];
               }

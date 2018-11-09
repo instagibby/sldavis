@@ -118,8 +118,10 @@ $errMsg = "";
 
             $stmt->execute();
             $successMsg = '<h2 class="alert alert-success">Event Updated Inserted Correctly!</h2>';
+          } else if ($_SESSION["resumeAdmin"]) {
+            $errMsg = '<h2 class="alert alert-warning">Hello Resume Admin, Sorry I can\'t let you change anything!</h2>';
           } else {
-            $errMsg = '<h2 class="alert alert-warning">Hello Resume Admin, Sorry I can\'t let you cahnge anything!</h2>';
+            // Do Nothing
           }
 
 
