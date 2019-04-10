@@ -52,9 +52,6 @@ $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signed
         <li class="nav-item">
           <a class="nav-link" href="events.php">Events</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
-        </li>
         <li class="nav-item active">
           <a class="nav-link" href="admin.php"/>Admin<span class="sr-only">(current)</span></a>
         </li>

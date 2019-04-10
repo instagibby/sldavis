@@ -63,9 +63,6 @@
         <li class="nav-item active">
           <a class="nav-link" href="events.php">Events<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
-        </li>
         <?php
           if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"]))
             {
