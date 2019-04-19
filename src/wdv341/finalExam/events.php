@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if (isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])) {
+  if ((isset($_SESSION["admin"]) && $_SESSION["admin"] == true) || (isset($_SESSION["resumeAdmin"]) && $_SESSION["resumeAdmin"] == true)) {
     $signIn = $_SESSION["username"];
     $signedInAs = '<div class="signedOnName">Signed In as: ' . $signIn . '</div>';
     $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signedOnName"><a href="../finalExam">Logout</a></button></div>';
@@ -63,15 +63,9 @@
         <li class="nav-item active">
           <a class="nav-link" href="events.php">Events<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
-        </li>
         <?php
-          if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"]))
-            {
-              if(isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])){
+          if((isset($_SESSION["admin"]) && $_SESSION["admin"] == true) || (isset($_SESSION["resumeAdmin"]) && $_SESSION["resumeAdmin"] == true)) {
               echo "<li><a class=\"nav-link\"href=\"admin.php\"/>Admin</a></li>";
-              }
             }
         ?>
       </ul>

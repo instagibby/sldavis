@@ -5,7 +5,7 @@ if(isset($_POST["submit"]))
   {
     // Checks if returning from another page or self posted
   } else {
-      if (isset($_SESSION["admin"]) || isset($_SESSION["resumeAdmin"])) {
+      if ((isset($_SESSION["admin"]) && $_SESSION["admin"] == true )|| isset($_SESSION["resumeAdmin"])) {
         session_unset();
         session_destroy();
       }
@@ -90,9 +90,6 @@ if(isset($_POST["submit"]))
         </li>
         <li class="nav-item">
           <a class="nav-link" href="events.php">Events</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
         </li>
       </ul>
     </div>

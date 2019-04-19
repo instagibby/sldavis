@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION["admin"] || $_SESSION["resumeAdmin"]) {
+if ((isset($_SESSION["admin"]) && $_SESSION["admin"] == true) || (isset($_SESSION["resumeAdmin"]) && $_SESSION["resumeAdmin"] == true)) {
 
 } else {
   header("location:../finalExam");
@@ -52,9 +52,6 @@ $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signed
         <li class="nav-item">
           <a class="nav-link" href="events.php">Events</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.php">Contact</a>
-        </li>
         <li class="nav-item active">
           <a class="nav-link" href="admin.php"/>Admin<span class="sr-only">(current)</span></a>
         </li>
@@ -73,8 +70,7 @@ $logout = '<div class="signedOnName noMargin"><button class="btn btn-dark signed
         <div class="col-md-12">
           <h3>Welcome back <?=$signIn?>!</h3>
         </div>
-        <hr>
-          <div class="col-md-12">
+        <div class="col-md-12">
           <button class="btn btn-primary">
             <a href="updateEventsPage.php"/>Update Events Page</>
           </button>
